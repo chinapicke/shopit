@@ -17,7 +17,7 @@ function Homepage() {
             <img src='https://sdcdn.io/mac/gb/mac_sku_SK3709_1x1_2.png?width=1080&height=1080' alt='MAC eyeshadow'></img>
         </div>
         <div>
-            <h3></h3>
+            <h3>Beauty has a purpose, and the purpose is you.</h3>
             <button>See more</button>
             <img src={SkinCare} alt='Skincare'></img>
         </div>
