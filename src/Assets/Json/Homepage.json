@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "brand": "Deciem",
+        "name": "Serum Foundation",
+        "product_type": "Foundation",
+        "api_featured_image": "//s3.amazonaws.com/donovanbailey/products/api_featured_images/000/001/043/original/open-uri20180706-4-nszgw9?1530919194",
+        "price": "16.7"
+    },
+    {
+        "id": 2,
+        "brand": "dior",
+        "name": "All-In-Brow 3D",
+        "product_type": "eyebrow",
+        "api_featured_image": "//s3.amazonaws.com/donovanbailey/products/api_featured_images/000/000/717/original/open-uri20171223-4-k72ych?1514062737",
+        "price": "43.0"
+    },
+    {
+        "id": 3,
+        "brand": "marienatie",
+        "name": "Eyeliner",
+        "product_type": "eyeliner",
+        "api_featured_image": "//s3.amazonaws.com/donovanbailey/products/api_featured_images/000/001/020/original/open-uri20180630-4-y548d5?1530390373",
+        "price": ""
+    }
+]

@@ -4,6 +4,8 @@ import '../Assets/Styles/jumbotron.css'
 function Jumbotron() {
     return (
         <div className='heroBanner'>
+            <div className='navbarSeperator w-full h-4'></div>
+
             <div className='grid grid-cols-2'>
                 <div className='bannerInfo font-extrabold'>
                     <h1>
