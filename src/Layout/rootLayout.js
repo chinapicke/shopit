@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styles/Navbar.css';
+import '../Assets/Styles/Navbar.css';
 import { NavLink, Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faMagnifyingGlass, faHeart, faBars } from '@fortawesome/free-solid-svg-icons'
@@ -59,19 +59,19 @@ export default function RootLayout() {
                         <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/'>Home</NavLink>
                         </li>
-                        <li block py-2 pl-3 pr-4>
+                        <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/about'>About</NavLink>
                         </li>
-                        <li>
+                        <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/shop'>Shop</NavLink>
                         </li>
-                        <li>
+                        <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/cart'><FontAwesomeIcon icon={faMagnifyingGlass} /></NavLink>
                         </li>
-                        <li>
+                        <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/cart'><FontAwesomeIcon icon={faHeart} /> </NavLink>
                         </li>
-                        <li>
+                        <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/cart'><FontAwesomeIcon icon={faCartShopping} /></NavLink>
                         </li>
                     </ul> : null
