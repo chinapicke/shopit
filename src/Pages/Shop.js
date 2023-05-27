@@ -54,26 +54,6 @@ function Shop() {
       console.log(`Fetch error: ${err}`);
     }
   }
-  // const callAPI = async () => {
-  //   try {
-  //     const data = await axios.get(url);
-  //     if (data.status === 200) {
-  //       console.log('Success!');
-  //       // this spreads the items from the response call and adds a count of 1 to each card/image
-  //       setProducts(data.map(e => ({...e, count:1})));
-  //     }
-  //     else{
-  //       console.log(`Server error: ${data.status}`)
-  //     }
-  //   }
-  //   catch(err){
-  //         console.log(`Axios error: ${err}`);
-  //       }
-
-  //   }
-
-
-
   return (
     <div>
       <input
