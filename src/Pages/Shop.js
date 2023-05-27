@@ -32,37 +32,47 @@ function Shop() {
   }
 
   useEffect(() => {
-    callAPI()
-  }, [])
+    callAPI(search)
+  }, [search])
 
-  const url = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
+  const url = 'https://makeup-api.herokuapp.com/api/v1/products.json'
 
-  const callAPI = async () => {
+  const callAPI = async (search) => {
     try {
-      const res = await axios.get(url)
-      if(res.status===200){
+      const res = await axios.get(url,{
+        params: {
+          brand: search
+        }
+      }
+      )
+      if (res.status === 200) {
         console.log('Success!');
+        console.log(res.data)
+
         const productsWithCount = res.data.map((item) => ({
           ...item, count: 1
         }));
         setProducts(productsWithCount);
       }
-       else {
-          console.log(`Server error: ${res.status}`);
-        }
+      else {
+        console.log(`Server error: ${res.status}`);
+      }
     } catch (err) {
       console.log(`Fetch error: ${err}`);
     }
   }
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search here"
-        onChange={(e) => setSearch(e.target.value)}
-        value={search} />
-      {/* <button onClick={searchButton}>Submit </button>  */}
-      <button onClick={callAPI}>Click to get API</button>
+      <div>
+        <input type='text'
+          placeholder='Search'
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          onClick= {callAPI}
+        />
+        {/* <button onClick={callAPI}>Submit</button> */}
+
+      </div>
       <div className='shopCards grid grid-cols-5'>
         {
           products.map((item, index) => {
