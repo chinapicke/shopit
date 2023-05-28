@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import axios from 'axios'
 
 function Shop() {
-
-  const [products, setProducts] = useState([])
-  // const [items, setItems] = useState([])
+  // states for the default cards rendered
+  const [startItems, setStartItems] = useState([])
+    // state for the search input
   const [search, setSearch] = useState(''
-    //  param: {
-    //   brand: ''
-    // }}
-  )
+  )// output of search items
+  const [products, setProducts] = useState([])
+  // filtering search
+  const [filterout, setFilterOut] = useState('')
 
   const decrementCount = (index) => {
     setProducts((prevState) => {
@@ -35,14 +35,16 @@ function Shop() {
     });
   }
 
-  // const handleChange = (e)=> {
-  //   setProducts({...products}, )
-  // }
+  // change params if user selects to search by product instead of brand
+  const handleSelect = (e) => {
+    setFilterOut(e.target.value)
+  }
 
 
   const url = 'https://makeup-api.herokuapp.com/api/v1/products.json'
 
-  const callAPI = async () => {
+
+  const searchProducts = async (search) => {
     try {
       const res = await axios.get(url, {
         params: {
@@ -52,8 +54,6 @@ function Shop() {
       )
       if (res.status === 200) {
         console.log('Success!');
-        console.log(res.data)
-
         const productsWithCount = res.data.map((item) => ({
           ...item, count: 1
         }));
@@ -66,6 +66,31 @@ function Shop() {
       console.log(`Fetch error: ${err}`);
     }
   }
+
+  const callAPI = async () => {
+    try {
+      const res = await axios.get('http://makeup-api.herokuapp.com/api/v1/products.json')
+      console.log(res.data)
+      if (res.status === 200) {
+        console.log('Success!');
+        const productsWithCount = res.data.map((item) => ({
+          ...item, count: 1
+        }));
+        setStartItems(productsWithCount);
+      }
+      else {
+        console.log(`Server error: ${res.status}`);
+      }
+    } catch (err) {
+      console.log(`Fetch error: ${err}`);
+    }
+  }
+
+
+  useEffect(() => {
+    callAPI()
+  }, [])
+
   return (
     <div>
       <div>
@@ -74,49 +99,53 @@ function Shop() {
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-        <select placeholder='Search by'>
-          <option>Brand</option>
-          <option>Product Type</option>
+        <select placeholder='Search by'
+          onChange={handleSelect}>
+          <option
+            value={'brand'}>Brand</option>
+          <option
+            value={'product_type'}>Product Type</option>
         </select>
         <button
-          onClick={() => callAPI()}
+        onClick={() => searchProducts()}
         >Submit</button>
 
       </div>
       <div className='shopCards grid grid-cols-2'>
-        {
-          products.map((item, index) => {
-            return (
-              <div key={item.id}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
-                <img src={item.api_featured_image} ></img>
-                {/* <p>{item.product_colours}</p> */}
-                {/* To display the brand name with as sentence case */}
-                <p>{item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase()} {item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase()}</p>
-                <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase()}</p>
-                <p>£{item.price}</p>
-                <div className='addToCart'>
-                  <div className='productQuantity'>
-                    <button onClick={() => incrementCount(index)} value={item.id}>
-                      +
-                    </button>
-                    <p>{item.count}</p>
-                    <button onClick={() => decrementCount(index)}>
-                      -
+        {/* condition that if user selects submit btn, then to show the cards with the searchProducts API if not then to show cards on start page */}
+          {startItems.map((item, index) => {
+              return (
+                <div key={item.id}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                  </svg>
+                  <img src={item.api_featured_image} ></img>
+                  {/* <p>{item.product_colours}</p> */}
+                  {/* To display the brand name with as sentence case */}
+                  <p>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item.name}</p>
+                  <p>{item?.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase()}</p>
+                  <p>£{item.price}</p>
+                  <div className='addToCart'>
+                    <div className='productQuantity'>
+                      <button onClick={() => incrementCount(index)} value={item.id}>
+                        +
+                      </button>
+                      <p>{item.count}</p>
+                      <button onClick={() => decrementCount(index)}>
+                        -
+                      </button>
+                    </div>
+                    <button>
+                      Add to cart
                     </button>
                   </div>
-                  <button>
-                    Add to cart
-                  </button>
                 </div>
-              </div>
-            )
-          }
+              )
+            }
 
-          )
-        }
+            )
+          } 
+    
 
       </div>
     </div >
