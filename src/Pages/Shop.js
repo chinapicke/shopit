@@ -6,7 +6,11 @@ function Shop() {
 
   const [products, setProducts] = useState([])
   // const [items, setItems] = useState([])
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState(''
+    //  param: {
+    //   brand: ''
+    // }}
+  )
 
   const decrementCount = (index) => {
     setProducts((prevState) => {
@@ -31,15 +35,16 @@ function Shop() {
     });
   }
 
-  useEffect(() => {
-    callAPI(search)
-  }, [search])
+  // const handleChange = (e)=> {
+  //   setProducts({...products}, )
+  // }
+
 
   const url = 'https://makeup-api.herokuapp.com/api/v1/products.json'
 
-  const callAPI = async (search) => {
+  const callAPI = async () => {
     try {
-      const res = await axios.get(url,{
+      const res = await axios.get(url, {
         params: {
           brand: search
         }
@@ -68,9 +73,14 @@ function Shop() {
           placeholder='Search'
           value={search}
           onChange={e => setSearch(e.target.value)}
-          onClick= {callAPI}
         />
-        {/* <button onClick={callAPI}>Submit</button> */}
+        <select placeholder='Search by'>
+          <option>Brand</option>
+          <option>Product Type</option>
+        </select>
+        <button
+          onClick={() => callAPI()}
+        >Submit</button>
 
       </div>
       <div className='shopCards grid grid-cols-5'>
