@@ -7,14 +7,7 @@ const Searchbar = ({ onSearch, onFilter}) => {
     const [filtered, setFiltered] = useState('')
 
 
-    // const handleFilter = (e) => {
-    //     const filteredOut = e.target.value
-    //     if (filteredOut === 'Product') {
-    //         setFiltered(true)
-    //         onFilter(onSearch)
-    //         console.log({ filteredOut })
-    //     }
-    // }
+    
     const searchProducts = () => {
         if (filtered==='Brand'){
             onSearch(input)

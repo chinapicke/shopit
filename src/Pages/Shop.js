@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import axios from 'axios'
 import Searchbar from '../Components/Searchbar';
+import OptionButtons from '../Components/OptionButtons';
 
 function Shop() {
   // states for the default cards rendered
@@ -85,11 +86,11 @@ function Shop() {
     }
   }
 
-    const getProductsByType = async (filteredOut) => {
+    const getProductsByType = async (productCategory) => {
       try {
         const res = await axios.get(url, {
           params: {
-            product_type: filteredOut
+            product_category: productCategory
           }
         });
         console.log(res.data)
@@ -112,12 +113,40 @@ function Shop() {
       }
     }
 
+    const selectAProduct = async(productType) =>{
+      try {
+        const res = await axios.get(url, {
+          params: {
+            product_type: productType
+          }
+        });
+        console.log(res.data)
+        if (res.status === 200) {
+          console.log('Success!');
+          const productsWithCount = res.data.map((item) => ({
+            ...item, count: 1
+          }));
+          setProducts(productsWithCount);
+
+        }
+        else {
+          console.log(`Server error: ${res.status}`);
+          setIsLoading(false)
+        }
+      }
+      catch (err) {
+        console.log(`Fetch error: ${err}`);
+        setIsLoading(false)
+      }
+
+    }
     
     return (
       <div>
         <Searchbar onSearch={getProductsByBrand} 
         onFilter={getProductsByType}
         />
+        <OptionButtons onButton={selectAProduct}/>
         <div className='shopCards grid grid-cols-2'>
           {/* condition that if user selects submit btn, then to show the cards with the searchProducts API if not then to show cards on start page */}
           {!isLoading && <h2>Error</h2>}

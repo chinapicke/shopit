@@ -1,7 +1,7 @@
 import React from 'react'
 import Jumbotron from '../Components/Jumbotron'
 import '../Assets/Styles/Homepage.css'
-import SkinCare from '../Assets/Images/skincare.png'
+import Lipstick from '../Assets/Images/lipstick.png'
 
 function Homepage() {
   return (
@@ -19,7 +19,7 @@ function Homepage() {
         <div>
             <h3>Beauty has a purpose, and the purpose is you.</h3>
             <button>See more</button>
-            <img src={SkinCare} alt='Skincare'></img>
+            <img className='rotate-90' src={Lipstick} alt='Lipstick and sweets'></img>
         </div>
     </div>
     </>
