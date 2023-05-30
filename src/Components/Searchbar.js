@@ -1,23 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Searchbar = ({onSearch},{onFilter}) => {
+const Searchbar = ({ onSearch, onFilter}) => {
     // state for the search input
     const [input, setInput] = useState('')
-    // filtering search
-    // const [filterout, setFilterOut] = useState('')
+    const [filtered, setFiltered] = useState('')
 
-    // const handleSelect = (e) => {
-    //     setFilterOut(e.target.value)
+
+    // const handleFilter = (e) => {
+    //     const filteredOut = e.target.value
+    //     if (filteredOut === 'Product') {
+    //         setFiltered(true)
+    //         onFilter(onSearch)
+    //         console.log({ filteredOut })
+    //     }
     // }
-
-    const searchProducts = (e) =>{
-        onSearch(input)
+    const searchProducts = () => {
+        if (filtered==='Brand'){
+            onSearch(input)
+        }
+        else{
+            onFilter(input)
+        }
     }
 
-    const handleFilter = (e) => {
-    }
-    
+
     return (
         <div>
             <input type='text'
@@ -26,11 +33,12 @@ const Searchbar = ({onSearch},{onFilter}) => {
                 onChange={e => setInput(e.target.value)}
             />
             <select placeholder='Search by'
-                onChange={handleFilter}>
+                onChange={e => setFiltered(e.target.value)}>
+                <option selected>Search by...</option>
                 <option
                     value="Brand">Brand</option>
                 <option
-                    value="Product Type">Product Type</option>
+                    value="Product">Product Type</option>
             </select>
             <button
                 onClick={() => searchProducts()}
