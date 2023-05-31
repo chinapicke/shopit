@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import { createContext } from 'react'
 
 export const CartContext = createContext()
-export const SavedContext = createContext()
+// export const SavedContext = createContext()
 
 export const Context = (props) => {
     const reducer = (state,action)=>
@@ -18,8 +18,6 @@ export const Context = (props) => {
                 else{
                    return [...state, action.payload]
                 }
-
-y
             default: 
             return state
         }
