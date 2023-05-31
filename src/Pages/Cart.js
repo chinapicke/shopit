@@ -4,7 +4,7 @@ import { CartContext } from "../Context/Context"
 function Cart() {
   const CartState = useContext(CartContext);
   const state = CartState.state;
-  // const dispatch = CartState.dispatch;
+  const dispatch = CartState.dispatch;
 
 
   const total = state.reduce((accumulator,currentValue)=>{
@@ -22,11 +22,11 @@ function Cart() {
           <p>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
           <p>{item?.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase()}</p>
           <p>£{item.price}</p>
-          <button>
+          <button onClick={() => dispatch({ type: "PLUS", payload: item })}>
             +
           </button>
           <p>{item.quantity}</p>
-          <button>
+          <button onClick={() => dispatch({ type: "MINUS", payload: item })}>
             -
           </button>
           <p>{item.price * item.quantity}</p>

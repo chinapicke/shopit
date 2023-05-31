@@ -15,6 +15,24 @@ export const Context = (props) => {
                 else {
                     return [...state, action.payload]
                 }
+            case "PLUS":
+                const countPlus = state.map((item) => {
+                    if (item.id === action.payload.id) {
+                        return { ...item, quantity: item.quantity + 1 };
+                    } else {
+                        return item
+                    }
+                })
+                return countPlus
+            case "MINUS":
+                const countMinus = state.map((item) => {
+                    if (item.id === action.payload.id) {
+                        return { ...item, quantity: item.quantity - 1 };
+                    } else {
+                        return item
+                    }
+                })
+                return countMinus
             default:
                 return state
         }
@@ -37,12 +55,13 @@ export const Context = (props) => {
 
     const [state, dispatch] = useReducer(reducer, [])
     const [savedState, saveDispatch] = useReducer(savedReducer, [])
-    const information = { state, dispatch, savedState, saveDispatch }
+
+    const information = { state, dispatch, savedState, saveDispatch, }
     return (
-        
-            <CartContext.Provider
-                value={information}>
-                                {props.children}
-            </CartContext.Provider>
+
+        <CartContext.Provider
+            value={information}>
+            {props.children}
+        </CartContext.Provider>
     )
 }

@@ -9,31 +9,38 @@ function Shop() {
   const [isLoading, setIsLoading] = useState(true)
   // output of search items
   const [products, setProducts] = useState([])
+  // saved icon to shaded
+  // const [heartclicked, setHeartclicked] = useState(false)
+  // const [liked, setLiked] = useState([])
 
 
   // Adding quantity of product cards //////////////////////////////////////////
-  const decrementCount = (index) => {
-    setProducts((prevState) => {
-      const updatedProducts = prevState.map(e => ({ ...e }));
-      // create min for the count, can not go less than 0
-      // math.max() returns the value that is the smallest
-      const newCountdown = Math.max(0, updatedProducts[index].count - 1)
-      updatedProducts[index].count = newCountdown;
-      return updatedProducts
-    });
-  }
+  // const decrementCount = (index) => {
+  //   // setProducts((prevState) => {
+  //   //   const updatedProducts = prevState.map(e => ({ ...e }));
+  //   //   // create min for the count, can not go less than 0
+  //   //   // math.max() returns the value that is the smallest
+  //   //   // const newCountdown = Math.max(0, updatedProducts[index].count - 1)
+  //   //   // updatedProducts[index].count = newCountdown;
+  //   //   // console.log(updatedProducts[index].count)
+  //   //   // return updatedProducts
+  //   console.log(e.index)
+      
+  //   // });
+  // }
 
-  const incrementCount = (index) => {
-    setProducts((prevState) => {
-      // const updatedProducts = [...prevState];
-      const updatedProducts = prevState.map(e => ({ ...e }));
-      // create max for the count, can not go more than 10
-      const newCount = Math.min(10, updatedProducts[index].count + 1)
-      updatedProducts[index].count = newCount;
-      // console.log('This is the count'+updatedProducts[index].count)
-      return updatedProducts;
-    });
-  }
+
+  // const incrementCount = (index) => {
+  //   setProducts((prevState) => {
+  //     // const updatedProducts = [...prevState];
+  //     const updatedProducts = prevState.map(e => ({ ...e }));
+  //     // create max for the count, can not go more than 10
+  //     const newCount = Math.min(10, updatedProducts[index].count + 1)
+  //     updatedProducts[index].count = newCount;
+  //     // console.log('This is the count'+updatedProducts[index].count)
+  //     return updatedProducts;
+  //   });
+  // }
   ///////////////////////////////////////////////////////////////////////
 
 
@@ -152,8 +159,15 @@ function Shop() {
 
   const Savestate = useContext(CartContext)
   const saveDispatch = Savestate.saveDispatch
-  console.log(Savestate)
+  // console.log(Savestate)
 
+  // const changeIcon = (index) => {
+  //   setLiked((prevLiked)=>{
+  //     const updatedLiked = prevLiked.map(e =>({...e}))
+  //     return updatedLiked
+  //   })
+  //   setHeartclicked(true)
+  // }
 
   return (
     <div>
@@ -165,9 +179,10 @@ function Shop() {
         {/* condition that if user selects submit btn, then to show the cards with the searchProducts API if not then to show cards on start page */}
         {!isLoading && <h2>Error</h2>}
         {products.map((item, index) => {
+          item.quantity=1
           return (
             <div key={item.id}>
-              <button value={item.brand + item.product_type} onClick={() => saveDispatch({type:'SAVE', saveIt:item})}>
+              <button value={item.brand + item.product_type} onClick={() => { saveDispatch({ type: 'SAVE', saveIt: item }) }}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                 </svg>
@@ -184,16 +199,19 @@ function Shop() {
                   : item.price
               }</p>
               <div className='addToCart'>
-                <div className='productQuantity'>
-                  <button onClick={() => incrementCount(index)} value={item.id}>
+                {/* <div className='productQuantity'>
+                  <button
+                  onClick={()=>item.quantity+1}>
+                 onClick={() => incrementCount(index)}  
                     +
                   </button>
                   <p>{item.quantity}</p>
-                  <button onClick={() => decrementCount(index)}>
+                  <button>
+                  onClick={() => decrementCount(index)} value={item.id}>
                     -
                   </button>
-                </div>
-                <button onClick={() => dispatch({type:'ADD', payload:item})}>
+                </div> */}
+                <button onClick={() => dispatch({ type: 'ADD', payload: item })}>
                   Add to cart
                 </button>
               </div>
