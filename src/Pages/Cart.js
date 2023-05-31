@@ -2,9 +2,9 @@ import { useContext } from "react"
 import { CartContext } from "../Context/Context"
 
 function Cart() {
-  const GlobalState = useContext(CartContext);
-  const state = GlobalState.state;
-  // const dispatch = GlobalState.dispatch;
+  const CartState = useContext(CartContext);
+  const state = CartState.state;
+  // const dispatch = CartState.dispatch;
 
 
   const total = state.reduce((accumulator,currentValue)=>{
