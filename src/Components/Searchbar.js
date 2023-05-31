@@ -27,7 +27,7 @@ const Searchbar = ({ onSearch, onFilter}) => {
             />
             <select placeholder='Search by'
                 onChange={e => setFiltered(e.target.value)}>
-                <option selected>Search by...</option>
+                <option defaultValue>Search by...</option>
                 <option
                     value="Brand">Brand</option>
                 <option
