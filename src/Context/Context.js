@@ -17,7 +17,9 @@ export const Context = (props) => {
                 }
             case "PLUS":
                 const countPlus = state.map((item) => {
+                    // if item id has the same id as the action that is being sent, which means that the item is available
                     if (item.id === action.payload.id) {
+                        // if item is available then increase quantity of 1
                         return { ...item, quantity: item.quantity + 1 };
                     } else {
                         return item
@@ -33,6 +35,12 @@ export const Context = (props) => {
                     }
                 })
                 return countMinus
+            case "REMOVE":
+                const cartRemove = state.filter((item) =>
+                // filter out the items that have been clicked on with a matching id 
+                item.id = !action.payload.id
+                )
+                return cartRemove
             default:
                 return state
         }
