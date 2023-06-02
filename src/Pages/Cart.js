@@ -24,6 +24,7 @@ function Cart() {
 
         state.map((item, index) => {
           return (
+          
             <div className='addCard grid grid-cols-2' key={index}>
               <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
               {/* To display the brand name with as sentence case */}

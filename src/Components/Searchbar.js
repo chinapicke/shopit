@@ -9,16 +9,20 @@ const Searchbar = ({ onSearch, onFilter}) => {
 
     
     const searchProducts = () => {
-        if (filtered==='Brand'){
-            onSearch(input)
-        }
-        else if(filtered==='Product'){
-            onFilter(input)
+        if (input === ''){
+            alert('Please input something')
         }
         else{
-            alert('Please select a filter by')
+            if (filtered==='Brand'){
+                onSearch(input)
+            }
+            else if(filtered==='Product'){
+                onFilter(input)
+            }
+            else{
+                alert('Please select a filter by')
+            }
         }
-
 
     }
 
