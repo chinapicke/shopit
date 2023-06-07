@@ -18,7 +18,7 @@ const OptionButtons= ({onButton})=> {
         <button value='eyeshadow'>Eyeshadow</button>
         <button value='foundation'>Foundation</button>
         <button value='lip_liner'>Lip Liner</button>
-        <button value='lip_stick'>Lipstick</button>
+        <button value='lipstick'>Lipstick</button>
         <button value='mascara'>Mascara</button>
         <button value='nail_polish'>Nail Polish</button>
 
