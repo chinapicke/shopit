@@ -221,16 +221,6 @@ function Shop() {
                     }</p>
                     <div className='addToCart'>
                       <div className='productQuantity'>
-                        <button
-                          onClick={() => item.quantity + 1}>
-                          {/* onClick={() => incrementCount(index)}   */}
-                          +
-                        </button>
-                        <p>{item.quantity}</p>
-                        <button>
-                          {/* onClick={() => decrementCount(index)} value={item.id}> */}
-                          -
-                        </button>
                       </div>
                       <button onClick={() => dispatch({ type: 'ADD', payload: item })}>
                         Add to cart
