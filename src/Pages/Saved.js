@@ -8,7 +8,6 @@ function Saved() {
 
   return (
     <div>
-      <h1>This is the cart</h1>
       {savedState.map((item, index) => {
         return(
         <div className='savedCard grid grid-cols-2' key={index}>

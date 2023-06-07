@@ -17,7 +17,6 @@ function Cart() {
 
   return (
     <div>
-      <h1>This is the cart</h1>
       {state.length === 0 ?
         (<h1>Your cart is empty </h1>) :
 

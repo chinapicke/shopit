@@ -3,6 +3,7 @@ import axios from 'axios'
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { CartContext } from '../Context/Context';
+import Product from '../Components/Product';
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
@@ -12,6 +13,7 @@ function Shop() {
   const [products, setProducts] = useState([])
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
+  // const [productModal, setProductModal] = useState([
 
 
 
@@ -179,6 +181,22 @@ function Shop() {
     console.log(setLikedIndex)
   }
   /////////////////////////////////////////////////////////////////////////////////
+
+
+  //More product info//////////////////////////////
+  const[productOpen, setProductOpen]=useState(false)
+
+  // const modalOpen = () =>{
+  //     setProductOpen(true)
+  // }
+
+  // const modalClose = () =>{
+  //     setProductOpen(false)
+  // }
+
+
+
+  /////////////////////////////////////
   return (
     <div>
       <Searchbar onSearch={getProductsByBrand}
@@ -211,10 +229,12 @@ function Shop() {
                     <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
                     {/* <p>{item.product_colours}</p> */}
                     {/* To display the brand name with as sentence case */}
-                    <p>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-                    <p>{item?.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase()}</p>
+                    <button onClick={()=>setProductOpen(true)}>
+                      {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</button>
+                    {productOpen && <Product setProductOpen={setProductOpen}/>}
+                    <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ') }</p>
                     <p>£{
-                      // Condition if the price is 0, give it a default of '8.5'
+                      // Condition if the price is 0, give it a default of '8.5' 
                       (item.price === '0.0')
                         ? '8.5'
                         : item.price
