@@ -1,16 +1,18 @@
-import { useState } from "react"
 
-function Product({setProductOpen}) {
-
-
+function Product(props) {
+    
     return (
-    <div className="bg-opacity-50 fixed">
-        <div className='bg-white'>Modal content</div>
-        <button onClick={()=>setProductOpen(false)}>Close modal</button>
+        // <div className="bg-opacity-50 fixed bg-black backdrop-blur-sm flex-justify-center">
+        //     <p>This is the modal that will be shown with the product information and pictures</p>
+        //     <button onClick={props.close}>Close modal</button>
 
-    </div>
-        
-  )
+        // </div>
+        <div>
+            <p>Modal is opened</p>
+            <button onClick={props.close}>Close</button>
+        </div>
+
+    )
 }
 
 export default Product
