@@ -3,7 +3,10 @@ import axios from 'axios'
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { CartContext } from '../Context/Context';
-import Product from '../Components/Product';
+// import Modal from '../Components/Modal';
+import Product from './Product';
+import { Link } from 'react-router-dom';
+
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
@@ -13,7 +16,6 @@ function Shop() {
   const [products, setProducts] = useState([])
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
-  // const [productModal, setProductModal] = useState([
 
 
 
@@ -182,24 +184,33 @@ function Shop() {
     console.log(setLikedIndex)
   }
   /////////////////////////////////////////////////////////////////////////////////
-  const [productOpen, setProductOpen] = useState(false)
-  const [showModal, setShowModal] = useState([])
+  // const [productOpen, setProductOpen] = useState(false)
+  // const [showModal, setShowModal] = useState([])
 
-  const openModal = (index) => {
-    setProductOpen(true)
-    setShowModal(index)
-  }
+  // const openModal = (index) => {
+  //   setProductOpen(true)
+  //   setShowModal(index)
+  // }
 
-  const closeModal = (index) => {
-    setProductOpen(false)
-    // setShowModal(index)
-  }
+  // const closeModal = (index) => {
+  //   setProductOpen(false)
+  //   // setShowModal(index)
+  // }
   // const handleClose = () => setProductOpen(false);
   // const handleOpen = (index) => {
   //   console.log('modal is opened')
   //   setProductOpen(true);
   // }
   /////////////////////////////////////
+
+  // Click anywhere on card to open more information about product 
+  const [showInfo, setShowInfo]= useState([])
+const openInformation = (index) => {
+setShowInfo(index)
+}
+
+
+  ////////////////////////////////////
   return (
     <div>
       <Searchbar onSearch={getProductsByBrand}
@@ -213,7 +224,10 @@ function Shop() {
             products.map((item, index) => {
               item.quantity = 1
               return (
-                <div key={item.id}>
+                <Link to ={`/product/${item.id}`}>
+                <div className='singleCard' key={item.id}>
+                {/* onClick={()=>openInformation(index)}>
+                  {showInfo===index && <Product productName={item.brand+item.product_type}/>} */}
                   <button value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
                     {likedIndex[index] ?
                       (
@@ -241,8 +255,11 @@ function Shop() {
                       ? '8.5'
                       : item.price
                   }</p>
-                  <button onClick={()=>openModal(index)}>Show modal</button>
-                  {productOpen && index === showModal && <Product close={()=>closeModal()}/>}
+
+                  {/* Removed modal */}
+                  {/* <button onClick={()=>openModal(index)}>Show modal</button>
+                  {productOpen && index === showModal && <Product close={()=>closeModal()}/>} */}
+
                   <div className='addToCart'>
                     <div className='productQuantity'>
                     </div>
@@ -251,6 +268,7 @@ function Shop() {
                     </button>
                   </div>
                 </div>
+                </Link>
               )
             })
             : <h1>No results found</h1>}

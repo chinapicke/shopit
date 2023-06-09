@@ -9,6 +9,7 @@ import RootLayout from './Layout/rootLayout';
 import {createBrowserRouter } from 'react-router-dom';
 import {createRoutesFromElements } from 'react-router-dom';
 import {RouterProvider } from 'react-router-dom';
+import Product from './Pages/Product';
 
 
 const router = createBrowserRouter(
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
       <Route path="/shop" element={<Shop />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/saved" element={<Saved />} />
+      <Route path="/product/:id" element={<Product />} />
+
 
 
     </Route>
