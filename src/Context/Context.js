@@ -37,8 +37,8 @@ export const Context = (props) => {
                 return countMinus
             case "REMOVE":
                 const cartRemove = state.filter((item) =>
-                // filter out the items that have been clicked on with a matching id 
-                item.id !== action.payload.id
+                    // filter out the items that have been clicked on with a matching id 
+                    item.id !== action.payload.id
                 )
                 return cartRemove
             default:
@@ -56,6 +56,14 @@ export const Context = (props) => {
                 else {
                     return [...savedState, action.saveIt]
                 }
+
+            case "DELETE":
+                const saveRemove = savedState.filter((item) =>
+                    // filter out the items that have been clicked on with a matching id 
+                    item.id !== action.payload.id
+                )
+                return saveRemove
+
             default:
                 return savedState
         }
