@@ -6,14 +6,19 @@ import { CartContext } from '../Context/Context';
 // import Modal from '../Components/Modal';
 import Product from './Product';
 import { Link } from 'react-router-dom';
+import useAxiosProducts from '../Hooks/useAxiosProducts';
 
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
   // states for the default cards rendered
-  const [isLoading, setIsLoading] = useState(false)
-  // output of search items
-  const [products, setProducts] = useState([])
+  // const [isLoading, setIsLoading] = useState(false)
+  // // output of search items
+  // const [products, setProducts] = useState([])
+  const { products, isLoading } = useAxiosProducts('https://makeup-api.herokuapp.com/api/v1/products.json')
+
+
+
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
 
@@ -50,116 +55,93 @@ function Shop() {
 
 
   // API calls for search bar, buttons and filter by //////////////////////////////////////////////
-  const url = 'https://makeup-api.herokuapp.com/api/v1/products.json'
-
-  // defualt API call
-  const callAPI = async () => {
-    setIsLoading(true)
-    try {
-      const res = await axios.get(url)
-      console.log(res.data)
-      if (res.status === 200) {
-        console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
-        setProducts(productsWithQuantity);
-        setIsLoading(false)
-      }
-      else {
-        console.log(`Server error: ${res.status}`);
-      }
-    } catch (err) {
-      console.log(`Fetch error: ${err}`);
-    }
-  }
 
   // call when user filters by brand
-  const getProductsByBrand = async (brandName) => {
-    setIsLoading(true)
+  // const getProductsByBrand = async (brandName) => {
+  //   setIsLoading(true)
 
-    try {
-      const res = await axios.get(url, {
-        params: {
-          brand: brandName
-        }
-      });
-      console.log(res.data)
-      if (res.status === 200) {
-        console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
-        setProducts(productsWithQuantity);
-        setIsLoading(false)
-      }
-      else {
-        console.log(`Server error: ${res.status}`);
-      }
-    }
-    catch (err) {
-      console.log(`Fetch error: ${err}`);
-    }
-  }
+  //   try {
+  //     const res = await axios.get(url, {
+  //       params: {
+  //         brand: brandName
+  //       }
+  //     });
+  //     console.log(res.data)
+  //     if (res.status === 200) {
+  //       console.log('Success!');
+  //       const productsWithQuantity = res.data.map((item) => ({
+  //         ...item, quantity: 1
+  //       }));
+  //       setProducts(productsWithQuantity);
+  //       setIsLoading(false)
+  //     }
+  //     else {
+  //       console.log(`Server error: ${res.status}`);
+  //     }
+  //   }
+  //   catch (err) {
+  //     console.log(`Fetch error: ${err}`);
+  //   }
+  // }
 
-  // API call for the filter by button
-  const getProductsByType = async (productCategory) => {
-    setIsLoading(true)
-    try {
-      const res = await axios.get(url, {
-        params: {
-          product_category: productCategory
-        }
-      });
-      console.log(res.data)
-      if (res.status === 200) {
-        console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
-        setProducts(productsWithQuantity);
-        setIsLoading(false)
+  // // API call for the filter by button
+  // const getProductsByType = async (productCategory) => {
+  //   setIsLoading(true)
+  //   try {
+  //     const res = await axios.get(url, {
+  //       params: {
+  //         product_category: productCategory
+  //       }
+  //     });
+  //     console.log(res.data)
+  //     if (res.status === 200) {
+  //       console.log('Success!');
+  //       const productsWithQuantity = res.data.map((item) => ({
+  //         ...item, quantity: 1
+  //       }));
+  //       setProducts(productsWithQuantity);
+  //       setIsLoading(false)
 
-      }
-      else {
-        console.log(`Server error: ${res.status}`);
-      }
-    }
-    catch (err) {
-      console.log(`Fetch error: ${err}`);
-    }
-  }
-  // Buttons with the specific products
-  const selectAProduct = async (productType) => {
-    setIsLoading(true)
-    try {
-      const res = await axios.get(url, {
-        params: {
-          product_type: productType
-        }
-      });
-      console.log(res.data)
-      if (res.status === 200) {
-        console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
-        setProducts(productsWithQuantity);
-        setIsLoading(false)
-      }
-      else {
-        console.log(`Server error: ${res.status}`);
+  //     }
+  //     else {
+  //       console.log(`Server error: ${res.status}`);
+  //     }
+  //   }
+  //   catch (err) {
+  //     console.log(`Fetch error: ${err}`);
+  //   }
+  // }
+  // // Buttons with the specific products
+  // const selectAProduct = async (productType) => {
+  //   setIsLoading(true)
+  //   try {
+  //     const res = await axios.get(url, {
+  //       params: {
+  //         product_type: productType
+  //       }
+  //     });
+  //     console.log(res.data)
+  //     if (res.status === 200) {
+  //       console.log('Success!');
+  //       const productsWithQuantity = res.data.map((item) => ({
+  //         ...item, quantity: 1
+  //       }));
+  //       setProducts(productsWithQuantity);
+  //       setIsLoading(false)
+  //     }
+  //     else {
+  //       console.log(`Server error: ${res.status}`);
 
-      }
-    }
-    catch (err) {
-      console.log(`Fetch error: ${err}`);
-    }
-  }
+  //     }
+  //   }
+  //   catch (err) {
+  //     console.log(`Fetch error: ${err}`);
+  //   }
+  // }
 
-  useEffect(() => {
-    callAPI()
-  }, [])
+  // useEffect(() => {
+  //   callAPI()
+  // }, [])
 
   ////////////////////////////////////////////////////////////////////////
 
@@ -203,32 +185,21 @@ function Shop() {
   // }
   /////////////////////////////////////
 
-  // Click anywhere on card to open more information about product 
-  const [showInfo, setShowInfo]= useState([])
-const openInformation = (index) => {
-setShowInfo(index)
-}
-
-
-  ////////////////////////////////////
   return (
     <div>
-      <Searchbar onSearch={getProductsByBrand}
+      {/* <Searchbar onSearch={getProductsByBrand}
         onFilter={getProductsByType}
       />
-      <OptionButtons onButton={selectAProduct} />
+      <OptionButtons onButton={selectAProduct} /> */}
       <div className='shopCards grid grid-cols-2'>
-        {/* condition that if user selects submit btn, then to show the cards with the searchProducts API if not then to show cards on start page */}
         {!isLoading ? <>
           {products.length ?
             products.map((item, index) => {
-              item.quantity = 1
               return (
-                <Link to ={`/product/${item.id}`}>
                 <div className='singleCard' key={item.id}>
-                {/* onClick={()=>openInformation(index)}>
-                  {showInfo===index && <Product productName={item.brand+item.product_type}/>} */}
-                  <button value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
+                  {/* /* onClick={()=>openInformation(index)}>
+                  {showInfo===index && <Product productName={item.brand+item.product_type}/>} */ }
+                  < button value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
                     {likedIndex[index] ?
                       (
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -243,18 +214,20 @@ setShowInfo(index)
                     }
 
                   </button>
-                  <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
-                  {/* <p>{item.product_colours}</p> */}
-                  {/* To display the brand name with as sentence case */}
-                  <p>
-                    {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-                  <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ')}</p>
-                  <p>£{
-                    // Condition if the price is 0, give it a default of '8.5' 
-                    (item.price === '0.0')
-                      ? '8.5'
-                      : item.price
-                  }</p>
+                  <Link to={`/product/${item.id}`} name={item.brand} >
+                    <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
+                    {/* <p>{item.product_colours}</p> */}
+                    {/* To display the brand name with as sentence case */}
+                    <p>
+                      {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
+                    <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ')}</p>
+                    <p>£{
+                      // Condition if the price is 0, give it a default of '8.5' 
+                      (item.price === '0.0')
+                        ? '8.5'
+                        : item.price
+                    }</p>
+                  </Link>
 
                   {/* Removed modal */}
                   {/* <button onClick={()=>openModal(index)}>Show modal</button>
@@ -268,13 +241,13 @@ setShowInfo(index)
                     </button>
                   </div>
                 </div>
-                </Link>
               )
             })
             : <h1>No results found</h1>}
         </> :
-          <h1>Loading...</h1>}
-      </div>
+          <h1>Loading...</h1>
+        }
+      </div >
     </div >
   )
 }

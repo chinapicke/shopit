@@ -8,7 +8,7 @@ function Product(props) {
     const{id}=useParams()
   return (
     <div className='productInfo'>
-        {/* <h1 className='productName'>{props.name}</h1> */}
+        <h1 className='productName'>{props.name}</h1>
         <p>This is info about the product- product id {id}</p>
     </div>
   )
