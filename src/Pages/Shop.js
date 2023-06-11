@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-import axios from 'axios'
+import { useState, useContext } from 'react';
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { CartContext } from '../Context/Context';
@@ -15,14 +14,11 @@ function Shop() {
   // const [isLoading, setIsLoading] = useState(false)
   // // output of search items
   // const [products, setProducts] = useState([])
-  const { products, isLoading } = useAxiosProducts('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct} = useAxiosProducts('https://makeup-api.herokuapp.com/api/v1/products.json')
 
-
-
+  
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
-
-
 
   // Adding quantity of product cards //////////////////////////////////////////
   // const decrementCount = (index) => {
@@ -56,61 +52,6 @@ function Shop() {
 
   // API calls for search bar, buttons and filter by //////////////////////////////////////////////
 
-  // call when user filters by brand
-  // const getProductsByBrand = async (brandName) => {
-  //   setIsLoading(true)
-
-  //   try {
-  //     const res = await axios.get(url, {
-  //       params: {
-  //         brand: brandName
-  //       }
-  //     });
-  //     console.log(res.data)
-  //     if (res.status === 200) {
-  //       console.log('Success!');
-  //       const productsWithQuantity = res.data.map((item) => ({
-  //         ...item, quantity: 1
-  //       }));
-  //       setProducts(productsWithQuantity);
-  //       setIsLoading(false)
-  //     }
-  //     else {
-  //       console.log(`Server error: ${res.status}`);
-  //     }
-  //   }
-  //   catch (err) {
-  //     console.log(`Fetch error: ${err}`);
-  //   }
-  // }
-
-  // // API call for the filter by button
-  // const getProductsByType = async (productCategory) => {
-  //   setIsLoading(true)
-  //   try {
-  //     const res = await axios.get(url, {
-  //       params: {
-  //         product_category: productCategory
-  //       }
-  //     });
-  //     console.log(res.data)
-  //     if (res.status === 200) {
-  //       console.log('Success!');
-  //       const productsWithQuantity = res.data.map((item) => ({
-  //         ...item, quantity: 1
-  //       }));
-  //       setProducts(productsWithQuantity);
-  //       setIsLoading(false)
-
-  //     }
-  //     else {
-  //       console.log(`Server error: ${res.status}`);
-  //     }
-  //   }
-  //   catch (err) {
-  //     console.log(`Fetch error: ${err}`);
-  //   }
-  // }
   // // Buttons with the specific products
   // const selectAProduct = async (productType) => {
   //   setIsLoading(true)
@@ -142,6 +83,10 @@ function Shop() {
   // useEffect(() => {
   //   callAPI()
   // }, [])
+
+  // const getProducstByBrand = () =>{
+  //   const { products, isLoading } = useAxiosProducts(`https://makeup-api.herokuapp.com/api/v1/products.json?brand=${input}`)
+  // }
 
   ////////////////////////////////////////////////////////////////////////
 
@@ -187,10 +132,11 @@ function Shop() {
 
   return (
     <div>
-      {/* <Searchbar onSearch={getProductsByBrand}
+      <Searchbar 
+      onSearch={getProductsByBrand}
         onFilter={getProductsByType}
       />
-      <OptionButtons onButton={selectAProduct} /> */}
+      <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {!isLoading ? <>
           {products.length ?

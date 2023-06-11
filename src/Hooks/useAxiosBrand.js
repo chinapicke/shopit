@@ -1,26 +1,48 @@
-  const getProductsByBrand = async (brandName) => {
-    setIsLoading(true)
+import { useEffect, useState } from "react"
+import axios from 'axios'
 
-    try {
-      const res = await axios.get(url, {
-        params: {
-          brand: brandName
+
+const useAxiosBrand = (url) => {
+    const [Loading, setLoading] = useState(false)
+    // output of search items
+    const [brands, setBrands] = useState([])
+
+    useEffect(() => {
+        const getProductsByBrand = async (brandName) => {
+            setLoading(true)
+
+            try {
+                const res = await axios.get(url, {
+                    params: {
+                        brand: brandName
+                    }
+                });
+                console.log(res.data)
+                if (res.status === 200) {
+                    console.log('Success!');
+                    const productsWithQuantity = res.data.map((item) => ({
+                        ...item, quantity: 1
+                    }));
+                    setBrands(productsWithQuantity);
+                }
+                else {
+                    console.log(`Server error: ${res.status}`);
+                }
+            }
+            catch (err) {
+                console.log(`Fetch error: ${err}`);
+            }
+            finally {
+                setLoading(false)
+            }
         }
-      });
-      console.log(res.data)
-      if (res.status === 200) {
-        console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
-        setProducts(productsWithQuantity);
-        setIsLoading(false)
-      }
-      else {
-        console.log(`Server error: ${res.status}`);
-      }
+        getProductsByBrand(url)
+    }, [url]);
+
+    return {
+        Loading,
+        brands,
     }
-    catch (err) {
-      console.log(`Fetch error: ${err}`);
-    }
-  }
+}
+
+export default useAxiosBrand
