@@ -5,18 +5,12 @@ import { CartContext } from '../Context/Context';
 // import Modal from '../Components/Modal';
 import Product from './Product';
 import { Link } from 'react-router-dom';
-import useAxiosProducts from '../Hooks/useAxiosProducts';
+import useAxios from '../Hooks/useAxios';
 
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  // states for the default cards rendered
-  // const [isLoading, setIsLoading] = useState(false)
-  // // output of search items
-  // const [products, setProducts] = useState([])
-  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct} = useAxiosProducts('https://makeup-api.herokuapp.com/api/v1/products.json')
-
-  
+  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
 
@@ -48,47 +42,6 @@ function Shop() {
   //   });
   // }
   ///////////////////////////////////////////////////////////////////////
-
-
-  // API calls for search bar, buttons and filter by //////////////////////////////////////////////
-
-  // // Buttons with the specific products
-  // const selectAProduct = async (productType) => {
-  //   setIsLoading(true)
-  //   try {
-  //     const res = await axios.get(url, {
-  //       params: {
-  //         product_type: productType
-  //       }
-  //     });
-  //     console.log(res.data)
-  //     if (res.status === 200) {
-  //       console.log('Success!');
-  //       const productsWithQuantity = res.data.map((item) => ({
-  //         ...item, quantity: 1
-  //       }));
-  //       setProducts(productsWithQuantity);
-  //       setIsLoading(false)
-  //     }
-  //     else {
-  //       console.log(`Server error: ${res.status}`);
-
-  //     }
-  //   }
-  //   catch (err) {
-  //     console.log(`Fetch error: ${err}`);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   callAPI()
-  // }, [])
-
-  // const getProducstByBrand = () =>{
-  //   const { products, isLoading } = useAxiosProducts(`https://makeup-api.herokuapp.com/api/v1/products.json?brand=${input}`)
-  // }
-
-  ////////////////////////////////////////////////////////////////////////
 
   // useContext for the add to cart 
   const Cartstate = useContext(CartContext)

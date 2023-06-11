@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 
 
-const useAxiosProducts = (url) => {
+const useAxios = (url) => {
   const [isLoading, setIsLoading] = useState(false)
   // output of search items
   const [products, setProducts] = useState([])
@@ -132,9 +132,8 @@ const useAxiosProducts = (url) => {
     getProductsByBrand,
     getProductsByType,
     selectAProduct
-
   }
 
 }
 
-export default useAxiosProducts
+export default useAxios
