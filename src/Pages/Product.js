@@ -28,7 +28,7 @@ function Product() {
         {singleProduct && <div className='productSection'>
           {/* <p>{singleProduct?.data.product_type ? singleProduct.data.product_type.charAt(0).toUpperCase() + singleProduct.data.product_type.slice(1).toLowerCase().split('_').join(' '): singleProduct?.data.product_type}</p> */}
           {/* <h1>{singleProduct.name}</h1> */}
-          <p>{singleProduct.data.producttype}</p>
+          <p>{singleProduct.data.product_type}</p>
           <h1>{singleProduct.data.name}</h1>
 
         </div>
