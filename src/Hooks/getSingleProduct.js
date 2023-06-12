@@ -17,7 +17,7 @@ const GetSingleProduct = (url) => {
           const res = await axios.get(url)
           if (res.status === 200) {
             console.log('Success!');
-            setSingleProduct(res);
+            setSingleProduct(res.data);
           }
           else {
             console.log(`Server error: ${res.status}`);

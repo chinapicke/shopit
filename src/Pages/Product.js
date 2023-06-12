@@ -12,6 +12,7 @@ function Product() {
 
   console.log(singleProduct)
 
+
   return (
     <>
       <div className='routeTaken'>
@@ -22,20 +23,35 @@ function Product() {
         </ol>
       </div>
       <div className='productInfo'>
-        <p>This is info about the product- product id {id}</p>
-        {isLoading && <div className='loadingMsg'>Loading</div>}
-        {error && <div>{error}</div>}
-        {singleProduct && <div className='productSection'>
-          {/* <p>{singleProduct?.data.product_type ? singleProduct.data.product_type.charAt(0).toUpperCase() + singleProduct.data.product_type.slice(1).toLowerCase().split('_').join(' '): singleProduct?.data.product_type}</p> */}
-          {/* <h1>{singleProduct.name}</h1> */}
-          <p>{singleProduct.data.product_type}</p>
-          <h1>{singleProduct.data.name}</h1>
+        {isLoading ?
+          (<div>Loading...</div>) :
+          <div>
+            <img src={singleProduct.api_featured_image} alt={singleProduct.brand + singleProduct.product_type}></img>
+            <p>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
 
-        </div>
+            <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
+            <h2> £{
+              // Condition if the price is 0, give it a default of '8.5' 
+              (singleProduct.price === '0.0')
+                ? '8.5'
+                : singleProduct.price
+            }</h2>
+            <h3>{singleProduct.description}</h3>
+            <div className='counter'>
+              <button>
+                +
+              </button>
+              <p>1</p>
+              <button>
+                -
+              </button>
+            </div>
+            <button>Add to basket</button>
+          </div>
         }
-      </div>
+          </div >
     </>
-  )
+      )
 }
 
-export default Product
+      export default Product
