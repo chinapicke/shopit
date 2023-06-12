@@ -3,7 +3,7 @@ import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { CartContext } from '../Context/Context';
 // import Modal from '../Components/Modal';
-import Product from './Product';
+// import Product from './Product';
 import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
 
