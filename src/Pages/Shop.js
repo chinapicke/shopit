@@ -10,7 +10,7 @@ import useAxios from '../Hooks/useAxios';
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
 
@@ -91,6 +91,7 @@ function Shop() {
       />
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
+        {error && <div>{error}</div>}
         {!isLoading ? <>
           {products.length ?
             products.map((item, index) => {

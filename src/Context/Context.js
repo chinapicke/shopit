@@ -1,17 +1,23 @@
 import React, { useReducer } from 'react'
 import { createContext } from 'react'
 
+// this is what is exported to the children page and this is where the states will be 'pulled from'
 export const CartContext = createContext()
 
 export const Context = (props) => {
+    // this uses useReducer which holds the states like useState except that it the state can be used for different things e.g. if we want to add or delete from the state
+    // it returns the state and dispatch, we put the action in the dispatch
+    // reducer accepts the current state and the action
     const reducer = (state, action) => {
         switch (action.type) {
             case "ADD":
                 // if statement if array of state is empty 
+                // filter state and it item is available add to the new state
                 const tempState = state.filter((item) => action.payload.id === item.id);
                 if (tempState.length > 0) {
                     return state
                 }
+                // spread the state with the action that has been called
                 else {
                     return [...state, action.payload]
                 }
