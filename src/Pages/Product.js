@@ -31,6 +31,7 @@ function Product() {
         </ol>
       </div>
       <div className='productInfo'>
+      {error && <div>{error}</div>}
         {isLoading ?
           (<div>Loading...</div>) :
           <div>
