@@ -3,15 +3,23 @@
 
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useState } from 'react'
 import GetSingleProduct from '../Hooks/getSingleProduct'
+import '../Assets/Styles/Product.css'
 
 function Product() {
   // able to use useParams to direct to the page with the id of the product that has been clicked
   const { id } = useParams()
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
+  const [clickedColour, setClickedColour] = useState([])
 
-  console.log(singleProduct)
-
+  const handleColour = (index) =>{
+    setClickedColour(prevstate =>
+ ({ ...prevstate,[index] // copies prev state
+      : !prevstate[index]
+ }))
+ console.log(setClickedColour)
+  }
 
   return (
     <>
@@ -37,6 +45,21 @@ function Product() {
                 : singleProduct.price
             }</h2>
             <h3>{singleProduct.description}</h3>
+            {/* {singleProduct.map(colour => 
+            <h1>{colour.product_colors}</h1>)} */}
+            <div className="colourList grid grid-cols-4">
+              { singleProduct.product_colors?.map((colour, index) => {
+              return(
+                <button onClick={() =>handleColour(index)}className='colourItem'key={index} style={{backgroundColor:colour.hex_value}}>
+                  {colour.hex_value}
+                  {clickedColour[index]?
+                  (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ):(null)}
+                </button>
+              )})}
+            </div>
             <div className='counter'>
               <button>
                 +
