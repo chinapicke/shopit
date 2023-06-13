@@ -3,8 +3,9 @@
 
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import GetSingleProduct from '../Hooks/getSingleProduct'
+import { CartContext } from '../Context/Context'
 import '../Assets/Styles/Product.css'
 
 function Product() {
@@ -13,14 +14,17 @@ function Product() {
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
   const [clickedColour, setClickedColour] = useState([])
 
-  const handleColour = (index) =>{
-    setClickedColour(prevstate =>
- ({ ...prevstate,[index] // copies prev state
-      : !prevstate[index]
- }))
- console.log(setClickedColour)
-  }
+  // useContext for the add to cart 
+  const Cartstate = useContext(CartContext)
+  const dispatch = Cartstate.dispatch;
 
+  const handleColour = (index) => {
+    setClickedColour(prevstate =>
+    ({
+      ...prevstate, [index] // copies prev state
+        : !prevstate[index]
+    }))
+  }
   return (
     <>
       <div className='routeTaken'>
@@ -31,7 +35,7 @@ function Product() {
         </ol>
       </div>
       <div className='productInfo'>
-      {error && <div>{error}</div>}
+        {error && <div>{error}</div>}
         {isLoading ?
           (<div>Loading...</div>) :
           <div>
@@ -49,17 +53,18 @@ function Product() {
             {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
             <div className="colourList grid grid-cols-4">
-              { singleProduct.product_colors?.map((colour, index) => {
-              return(
-                <button onClick={() =>handleColour(index)}className='colourItem'key={index} style={{backgroundColor:colour.hex_value}}>
-                  {colour.hex_value}
-                  {clickedColour[index]?
-                  (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                ):(null)}
-                </button>
-              )})}
+              {singleProduct.product_colors?.map((colour, index) => {
+                return (
+                  <button onClick={() => handleColour(index)} className='colourItem' key={index} style={{ backgroundColor: colour.hex_value }}>
+                    {colour.hex_value}
+                    {clickedColour[index] ?
+                      (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      ) : (null)}
+                  </button>
+                )
+              })}
             </div>
             <div className='counter'>
               <button>
@@ -70,12 +75,12 @@ function Product() {
                 -
               </button>
             </div>
-            <button>Add to basket</button>
+            <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
           </div>
         }
-          </div >
+      </div >
     </>
-      )
+  )
 }
 
-      export default Product
+export default Product

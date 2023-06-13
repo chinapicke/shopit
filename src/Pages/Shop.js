@@ -116,7 +116,6 @@ function Shop() {
                   </button>
                   <Link to={`/product/${item.id}`} name={item.brand} >
                     <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
-                    {/* <p>{item.product_colours}</p> */}
                     {/* To display the brand name with as sentence case */}
                     <p>
                       {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
