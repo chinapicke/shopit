@@ -13,7 +13,6 @@ function Product() {
   const { id } = useParams()
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
   const [clickedColour, setClickedColour] = useState([])
-  const [disableBtn, setDisableBtn] = useState(false)
 
   // const disablePlusBtn = () => {
   //   singleProduct.quantity === 10 || singleProduct.quantity === 0 ?

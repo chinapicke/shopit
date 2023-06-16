@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { createContext } from 'react'
 
 // this is what is exported to the children page and this is where the states will be 'pulled from'
@@ -76,9 +76,19 @@ export const Context = (props) => {
     }
 
     const [state, dispatch] = useReducer(reducer, [])
-    const [savedState, saveDispatch] = useReducer(savedReducer, [])
+    const [savedState, saveDispatch] = useReducer(savedReducer, [], ()=>{
+        // this calls to get the data from the setItems
+        const localData = localStorage.getItem('savedItems')
+        // if storage is empty then to store it by parsing the data, else return empty array 
+        return localData ? JSON.parse(localData) : []
+    })
 
     const information = { state, dispatch, savedState, saveDispatch, }
+
+    // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
+    useEffect(() => {
+        localStorage.setItem('savedItems', JSON.stringify(savedState));
+      }, [savedState]);
     return (
 
         <CartContext.Provider
