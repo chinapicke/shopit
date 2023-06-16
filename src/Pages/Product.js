@@ -13,6 +13,14 @@ function Product() {
   const { id } = useParams()
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
   const [clickedColour, setClickedColour] = useState([])
+  const [disableBtn, setDisableBtn] = useState(false)
+
+  // const disablePlusBtn = () => {
+  //   singleProduct.quantity === 10 || singleProduct.quantity === 0 ?
+  //     <button className='cursor-not-allowed'>+</button> && setDisableBtn(true)
+  //     : <button onClick={handleIncrement}>+</button>
+  // }
+
 
   // useContext for the add to cart 
   const Cartstate = useContext(CartContext)
@@ -24,7 +32,18 @@ function Product() {
       ...prevstate, [index] // copies prev state
         : !prevstate[index]
     }))
+    console.log(setClickedColour)
   }
+
+  const [newQuantity, setNewQuantity] = useState({ singleProduct })
+  const handleIncrement = () => {
+    setNewQuantity({ ...singleProduct, quantity: Math.max(10, singleProduct.quantity++) })
+  }
+  const handleDecrement = () => {
+    setNewQuantity({ ...singleProduct, quantity: Math.min(0, singleProduct.quantity--) })
+  }
+
+
   return (
     <>
       <div className='routeTaken'>
@@ -38,8 +57,8 @@ function Product() {
         {error && <div>{error}</div>}
         {isLoading ?
           (<div>Loading...</div>) :
-          <div>
-            <img src={singleProduct.api_featured_image} alt={singleProduct.brand + singleProduct.product_type}></img>
+          <div id={singleProduct.id}>
+            <img src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
             <p>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
 
             <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
@@ -67,13 +86,15 @@ function Product() {
               })}
             </div>
             <div className='counter'>
-              <button>
+              {/* <button onClick={() => dispatch({ type: 'PLUSPRODUCT', payload: singleProduct })}> */}
+              <button onClick={handleIncrement} disabled={singleProduct.quantity >= 10}>
                 +
               </button>
-              <p>1</p>
-              <button>
+              <p>{singleProduct.quantity}</p>
+              <button onClick={handleDecrement} disabled={singleProduct.quantity <= 0}>
                 -
               </button>
+
             </div>
             <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
           </div>

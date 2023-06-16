@@ -26,7 +26,7 @@ export const Context = (props) => {
                     // if item id has the same id as the action that is being sent, which means that the item is available
                     if (item.id === action.payload.id) {
                         // if item is available then increase quantity of 1
-                        return { ...item, quantity: item.quantity + 1 };
+                        return { ...item, quantity: Math.min(10, item.quantity + 1) };
                     } else {
                         return item
                     }
@@ -35,7 +35,7 @@ export const Context = (props) => {
             case "MINUS":
                 const countMinus = state.map((item) => {
                     if (item.id === action.payload.id) {
-                        return { ...item, quantity: item.quantity - 1 };
+                        return { ...item, quantity: Math.min(0, item.quantity - 1) };
                     } else {
                         return item
                     }

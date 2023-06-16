@@ -21,9 +21,6 @@ const router = createBrowserRouter(
       <Route path="/cart" element={<Cart />} />
       <Route path="/saved" element={<Saved />} />
       <Route path="/product/:id" element={<Product />} />
-
-
-
     </Route>
   )
 )
