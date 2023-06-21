@@ -8,9 +8,9 @@ function Cart() {
 
 
   const total = state.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue.price * currentValue.quantity;
+    return accumulator + currentValue.price * currentValue.quantity 
   }
-    , 0);
+    , 0)
 
 
 

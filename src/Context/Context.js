@@ -75,20 +75,38 @@ export const Context = (props) => {
         }
     }
 
-    const [state, dispatch] = useReducer(reducer, [])
-    const [savedState, saveDispatch] = useReducer(savedReducer, [], ()=>{
-        // this calls to get the data from the setItems
-        const localData = localStorage.getItem('savedItems')
-        // if storage is empty then to store it by parsing the data, else return empty array 
-        return localData ? JSON.parse(localData) : []
+    // const localCartData = ( )=>{
+    //     localStorage.getItem('cartItems')
+    //     return localCartData ? JSON.parse(localCartData):[]
+    // } 
+    const [state, dispatch] = useReducer(reducer,[], ()=>{
+        const localCartData = localStorage.getItem('cartItems')
+        return localCartData ? JSON.parse(localCartData) : []
     })
 
-    const information = { state, dispatch, savedState, saveDispatch, }
 
+
+    
+        // return localCartData ? JSON.parse(localCartData) : []
+    const [savedState, saveDispatch] = useReducer(savedReducer, [],
+         ()=>{
+    //     // this calls to get the data from the setItems
+        const localSavedData = localStorage.getItem('savedItems')
+    //     // if storage is empty then to store it by parsing the data, else return empty array 
+        return localSavedData? JSON.parse(localSavedData):[]
+    })
+
+    const information = { state, dispatch, savedState, saveDispatch }
+// set local storage with a time out after  24 hours
+    //   useEffect(()=>{
+    //     localStorage.setItem('cartItems', JSON.parse(state))
+    //   }, [state]);
     // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
-    useEffect(() => {
-        localStorage.setItem('savedItems', JSON.stringify(savedState));
-      }, [savedState]);
+      useEffect(()=>{
+        localStorage.setItem('savedItems', JSON.stringify(savedState))
+        localStorage.setItem('cartItems', JSON.stringify(state))
+      }, [savedState, state]);
+      
     return (
 
         <CartContext.Provider
