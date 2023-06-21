@@ -97,15 +97,16 @@ export const Context = (props) => {
     })
 
     const information = { state, dispatch, savedState, saveDispatch }
-// set local storage with a time out after  24 hours
-    //   useEffect(()=>{
-    //     localStorage.setItem('cartItems', JSON.parse(state))
-    //   }, [state]);
     // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
       useEffect(()=>{
         localStorage.setItem('savedItems', JSON.stringify(savedState))
         localStorage.setItem('cartItems', JSON.stringify(state))
       }, [savedState, state]);
+
+      // set local storage with a time out after  24 hours
+    const twentyFourHours = 24*60*60
+
+    setTimeout(()=>localStorage.removeItem('cartItems'), twentyFourHours*1000);
       
     return (
 
