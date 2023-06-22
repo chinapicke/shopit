@@ -6,7 +6,7 @@ import React from 'react'
 function NavbarSearch() {
   return (
     <div>
-        {/* <input value={sameValueAsOtherSearch} type='string' placeholder='Search products' /> */}
+        <input  type='string' placeholder='Search products' /> 
     </div>
   )
 }
