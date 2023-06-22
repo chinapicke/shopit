@@ -4,20 +4,14 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
-import NavbarSearch from '../Components/NavbarSearch';
 
 export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [openSearch, setOpenSearch] = useState(false);
-
 
     const openDropdown = () => {
         setMobileOpen(current => !current);
     }
 
-    const openNavSearch = () => {
-        setOpenSearch(current => !current);
-        }
     return (
         <>
             <div className='jumbotron flex justify-between'>
@@ -44,12 +38,11 @@ export default function RootLayout() {
                     <ul>
                         <div className='flex pl-5'>
                             <li className='block py-3 pl-3 pr-4'>
-                                <button onClick={openNavSearch}>
+                                <NavLink to='shop'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                     </svg>
-                                    {openSearch ? <NavbarSearch />: null}
-                                </button>
+                                </NavLink>
                             </li>
                             <li className='block py-3 pl-3 pr-4'>
                                 <NavLink to='/saved'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

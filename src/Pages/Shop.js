@@ -2,10 +2,13 @@ import { useState, useContext } from 'react';
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { CartContext } from '../Context/Context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 // import Modal from '../Components/Modal';
 // import Product from './Product';
 import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
+import PriceSlider from '../Components/PriceSlider';
 
 
 function Shop() {
@@ -14,34 +17,6 @@ function Shop() {
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
 
-  // Adding quantity of product cards //////////////////////////////////////////
-  // const decrementCount = (index) => {
-  //   // setProducts((prevState) => {
-  //   //   const updatedProducts = prevState.map(e => ({ ...e }));
-  //   //   // create min for the count, can not go less than 0
-  //   //   // math.max() returns the value that is the smallest
-  //   //   // const newCountdown = Math.max(0, updatedProducts[index].count - 1)
-  //   //   // updatedProducts[index].count = newCountdown;
-  //   //   // console.log(updatedProducts[index].count)
-  //   //   // return updatedProducts
-  //   console.log(e.index)
-
-  //   // });
-  // }
-
-
-  // const incrementCount = (index) => {
-  //   setProducts((prevState) => {
-  //     // const updatedProducts = [...prevState];
-  //     const updatedProducts = prevState.map(e => ({ ...e }));
-  //     // create max for the count, can not go more than 10
-  //     const newCount = Math.min(10, updatedProducts[index].count + 1)
-  //     updatedProducts[index].count = newCount;
-  //     // console.log('This is the count'+updatedProducts[index].count)
-  //     return updatedProducts;
-  //   });
-  // }
-  ///////////////////////////////////////////////////////////////////////
 
   // useContext for the add to cart 
   const Cartstate = useContext(CartContext)
@@ -82,13 +57,13 @@ function Shop() {
   //   setProductOpen(true);
   // }
   /////////////////////////////////////
-
   return (
     <div>
       <Searchbar 
       onSearch={getProductsByBrand}
         onFilter={getProductsByType}
       />
+      <PriceSlider ></PriceSlider>
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {error && <div>{error}</div>}
@@ -122,9 +97,10 @@ function Shop() {
                     <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ')}</p>
                     <p>£{
                       // Condition if the price is 0, give it a default of '8.5' 
-                      (item.price === '0.0')
-                        ? '8.5'
-                        : item.price
+
+                      (item.price === '0.0')? '8.50'
+                      // converts all numbers to 2 decimal places
+                        : Number(item.price).toFixed(2)
                     }</p>
                   </Link>
 
@@ -136,7 +112,7 @@ function Shop() {
                     <div className='productQuantity'>
                     </div>
                     <button onClick={() => dispatch({ type: 'ADD', payload: item })}>
-                      Add to cart
+                    <FontAwesomeIcon icon={faBasketShopping} />
                     </button>
                   </div>
                 </div>
