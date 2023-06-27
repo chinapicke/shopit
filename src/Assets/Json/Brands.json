@@ -12,7 +12,7 @@
     },
     {
         "id": 3,
-        "brand": "anna%20sui",
+        "brand": "anna sui",
         "name": "Anna Sui"
 
     },
@@ -36,25 +36,25 @@
     },
     {
         "id": 7,
-        "brand": "burt%27s%20bees",
+        "brand": "burt's bees",
         "name": "Burt's Bees"
 
     },
     {
         "id": 8,
-        "brand": "butter%20london",
+        "brand": "butter london",
         "name": "Butter London"
 
     },
     {
         "id": 9,
-        "brand": "c%27est%20moi",
+        "brand": "c'est moi",
         "name": "c'est moi"
 
     },
     {
         "id": 10,
-        "brand": "cargo%20cosmetics",
+        "brand": "cargo cosmetics",
         "name": "Cargo Cosmetics"
     },
     {
@@ -71,7 +71,7 @@
     },
     {
         "id": 13,
-        "brand": "coastal%20classic%20creation",
+        "brand": "coastal classic creation",
         "name": "Coastal Classic Creation"
 
     },
@@ -107,7 +107,7 @@
     },
     {
         "id": 19,
-        "brand": "dr.%20hauschka",
+        "brand": "dr. hauschka",
         "name": "Dr Hauschka"
 
         
@@ -138,7 +138,7 @@
     },
     {
         "id": 24,
-        "brand": "green%20people",
+        "brand": "green people",
         "name": "Green People"
 
     },
@@ -156,13 +156,13 @@
     },
     {
         "id": 27,
-        "brand": "lotus%20cosmetics%20usa",
+        "brand": "lotus cosmetics usa",
         "name": "Lotus Cosmetics USA" 
 
     },
     {
         "id": 28,
-        "brand": "maia%27s%20mineral%20galaxy",
+        "brand": "maia's mineral galaxy",
         "name": "Maia's Mineral Galaxy"
 
     },
@@ -193,7 +193,7 @@
     },
     {
         "id": 33,
-        "brand": "mineral%20fusion",
+        "brand": "mineral fusion",
         "name": "Mineral Fusion"
 
     },
@@ -241,31 +241,31 @@
     },
     {
         "id": 41,
-        "brand": "penny%20lane%20organics",
+        "brand": "penny lane organics",
         "name": "Penny Lane Organics"
 
     },
     {
         "id": 42,
-        "brand": "physicians%20formula",
+        "brand": "physicians formula",
         "name": "Physicians Formula"
 
     },
     {
         "id": 43,
-        "brand": "piggy%20paint",
+        "brand": "piggy paint",
         "name": "Piggy Paint"
 
     },
     {
         "id": 44,
-        "brand": "pure%20anada",
+        "brand": "pure anada",
         "name": "Pure Anada"
 
     },
     {
         "id": 45,
-        "brand": "rejuva%20minerals",
+        "brand": "rejuva minerals",
         "name": "Rejuva Minreals"
 
     },
@@ -277,13 +277,13 @@
     },
     {
         "id": 47,
-        "brand": "sally%20b%27s%20skin%20yummies",
+        "brand": "sally b's skin yummies",
         "name": "Sally B's Skin Yummies"
 
     },
     {
         "id": 48,
-        "brand": "salon%20perfect",
+        "brand": "salon perfect",
         "name": "Salon Perfect"
 
     },
@@ -295,7 +295,7 @@
     },
     {
         "id": 50,
-        "brand": "sinful%20colours",
+        "brand": "sinful colours",
         "name": "Sinful Colours"
 
     },
@@ -325,7 +325,7 @@
     },
     {
         "id": 55,
-        "brand": "wet%20n%20wild",
+        "brand": "wet n wild",
         "name": "Wet n Wild"
 
     },
@@ -337,7 +337,7 @@
     },
     {
         "id": 57,
-        "brand": "zorah%20biocosmetiques",
+        "brand": "zorah biocosmetiques",
         "name": "Zorah Biocosmetiques"
 
     }

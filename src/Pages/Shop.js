@@ -65,7 +65,7 @@ function Shop() {
         onFilter={getProductsByType}
       />
       <PriceSlider ></PriceSlider>
-      <BrandList></BrandList>
+      <BrandList brandDropDown={getProductsByBrand}></BrandList>
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {error && <div>{error}</div>}
