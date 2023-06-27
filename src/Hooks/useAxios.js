@@ -162,7 +162,8 @@ const useAxios = (url) => {
     getProductsByType,
     selectAProduct, 
     error, 
-    singleProduct
+    singleProduct, 
+    setProducts
   }
 
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useContext} from "react"
-import { CartContext } from '../Context/Context';
+import { AppContext } from '../Context/Context';
 
 function Saved() {
-  const SaveState = useContext(CartContext);
+  const SaveState = useContext(AppContext);
   const savedState = SaveState.savedState;
   const saveDispatch = SaveState.saveDispatch;
 

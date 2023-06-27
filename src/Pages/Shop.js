@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
-import { CartContext } from '../Context/Context';
+import { AppContext } from '../Context/Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 // import Modal from '../Components/Modal';
@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
+import Sort from '../Components/Sort';
 
 
 function Shop() {
@@ -20,12 +21,12 @@ function Shop() {
 
 
   // useContext for the add to cart 
-  const Cartstate = useContext(CartContext)
+  const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
   // console.log(Cartstate)
 
   // Usecontext for the saved array as it uses a different function
-  const Savestate = useContext(CartContext)
+  const Savestate = useContext(AppContext)
   const saveDispatch = Savestate.saveDispatch
   // console.log(Savestate)
 
@@ -66,6 +67,7 @@ function Shop() {
       />
       <PriceSlider ></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
+      <Sort></Sort>
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {error && <div>{error}</div>}

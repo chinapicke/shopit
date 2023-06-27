@@ -2,12 +2,14 @@ import React, { useReducer, useEffect } from 'react'
 import { createContext } from 'react'
 
 // this is what is exported to the children page and this is where the states will be 'pulled from'
-export const CartContext = createContext()
+export const AppContext = createContext()
 
 export const Context = (props) => {
     // this uses useReducer which holds the states like useState except that it the state can be used for different things e.g. if we want to add or delete from the state
     // it returns the state and dispatch, we put the action in the dispatch
     // reducer accepts the current state and the action
+
+    // Different button functions on the cart page
     const reducer = (state, action) => {
         switch (action.type) {
             case "ADD":
@@ -52,6 +54,7 @@ export const Context = (props) => {
         }
     }
 
+    // Different button functions on the saved page
     const savedReducer = (savedState, action) => {
         switch (action.type) {
             case "SAVE":
@@ -75,10 +78,7 @@ export const Context = (props) => {
         }
     }
 
-    // const localCartData = ( )=>{
-    //     localStorage.getItem('cartItems')
-    //     return localCartData ? JSON.parse(localCartData):[]
-    // } 
+  // function to get cart into local storage
     const [state, dispatch] = useReducer(reducer,[], ()=>{
         const localCartData = localStorage.getItem('cartItems')
         return localCartData ? JSON.parse(localCartData) : []
@@ -86,8 +86,7 @@ export const Context = (props) => {
 
 
 
-    
-        // return localCartData ? JSON.parse(localCartData) : []
+    // function to get saved into local storage
     const [savedState, saveDispatch] = useReducer(savedReducer, [],
          ()=>{
     //     // this calls to get the data from the setItems
@@ -96,6 +95,8 @@ export const Context = (props) => {
         return localSavedData? JSON.parse(localSavedData):[]
     })
 
+
+    // function to save to local storage
     const information = { state, dispatch, savedState, saveDispatch }
     // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
       useEffect(()=>{
@@ -105,14 +106,15 @@ export const Context = (props) => {
 
       // set local storage with a time out after  24 hours
     const twentyFourHours = 24*60*60
-
     setTimeout(()=>localStorage.removeItem('cartItems'), twentyFourHours*1000);
       
+
+
     return (
 
-        <CartContext.Provider
+        <AppContext.Provider
             value={information}>
             {props.children}
-        </CartContext.Provider>
+        </AppContext.Provider>
     )
 }

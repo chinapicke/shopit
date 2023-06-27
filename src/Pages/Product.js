@@ -5,7 +5,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import GetSingleProduct from '../Hooks/getSingleProduct'
-import { CartContext } from '../Context/Context'
+import { AppContext } from '../Context/Context'
 import '../Assets/Styles/Product.css'
 
 function Product() {
@@ -22,7 +22,7 @@ function Product() {
 
 
   // useContext for the add to cart 
-  const Cartstate = useContext(CartContext)
+  const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
 
   const handleColour = (index) => {
