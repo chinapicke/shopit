@@ -8,8 +8,12 @@ const [priceMax, setPriceMax]=useState('')
 
 
 const handleMin = event => {
-    const value = Math.max(1, Math.min(65, Number(event.target.value)));
-    setPriceMin(value);
+    if (event.target.value < 0 && event.target.value >65){
+        return 
+    }
+    else{
+           setPriceMin(event.target.value);
+    }
 };
 
 const handleMax = event => {
@@ -21,7 +25,7 @@ const handleMax = event => {
     return (
         <div className='priceSlider'>
             <h1>Select Price</h1>
-            <input className='priceMin' type='number' placeholder='1' value={priceMin} onChange={handleMin}/>
+            <input className='priceMin' type='number' placeholder='1' value={priceMin} min='1' max='65' onChange={handleMin}/>
             <p>Min</p>
             <input className='priceMax' type='number' placeholder='75'value={priceMax} onChange={handleMax}/>
             <p>Max</p>

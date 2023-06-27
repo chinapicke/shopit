@@ -9,6 +9,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
 import PriceSlider from '../Components/PriceSlider';
+import BrandList from '../Components/BrandList';
 
 
 function Shop() {
@@ -64,6 +65,7 @@ function Shop() {
         onFilter={getProductsByType}
       />
       <PriceSlider ></PriceSlider>
+      <BrandList></BrandList>
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {error && <div>{error}</div>}

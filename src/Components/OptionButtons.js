@@ -1,16 +1,14 @@
 import React from 'react'
 
-
 const OptionButtons= ({onButton})=> {
 
   const handleClick = (e) =>{
     const productCategory = e.target.value
     onButton(productCategory)
-
   }
 
   return (
-    <div onClick={handleClick}>
+    <div className='productTypeButton' onClick={handleClick}>
         <button value='lush'>Blush</button>
         <button value='bronzer'>Bronzer</button>
         <button value='eyebrow'>Eyebrow</button>
