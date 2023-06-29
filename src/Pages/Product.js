@@ -61,12 +61,7 @@ function Product() {
             <p>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
 
             <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
-            <h2> £{
-              // Condition if the price is 0, give it a default of '8.5' 
-              (singleProduct.price === '0.0')
-                ? '8.5'
-                : singleProduct.price
-            }</h2>
+            <h2> £{singleProduct.price==='0.0'||singleProduct.price === null ? '8.50': Number(singleProduct.price).toFixed(2)}</h2>
             <h3>{singleProduct.description}</h3>
             {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}

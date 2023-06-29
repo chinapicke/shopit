@@ -25,9 +25,10 @@ const useAxios = (url) => {
       console.log(res.data)
       if (res.status === 200) {
         console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
+        const productsWithQuantity = res.data.map((item)=>{
+          return(
+          item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+        )})
         setProducts(productsWithQuantity);
       }
       else {
@@ -56,9 +57,10 @@ const useAxios = (url) => {
       if (res.status === 200) {
         console.log('Success!');
         // adds a quantity of 1 to each object within the array of data from the api 
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
+        const productsWithQuantity = res.data.map((item)=>{
+          return(
+          item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+        )})
         setProducts(productsWithQuantity);
       }
       else {
@@ -86,9 +88,10 @@ const useAxios = (url) => {
       console.log(res.data)
       if (res.status === 200) {
         console.log('Success!');
-        const productsWithQuantity = res.data.map((item) => ({
-          ...item, quantity: 1
-        }));
+        const productsWithQuantity = res.data.map((item)=>{
+          return(
+          item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+        )})
         setProducts(productsWithQuantity);
       }
       else {
@@ -146,7 +149,7 @@ const useAxios = (url) => {
           // converts prices that are set to 0.0 by the API and adds quantity of 1 to eahc object in the data array
           const productsWithQuantity = res.data.map((item)=>{
             return(
-            item.price === '0.0' ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+            item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
           )})
           
           // res.data.map((item) => ({
@@ -181,7 +184,11 @@ const useAxios = (url) => {
         const res = await axios.get(url)
         if (res.status === 200) {
           console.log('Success!');
-          setSingleProduct(res);
+          const verifiedPrice = res.data.map((item)=>{
+            return(item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+          )})
+          console.log(verifiedPrice)
+          setSingleProduct(verifiedPrice);
         }
         else {
           console.log(`Server error: ${res.status}`);

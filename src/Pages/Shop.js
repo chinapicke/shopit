@@ -15,7 +15,7 @@ import BrandList from '../Components/BrandList';
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, SortAsc, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
 
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
@@ -64,6 +64,11 @@ function Shop() {
 //   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 //   const randomProducts = shuffle(products)
 // //////////////////////////////////////////
+
+const SortAsc = () => {
+  products.sort((a, b) => a.price - b.price)
+  console.log('sort button clicked')
+}
 
   return (
     <div>
