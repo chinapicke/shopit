@@ -55,6 +55,7 @@ const useAxios = (url) => {
       console.log(res.data)
       if (res.status === 200) {
         console.log('Success!');
+        // adds a quantity of 1 to each object within the array of data from the api 
         const productsWithQuantity = res.data.map((item) => ({
           ...item, quantity: 1
         }));
@@ -66,6 +67,8 @@ const useAxios = (url) => {
     }
     catch (err) {
       console.log(`Fetch error: ${err}`);
+      setError(err.message);
+
     }
     finally {
       setIsLoading(false)
@@ -95,12 +98,40 @@ const useAxios = (url) => {
     }
     catch (err) {
       console.log(`Fetch error: ${err}`);
+      setError(err.message)
     }
     finally {
       setIsLoading(false)
     }
   }
 
+  // const filterProduct = async (url) => {
+  //   setIsLoading(true)
+  //     try {
+  //       const res = await axios.get(url)
+  //       if (res.status === 200) {
+  //         console.log('Success!');
+  //         const productsWithQuantity = res.data.map((item) => ({
+  //           ...item, quantity: 1
+  //         }));
+  //         setProducts(productsWithQuantity);
+  //       }
+  //       else {
+  //         console.log(`Server error: ${res.status}`);
+  //       }
+  //     } catch (err) {
+  //       console.log(`Fetch error: ${err}`);
+  //       setError(err.message);
+
+  //     }
+  //     finally {
+  //       setIsLoading(false)
+  //     }
+  //   }
+
+  const SortAsc = () => {
+    products.sort((a, b) => a.price - b.price)
+  }
 
 
   useEffect(() => {
@@ -112,9 +143,18 @@ const useAxios = (url) => {
         const res = await axios.get(url)
         if (res.status === 200) {
           console.log('Success!');
-          const productsWithQuantity = res.data.map((item) => ({
-            ...item, quantity: 1
-          }));
+          // converts prices that are set to 0.0 by the API and adds quantity of 1 to eahc object in the data array
+          const productsWithQuantity = res.data.map((item)=>{
+            return(
+            item.price === '0.0' ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+          )})
+          
+          // res.data.map((item) => ({
+            
+          //   ...item, quantity: 1,
+          //   // ...item.price === '0.0' ? '8.50' : item.price
+          // }));
+          // converts prices that are set to 0.0 by the API
           setProducts(productsWithQuantity);
         }
         else {
@@ -122,6 +162,8 @@ const useAxios = (url) => {
         }
       } catch (err) {
         console.log(`Fetch error: ${err}`);
+        setError(err.message);
+
       }
       finally {
         setIsLoading(false)
@@ -143,9 +185,12 @@ const useAxios = (url) => {
         }
         else {
           console.log(`Server error: ${res.status}`);
+
+
         }
       } catch (err) {
         console.log(`Fetch error: ${err}`);
+        setError(err.message);
       }
       finally {
         setIsLoading(false)
@@ -160,10 +205,12 @@ const useAxios = (url) => {
     products,
     getProductsByBrand,
     getProductsByType,
-    selectAProduct, 
-    error, 
-    singleProduct, 
-    setProducts
+    selectAProduct,
+    error,
+    singleProduct,
+    setProducts,
+    SortAsc
+    // filterProduct
   }
 
 }

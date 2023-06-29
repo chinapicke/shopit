@@ -10,12 +10,13 @@ import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
-import Sort from '../Components/Sort';
+// import Sort from '../Components/Sort';
 
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, SortAsc, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
 
@@ -59,15 +60,21 @@ function Shop() {
   //   setProductOpen(true);
   // }
   /////////////////////////////////////
+  // Randomly go through the array of data, this changes each time the user refreshes the page 
+//   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+//   const randomProducts = shuffle(products)
+// //////////////////////////////////////////
+
   return (
     <div>
-      <Searchbar 
-      onSearch={getProductsByBrand}
+      <Searchbar
+        onSearch={getProductsByBrand}
         onFilter={getProductsByType}
       />
       <PriceSlider ></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
-      <Sort></Sort>
+      {/* <Sort onSort={filterProduct}></Sort> */}
+      <button onClick={SortAsc} >Sort it</button>
       <OptionButtons onButton={selectAProduct} />
       <div className='shopCards grid grid-cols-2'>
         {error && <div>{error}</div>}
@@ -98,13 +105,13 @@ function Shop() {
                     {/* To display the brand name with as sentence case */}
                     <p>
                       {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-                    <p>{item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ')}</p>
-                    <p>£{
+                    <p>{item?.product_type ? item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' '): item.product_type}</p>
+                    <p>£{Number(item.price).toFixed(2)
                       // Condition if the price is 0, give it a default of '8.5' 
 
-                      (item.price === '0.0')? '8.50'
-                      // converts all numbers to 2 decimal places
-                        : Number(item.price).toFixed(2)
+                      // (item.price === '0.0') ? '8.50'
+                      //   // converts all numbers to 2 decimal places
+                      //   : 
                     }</p>
                   </Link>
 
@@ -116,7 +123,7 @@ function Shop() {
                     <div className='productQuantity'>
                     </div>
                     <button onClick={() => dispatch({ type: 'ADD', payload: item })}>
-                    <FontAwesomeIcon icon={faBasketShopping} />
+                      <FontAwesomeIcon icon={faBasketShopping} />
                     </button>
                   </div>
                 </div>
