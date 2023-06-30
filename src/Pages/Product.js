@@ -22,8 +22,9 @@ function Product() {
 
 
   // useContext for the add to cart 
-  const Cartstate = useContext(AppContext)
-  const dispatch = Cartstate.dispatch;
+  const CartState = useContext(AppContext);
+  const dispatch = CartState.dispatch;
+
 
   const handleColour = (index) => {
     setClickedColour(prevstate =>
@@ -34,14 +35,14 @@ function Product() {
     console.log(setClickedColour)
   }
 
-  const [newQuantity, setNewQuantity] = useState({ singleProduct })
-  const handleIncrement = () => {
-    setNewQuantity({ ...singleProduct, quantity: Math.max(10, singleProduct.quantity++) })
-  }
-  const handleDecrement = () => {
-    setNewQuantity({ ...singleProduct, quantity: Math.min(0, singleProduct.quantity--) })
-  }
-
+  // const [newQuantity, setNewQuantity] = useState({...singleProduct, quantity:1})
+  // console.log(newQuantity)
+  // const handleIncrement = () => {
+  //   setNewQuantity(prev=>({...singleProduct, quantity: prev.quantity+1}))
+  // }
+  // const handleDecrement = () => {
+  //   setNewQuantity(prev=>({...singleProduct, quantity: prev.quantity+1}))
+  // }
 
   return (
     <>
@@ -61,7 +62,7 @@ function Product() {
             <p>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
 
             <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
-            <h2> £{singleProduct.price==='0.0'||singleProduct.price === null ? '8.50': Number(singleProduct.price).toFixed(2)}</h2>
+            <h2> £{singleProduct.price === '0.0' || singleProduct.price === null ? '8.50' : Number(singleProduct.price).toFixed(2)}</h2>
             <h3>{singleProduct.description}</h3>
             {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
@@ -79,23 +80,22 @@ function Product() {
                 )
               })}
             </div>
-            <div className='counter'>
-              {/* <button onClick={() => dispatch({ type: 'PLUSPRODUCT', payload: singleProduct })}> */}
-              <button onClick={handleIncrement} disabled={singleProduct.quantity >= 10}>
-                +
-              </button>
-              <p>{singleProduct.quantity}</p>
-              <button onClick={handleDecrement} disabled={singleProduct.quantity <= 0}>
-                -
-              </button>
-
+            {/* <div className='counter'> */}
+            {/* <button onClick={handleIncrement}>
+                  +
+                </button>
+                <p>{newQuantity.quantity}</p>
+                <button onClick={handleDecrement}>
+                {/* <button onClick={() => dispatch({ type: "PLUS", payload: singleProduct })}> */}
+                  -
+                {/* </button>
+              </div> */}
+              <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
             </div>
-            <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
-          </div>
         }
-      </div >
+          </div >
     </>
-  )
+      )
 }
 
-export default Product
+      export default Product

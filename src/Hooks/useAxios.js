@@ -10,6 +10,8 @@ const useAxios = (url) => {
   // output error code
   const [error, setError] = useState(false)
 
+  const [serverErr, setServerErr] = useState(false)
+
   const [singleProduct, setSingleProduct] = useState([])
 
   // call when user filters by brand
@@ -64,7 +66,8 @@ const useAxios = (url) => {
         setProducts(productsWithQuantity);
       }
       else {
-        console.log(`Server error: ${res.status}`);
+        console.log()
+        setServerErr(`Server error: ${res.message} `);
       }
     }
     catch (err) {
@@ -216,7 +219,8 @@ const useAxios = (url) => {
     error,
     singleProduct,
     setProducts,
-    SortAsc
+    SortAsc, 
+    serverErr
     // filterProduct
   }
 

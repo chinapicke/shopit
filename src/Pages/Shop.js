@@ -15,7 +15,7 @@ import BrandList from '../Components/BrandList';
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, isLoading, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
 
   // saved icon to shaded
   const [likedIndex, setLikedIndex] = useState([])
@@ -32,7 +32,6 @@ function Shop() {
   // console.log(Savestate)
 
   //////////////////////////////////////////////////////////////////////////////
-
   // onClick changes the heart from empty to full
   const changeIcon = (index) => {
     setLikedIndex(state => ({
@@ -61,14 +60,14 @@ function Shop() {
   // }
   /////////////////////////////////////
   // Randomly go through the array of data, this changes each time the user refreshes the page 
-//   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
-//   const randomProducts = shuffle(products)
-// //////////////////////////////////////////
+  //   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+  //   const randomProducts = shuffle(products)
+  // //////////////////////////////////////////
 
-const SortAsc = () => {
-  products.sort((a, b) => a.price - b.price)
-  console.log('sort button clicked')
-}
+  const SortAsc = () => {
+    products.sort((a, b) => a.price - b.price)
+    console.log('sort button clicked')
+  }
 
   return (
     <div>
@@ -81,8 +80,9 @@ const SortAsc = () => {
       {/* <Sort onSort={filterProduct}></Sort> */}
       <button onClick={SortAsc} >Sort it</button>
       <OptionButtons onButton={selectAProduct} />
+      {serverErr && <div>{serverErr}</div>}
+      {error && <div>{error}</div>}
       <div className='shopCards grid grid-cols-2'>
-        {error && <div>{error}</div>}
         {!isLoading ? <>
           {products.length ?
             products.map((item, index) => {
@@ -105,18 +105,13 @@ const SortAsc = () => {
                     }
 
                   </button>
-                  <Link to={`/product/${item.id}`} name={item.brand} >
+                  <Link to={`/product/${item.id}`} name={item.brand}>
                     <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
                     {/* To display the brand name with as sentence case */}
                     <p>
                       {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-                    <p>{item?.product_type ? item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' '): item.product_type}</p>
+                    <p>{item?.product_type ? item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</p>
                     <p>£{Number(item.price).toFixed(2)
-                      // Condition if the price is 0, give it a default of '8.5' 
-
-                      // (item.price === '0.0') ? '8.50'
-                      //   // converts all numbers to 2 decimal places
-                      //   : 
                     }</p>
                   </Link>
 
