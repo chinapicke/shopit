@@ -1,5 +1,7 @@
 import { AppContext } from '../Context/Context';
 import { useContext } from 'react';
+import { NavLink} from 'react-router-dom'
+
 
 function CartPopUp() {
     const CartState = useContext(AppContext);
@@ -39,6 +41,9 @@ function CartPopUp() {
       {state.length > 0 && (
         < h1 > Total:£{total.toFixed(2)}</h1>
       )}
+      <NavLink to='/cart'>
+        Go to cart
+      </NavLink>
     </div >
 
   )
