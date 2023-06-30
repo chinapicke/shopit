@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from 'react'
-import { createContext } from 'react'
+import { createContext} from 'react'
 
 // this is what is exported to the children page and this is where the states will be 'pulled from'
 export const AppContext = createContext()
@@ -143,8 +143,10 @@ export const Context = (props) => {
             return localSavedData ? JSON.parse(localSavedData) : []
         })
 
+
+        const cartLength = state.length
     // function to save to local storage
-    const information = { state, dispatch, savedState, saveDispatch, singleState, singleDispatch }
+    const information = { cartLength, state, dispatch, savedState, saveDispatch, singleState, singleDispatch }
     // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
     useEffect(() => {
         localStorage.setItem('savedItems', JSON.stringify(savedState))
@@ -155,8 +157,6 @@ export const Context = (props) => {
     const twentyFourHours = 24 * 60 * 60
     setTimeout(() => localStorage.removeItem('cartItems'), twentyFourHours * 1000);
 
-
-
     return (
 
         <AppContext.Provider
@@ -164,4 +164,8 @@ export const Context = (props) => {
             {props.children}
         </AppContext.Provider>
     )
+
+   
 }
+
+

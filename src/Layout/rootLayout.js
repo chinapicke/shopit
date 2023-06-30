@@ -11,8 +11,16 @@ export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const CartState = useContext(AppContext);
-    const state = CartState.state;
-    console.log(state)
+    const state = CartState.state
+
+    // to show changing cart amount at shopping cart icon
+    const quantityOnly = state.map(item => item.quantity)
+    console.log(quantityOnly);
+    const totalCartQuantity = quantityOnly.reduce(function(accumulator,currValue)
+    {
+       return accumulator + currValue;
+    },0)
+    console.log(totalCartQuantity);
 
     const openDropdown = () => {
         setMobileOpen(current => !current);
@@ -60,6 +68,7 @@ export default function RootLayout() {
                                 <NavLink to='/cart'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
+                                <span>{totalCartQuantity<=0?null:totalCartQuantity }</span>
                                 </NavLink>
                             </li>
                         </div>
@@ -101,12 +110,10 @@ export default function RootLayout() {
                             </svg>
                             </NavLink>
                         </li>
-                        <li>
-                            {state.length}
-                        </li>
                     </ul> : null
                 }
             </div>
+
             <div className='navbarSeperator w-full h-4'></div>
             <main>
                 <Outlet />
