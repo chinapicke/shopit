@@ -2,6 +2,8 @@ import { useState } from "react"
 
 const SavedHook = () => {
     const [likedIndex, setLikedIndex]= useState([])
+    const [cartDrawer, setCartDrawer] = useState(false);
+
   const changeIcon = (index) => {
     setLikedIndex(state => ({
       ...state, [index] // copies previous state 
@@ -9,9 +11,16 @@ const SavedHook = () => {
     }))
     
   }
+
+  const openDrawer = () => {
+    setCartDrawer(current => !current);
+}
+
   return{
     likedIndex, 
-    changeIcon
+    changeIcon, 
+    cartDrawer,
+    openDrawer
   }
 }
 
