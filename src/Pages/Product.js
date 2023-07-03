@@ -35,14 +35,6 @@ function Product() {
     console.log(setClickedColour)
   }
 
-  // const [newQuantity, setNewQuantity] = useState({...singleProduct, quantity:1})
-  // console.log(newQuantity)
-  // const handleIncrement = () => {
-  //   setNewQuantity(prev=>({...singleProduct, quantity: prev.quantity+1}))
-  // }
-  // const handleDecrement = () => {
-  //   setNewQuantity(prev=>({...singleProduct, quantity: prev.quantity+1}))
-  // }
 
   return (
     <>
@@ -80,15 +72,6 @@ function Product() {
                 )
               })}
             </div>
-            {/* <div className='counter'> */}
-            {/* <button onClick={handleIncrement}>
-                  +
-                </button>
-                <p>{newQuantity.quantity}</p>
-                <button onClick={handleDecrement}>
-                {/* <button onClick={() => dispatch({ type: "PLUS", payload: singleProduct })}> */}
-                {/* </button>
-              </div> */}
               <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
             </div>
         }
