@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Assets/Styles/jumbotron.css'
+import Brushes from '../Assets/Images/brushes.png'
+
 
 function Jumbotron() {
     return (
@@ -17,7 +19,7 @@ function Jumbotron() {
                     </button>
                 </div>
                 <div className='bannerPhoto'>
-                    <img src='https://images.asos-media.com/products/ciate-london-4-in-1-makeup-brush/13617999-2?$n_640w$&wid=513&fit=constrain' alt='makeupBrushes' />
+                    <img src={Brushes} alt='makeupBrushes' />
                 </div>
             </div>
         </div>

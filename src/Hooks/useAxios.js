@@ -140,6 +140,9 @@ const useAxios = (url) => {
   }
 
 
+
+   
+
   useEffect(() => {
     const getAPI = async (url) => {
       // useCallback means that the API call will not be made everytime we make a change to the page e.g. reviewing a products info

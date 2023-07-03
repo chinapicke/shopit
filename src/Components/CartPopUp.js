@@ -1,7 +1,6 @@
 import { AppContext } from '../Context/Context';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom'
-import SavedHook from '../Hooks/savedHook';
 
 
 function CartPopUp() {
