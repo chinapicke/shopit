@@ -2,3 +2,19 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
+
+.leftMidPicture{
+    background-color: burlywood;
+}
+
+.rightMidPicture{
+    background-color: darksalmon;
+}
+
+.homepageBottomBanner{
+    background-color: skyblue;
+}
+
+.subscriptionBanner{
+    background-color: darkkhaki;
+}

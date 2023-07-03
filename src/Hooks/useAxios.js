@@ -177,7 +177,7 @@ const useAxios = (url) => {
     }
     getAPI(url)
   }, [url]);
-
+ 
   useEffect(() => {
     const singleAPI = async (url) => {
       // useCallback means that the API call will not be made everytime we make a change to the page e.g. reviewing a products info
@@ -209,6 +209,8 @@ const useAxios = (url) => {
     singleAPI(url)
   }, [url]);
 
+  
+
 
   return {
     isLoading,
@@ -226,4 +228,4 @@ const useAxios = (url) => {
 
 }
 
-export default useAxios
+export default useAxios 

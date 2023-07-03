@@ -87,7 +87,6 @@ function Product() {
                 <p>{newQuantity.quantity}</p>
                 <button onClick={handleDecrement}>
                 {/* <button onClick={() => dispatch({ type: "PLUS", payload: singleProduct })}> */}
-                  -
                 {/* </button>
               </div> */}
               <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>

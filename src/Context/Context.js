@@ -145,8 +145,9 @@ export const Context = (props) => {
 
 
         const cartLength = state.length
+
     // function to save to local storage
-    const information = { cartLength, state, dispatch, savedState, saveDispatch, singleState, singleDispatch }
+    const information = { cartLength, state, dispatch, savedState, saveDispatch, singleState, singleDispatch}
     // set the local storage of the keyvalue pair e.g. savedItems will be the key and then the savedState will be the value 
     useEffect(() => {
         localStorage.setItem('savedItems', JSON.stringify(savedState))

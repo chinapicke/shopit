@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import Searchbar from '../Components/Searchbar';
 import OptionButtons from '../Components/OptionButtons';
 import { AppContext } from '../Context/Context';
@@ -8,17 +8,16 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 // import Product from './Product';
 import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
+import savedHook from '../Hooks/savedHook';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
-// import Sort from '../Components/Sort';
-
+// import Sort from '../Components/Sort'
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
   const { products, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
-
   // saved icon to shaded
-  const [likedIndex, setLikedIndex] = useState([])
+  const { likedIndex, changeIcon}= savedHook()
 
 
   // useContext for the add to cart 
@@ -33,13 +32,13 @@ function Shop() {
 
   //////////////////////////////////////////////////////////////////////////////
   // onClick changes the heart from empty to full
-  const changeIcon = (index) => {
-    setLikedIndex(state => ({
-      ...state, [index] // copies previous state 
-        : !state[index] // updates the state by adding the index key this is how it identifies which index has been clicked
-    }))
-    console.log(setLikedIndex)
-  }
+  // const changeIcon = (index) => {
+  //   setLikedIndex(state => ({
+  //     ...state, [index] // copies previous state 
+  //       : !state[index] // updates the state by adding the index key this is how it identifies which index has been clicked
+  //   }))
+  //   console.log(setLikedIndex)
+  // }
   /////////////////////////////////////////////////////////////////////////////////
   // const [productOpen, setProductOpen] = useState(false)
   // const [showModal, setShowModal] = useState([])
@@ -63,6 +62,7 @@ function Shop() {
   //   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
   //   const randomProducts = shuffle(products)
   // //////////////////////////////////////////
+
 
   const SortAsc = () => {
     products.sort((a, b) => a.price - b.price)
@@ -139,4 +139,4 @@ function Shop() {
 }
 
 
-export default Shop
+export default Shop; 
