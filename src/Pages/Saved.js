@@ -18,7 +18,7 @@ function Saved() {
               <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
               {/* To display the brand name with as sentence case */}
               <p>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-              <p>{item?.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase()}</p>
+              <p>{item?.product_type ? item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</p>
               <p>£{Number(item.price).toFixed(2)}</p>
               <button onClick={() => { saveDispatch({ type: "DELETE", delete: item }) }}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
