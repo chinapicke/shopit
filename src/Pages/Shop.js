@@ -17,7 +17,7 @@ import '../Assets/Styles/Shop.css'
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, sortThis, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -129,7 +129,18 @@ function Shop() {
 
   }
 
-  
+  const sortThis = () =>{
+    const prices = products.sort(function(a , b){
+          if(a.price > b.price) return +1
+          if(a.price < b.price) return -1
+          return 0
+          })
+          console.log(prices)
+          console.log('Sort button clicked')
+            // console.log("This is sorted", prices)
+            // console.log('price button clicked')
+    setProducts(prices)
+  }
 
 
   return (
