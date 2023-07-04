@@ -11,13 +11,13 @@ import useAxios from '../Hooks/useAxios';
 import savedHook from '../Hooks/savedHook';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
-// import Sort from '../Components/Sort'
+import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
 import '../Assets/Styles/Shop.css'
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, sortThis, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -128,13 +128,9 @@ function Shop() {
     setCurrentPage(selected)
 
   }
-  //   const firstPostIndex = lastPostIndex - productPerPage
-  //  const currentProducts = products.slice(firstPostIndex, lastPostIndex)
 
-  const SortAsc = () => {
-    products.sort((a, b) => a.price - b.price)
-    console.log('sort button clicked')
-  }
+  
+
 
   return (
     <div>
@@ -145,7 +141,7 @@ function Shop() {
       <PriceSlider ></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
       {/* <Sort onSort={filterProduct}></Sort> */}
-      <button onClick={SortAsc} >Sort it</button>
+      <button onClick={sortThis}>Sort it out </button>
       <OptionButtons onButton={selectAProduct} />
       {serverErr && <div>{serverErr}</div>}
       {error && <div>{error}</div>}

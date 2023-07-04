@@ -1,17 +1,17 @@
 import React from 'react'
+import useAxios from '../Hooks/useAxios'
 
-const Sort = ({ onSort }) => {
+const Sort = ({ onSort }) =>{
+// const {products} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+ const handleSort = ()=>{
+    onSort()
+ }
 
-
-    const ascending = () => {
-        const sortIt = console.log('Sorted')
-        onSort(sortIt)
-    }
 
     return (
         <div>
             <label>Sort By</label>
-            <button onClick={ascending}>low to high </button>
+            <button onClick={handleSort}>low to high </button>
             {/* <select onClick={ascending}>
                 <option value='lowest'>
                     Price low to high

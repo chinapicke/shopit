@@ -112,32 +112,47 @@ const useAxios = (url) => {
   }
 
   // const filterProduct = async (url) => {
-  //   setIsLoading(true)
-  //     try {
-  //       const res = await axios.get(url)
-  //       if (res.status === 200) {
-  //         console.log('Success!');
-  //         const productsWithQuantity = res.data.map((item) => ({
-  //           ...item, quantity: 1
-  //         }));
-  //         setProducts(productsWithQuantity);
-  //       }
-  //       else {
-  //         console.log(`Server error: ${res.status}`);
-  //       }
-  //     } catch (err) {
-  //       console.log(`Fetch error: ${err}`);
-  //       setError(err.message);
-
-  //     }
-  //     finally {
-  //       setIsLoading(false)
-  //     }
+  //   try{
+  //     setIsLoading(true)
+  //     const res = await axios.get(url)
+  //     console.log('Success', res)
   //   }
+  //   catch(err){
+  //     console.log(`Fetch error: ${err} Unable to get with sort by button`);
+  //     setError(err.message);
+  //   }
+  // }
+    // setIsLoading(true)
+    //   try {
+    //     const res = await axios.get(url)
+    //     if (res.status === 200) {
+    //       console.log('Success!');
+    //       // const productsWithQuantity = res.data.map((item) => ({
+    //       //   ...item, quantity: 1
+    //       // }));
+    //       const prices = res.data.map.sort(function(a , b){
+    //         if(a.price > b.price) return +1
+    //         if(a.price < b.price) return -1
+    //         return 0
+    //       })
+    //       // console.log("This is sorted", prices)
+    //       // console.log('price button clicked')
+    //       setProducts(prices)
+    //     }
+    //     else {
+    //       console.log(`Server error: ${res.status}`);
+    //     }
+    //   } catch (err) {
+    //     console.log(`Fetch error: ${err}`);
+    //     setError(err.message);
 
-  const SortAsc = () => {
-    products.sort((a, b) => a.price - b.price)
-  }
+    //   }
+    //   finally {
+    //     setIsLoading(false)
+    //   }
+    // }
+
+ 
 
 
 
@@ -145,6 +160,7 @@ const useAxios = (url) => {
 
   useEffect(() => {
     const getAPI = async (url) => {
+  
       // useCallback means that the API call will not be made everytime we make a change to the page e.g. reviewing a products info
       // useCallback means that the API call will only be called when it needs to be e.g. on page refresh. we use useCallback instead of useMemo as we want the function to be returned and not just the value
       setIsLoading(true)
@@ -213,6 +229,19 @@ const useAxios = (url) => {
   }, [url]);
 
   
+  const sortThis = () =>{
+    const prices = products.sort(function(a , b){
+          if(a.price > b.price) return +1
+          if(a.price < b.price) return -1
+          return 0
+          })
+            // console.log("This is sorted", prices)
+            // console.log('price button clicked')
+    setProducts(prices)
+  }
+
+  
+
 
 
   return {
@@ -224,9 +253,8 @@ const useAxios = (url) => {
     error,
     singleProduct,
     setProducts,
-    SortAsc, 
-    serverErr
-    // filterProduct
+    serverErr,
+    sortThis
   }
 
 }
