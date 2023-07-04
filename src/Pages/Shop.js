@@ -11,7 +11,7 @@ import useAxios from '../Hooks/useAxios';
 import savedHook from '../Hooks/savedHook';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
-import Sort from '../Components/Sort'
+// import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
 import '../Assets/Styles/Shop.css'
 

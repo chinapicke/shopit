@@ -1,5 +1,4 @@
 import React from 'react'
-import useAxios from '../Hooks/useAxios'
 
 const Sort = ({ onSort }) =>{
 // const {products} = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
