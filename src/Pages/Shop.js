@@ -129,11 +129,14 @@ function Shop() {
 
   }
 
-  const sortThis = () =>{
+  const sortThis = (e) => {
+    const sorting = e.target.value
     const productList = [...products]
+    // function for ascending in price
     const prices = productList.sort((a, b) => {
-      return a.price - b.price;
+      return sorting==='asc' ? a.price - b.price: b.price-a.price
     });
+  
     setProducts(prices)
   }
 
@@ -147,7 +150,11 @@ function Shop() {
       <PriceSlider ></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
       {/* <Sort onSort={filterProduct}></Sort> */}
-      <button onClick={sortThis}>Sort it out </button>
+      <select onChange={sortThis}>Sort it out 
+        <option defaultValue>Sort</option>
+        <option value={'asc'}>Ascending</option>
+        <option value={'desc'}>Descending</option>
+      </select>
       <OptionButtons onButton={selectAProduct} />
       {serverErr && <div>{serverErr}</div>}
       {error && <div>{error}</div>}
@@ -159,19 +166,19 @@ function Shop() {
         </> :
           <h1>Loading...</h1>
         }
-        
+
       </div >
       <Pagination
-          previousLabel={'Previous page'}
-          nextLabel={'Next page'}
-          pageCount={totalPageCount}
-          onPageChange={changePage}
-          containerClassName={'paginationBtns'}
-          previousLinkClassName={'previousBtn'}
-          nextLinkClassName={'nextBtn'}
-          disabledClassName={'paginationDisbaled'}
-          activeClassName={'paginationActive'} 
-          />
+        previousLabel={'Previous page'}
+        nextLabel={'Next page'}
+        pageCount={totalPageCount}
+        onPageChange={changePage}
+        containerClassName={'paginationBtns'}
+        previousLinkClassName={'previousBtn'}
+        nextLinkClassName={'nextBtn'}
+        disabledClassName={'paginationDisbaled'}
+        activeClassName={'paginationActive'}
+      />
     </div >
   )
 }
