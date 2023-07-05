@@ -130,15 +130,10 @@ function Shop() {
   }
 
   const sortThis = () =>{
-    const prices = products.sort(function(a , b){
-          if(a.price > b.price) return +1
-          if(a.price < b.price) return -1
-          return 0
-          })
-          console.log(prices)
-          console.log('Sort button clicked')
-            // console.log("This is sorted", prices)
-            // console.log('price button clicked')
+    const productList = [...products]
+    const prices = productList.sort((a, b) => {
+      return a.price - b.price;
+    });
     setProducts(prices)
   }
 
