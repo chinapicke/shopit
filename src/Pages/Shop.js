@@ -22,6 +22,7 @@ function Shop() {
   const { likedIndex, changeIcon } = savedHook()
 
 
+
   // useContext for the add to cart 
   const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
@@ -159,6 +160,9 @@ function Shop() {
         <option value={'desc'}>Descending</option>
       </select>
       <OptionButtons onButton={selectAProduct} />
+      <button>
+        Reset filters
+      </button>
       {serverErr && <div>{serverErr}</div>}
       {error && <div>{error}</div>}
       <div className='shopCards grid grid-cols-2'>

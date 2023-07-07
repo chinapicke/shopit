@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Searchbar = ({ onSearch, onFilter, onInput }) => {
+const Searchbar = ({ onSearch, onFilter, onInput}) => {
     // state for the search input
     const [input, setInput] = useState('')
     const [filtered, setFiltered] = useState('')
-
+    
 
     
     const searchProducts = () => {
@@ -26,7 +26,6 @@ const Searchbar = ({ onSearch, onFilter, onInput }) => {
 
     }
 
-
     return (
         <div>
             <input type='text'
@@ -36,7 +35,7 @@ const Searchbar = ({ onSearch, onFilter, onInput }) => {
             />
             <select placeholder='Search by'
                 onChange={e => setFiltered(e.target.value)}>
-                <option defaultValue="WordOnly">Search by...</option>
+                <option defaultValue>Search by...</option>
                 <option
                     value="Brand">Brand</option>
                 <option

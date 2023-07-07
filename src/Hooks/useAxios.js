@@ -171,7 +171,6 @@ const useAxios = (url) => {
           console.log(`Server error: ${res.status}`);
         }
       } catch (err) {
-        console.log(`Fetch error: ${err}`);
         setError(err.message);
 
       }
@@ -212,19 +211,7 @@ const useAxios = (url) => {
   }, [url]);
 
   
-  // const sortThis = () =>{
-  //   const prices = products.sort(function(a , b){
-  //         if(a.price > b.price) return +1
-  //         if(a.price < b.price) return -1
-  //         return 0
-  //         })
-  //         console.log(prices)
-  //         console.log('Sort button clicked')
-  //           // console.log("This is sorted", prices)
-  //           // console.log('price button clicked')
-  //   setProducts(prices)
-  // }
-
+  // state management for navbar search engine
   
 
 
@@ -239,7 +226,8 @@ const useAxios = (url) => {
     singleProduct,
     setProducts,
     serverErr,
-    filterProduct
+    filterProduct,
+    
     // sortThis
   }
 
