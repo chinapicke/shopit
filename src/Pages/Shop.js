@@ -126,7 +126,6 @@ function Shop() {
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
     setCurrentPage(selected)
-
   }
 
   const sortThis = (e) => {
@@ -139,6 +138,9 @@ function Shop() {
   
     setProducts(prices)
   }
+
+ 
+  
 
 
   return (
