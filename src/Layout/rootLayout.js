@@ -12,6 +12,7 @@ import SavedHook from '../Hooks/savedHook';
 export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const{cartDrawer, openDrawer} = SavedHook()
+    const [searchBarOpen, setSearchBarOpen] = useState(false)
     // const [cartDrawer, setCartDrawer] = useState(false);
 
 
@@ -30,9 +31,9 @@ export default function RootLayout() {
     const openDropdown = () => {
         setMobileOpen(current => !current);
     }
-    // const openDrawer = () => {
-    //     setCartDrawer(current => !current);
-    // }
+    
+    const openSearchBar = () => {
+        setSearchBarOpen(current => !current)    }
 
  
 
@@ -62,10 +63,14 @@ export default function RootLayout() {
                     <ul>
                         <div className='flex pl-5'>
                         <li className='block py-2 pl-3 pr-4 rightSideNavbar' id='findIcon'>
-                            <button>
+                            <button onClick={openSearchBar}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
+                                {
+                                    searchBarOpen ?
+                                    <input className='navSearchBar w-32' type='text' placeholder='Search here'/> :null
+                                }
                             </button>
                         </li>
                         <li className='block py-2 pl-3 pr-4 rightSideNavbar' id='saveIcon'>
