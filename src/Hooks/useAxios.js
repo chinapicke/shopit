@@ -17,7 +17,6 @@ const useAxios = (url) => {
   // call when user filters by brand
   const getProductsByBrand = async (brandName) => {
     setIsLoading(true)
-
     try {
       const res = await axios.get(url, {
         params: {
@@ -111,46 +110,32 @@ const useAxios = (url) => {
     }
   }
 
-  // const filterProduct = async (url) => {
-  //   try{
-  //     setIsLoading(true)
-  //     const res = await axios.get(url)
-  //     console.log('Success', res)
-  //   }
-  //   catch(err){
-  //     console.log(`Fetch error: ${err} Unable to get with sort by button`);
-  //     setError(err.message);
-  //   }
-  // }
-    // setIsLoading(true)
-    //   try {
-    //     const res = await axios.get(url)
-    //     if (res.status === 200) {
-    //       console.log('Success!');
-    //       // const productsWithQuantity = res.data.map((item) => ({
-    //       //   ...item, quantity: 1
-    //       // }));
-    //       const prices = res.data.map.sort(function(a , b){
-    //         if(a.price > b.price) return +1
-    //         if(a.price < b.price) return -1
-    //         return 0
-    //       })
-    //       // console.log("This is sorted", prices)
-    //       // console.log('price button clicked')
-    //       setProducts(prices)
-    //     }
-    //     else {
-    //       console.log(`Server error: ${res.status}`);
-    //     }
-    //   } catch (err) {
-    //     console.log(`Fetch error: ${err}`);
-    //     setError(err.message);
+  const filterProduct = async (searched) => {
+    setIsLoading(true)
+      try {
+        const res = await axios.get(url)
+        if (res.status === 200) {
+          console.log('Success!');
+          const productsWithQuantity = res.data.map((item) => ({
+            ...item, quantity: 1
+          }));
+          const keyWord = searched
+          let filteredInput = productsWithQuantity.filter(e => Object.values(e).map(e => String(e).toLowerCase()).some(e => e.includes(keyWord)));
+          console.log(filteredInput);
+          setProducts(filteredInput)
+        } 
+        else {
+          console.log(`Server error: ${res.status}`);
+        }
+      } catch (err) {
+        console.log(`Fetch error: ${err}`);
+        setError(err.message);
 
-    //   }
-    //   finally {
-    //     setIsLoading(false)
-    //   }
-    // }
+      }
+      finally {
+        setIsLoading(false)
+      }
+    }
 
  
 
@@ -214,8 +199,6 @@ const useAxios = (url) => {
         }
         else {
           console.log(`Server error: ${res.status}`);
-
-
         }
       } catch (err) {
         console.log(`Fetch error: ${err}`);
@@ -256,6 +239,7 @@ const useAxios = (url) => {
     singleProduct,
     setProducts,
     serverErr,
+    filterProduct
     // sortThis
   }
 
