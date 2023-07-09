@@ -211,9 +211,12 @@ const useAxios = (url) => {
   }, [url]);
 
   
-  // state management for navbar search engine
-  
+  // state for slider and API call
+  const [minValue2, setMinValue2] = useState(0);
+  const [maxValue2, setMaxValue2] = useState(0);
 
+  
+  
 
 
   return {
@@ -227,6 +230,10 @@ const useAxios = (url) => {
     setProducts,
     serverErr,
     filterProduct,
+    maxValue2,
+    setMaxValue2,
+    minValue2, 
+    setMinValue2
     
     // sortThis
   }

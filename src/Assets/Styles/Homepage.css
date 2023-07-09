@@ -22,3 +22,7 @@
 .homepageText{
     background-color: cadetblue;
 }
+
+.slider:ruler{
+display: none;
+}

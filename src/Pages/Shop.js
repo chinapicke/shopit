@@ -132,9 +132,8 @@ function Shop() {
   const sortThis = (e) => {
     const sorting = e.target.value
     const productList = [...products]
-    // function for ascending in price
     const prices = productList.sort((a, b) => {
-      return sorting==='asc' ? a.price - b.price: b.price-a.price
+      return sorting==='asc' ? a.price-b.price: b.price-a.price
     });
   
     setProducts(prices)
@@ -151,7 +150,8 @@ function Shop() {
         onFilter={getProductsByType}
         onInput={filterProduct}
       />
-      <PriceSlider ></PriceSlider>
+      <PriceSlider 
+      ></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
       {/* <Sort onSort={filterProduct}></Sort> */}
       <select onChange={sortThis}>Sort it out 

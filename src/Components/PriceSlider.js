@@ -1,36 +1,39 @@
-import React from 'react'
-import { useState } from 'react'
-
-function PriceSlider() {
-
-const [priceMin, setPriceMin]=useState('')
-const [priceMax, setPriceMax]=useState('')
+import MultiRangeSlider from "multi-range-slider-react";
+import useAxios from '../Hooks/useAxios';
 
 
-const handleMin = event => {
-    if (event.target.value < 0 && event.target.value >65){
-        return 
-    }
-    else{
-           setPriceMin(event.target.value);
-    }
-};
+const PriceSlider =()=>{
+    const {minValue2, setMinValue2,maxValue2, setMaxValue2}= useAxios()
 
-const handleMax = event => {
-    const value = Math.max(priceMin, Math.min(75, Number(event.target.value)));
-    setPriceMax(value);
-};
-
-
-    return (
-        <div className='priceSlider'>
-            <h1>Select Price</h1>
-            <input className='priceMin' type='number' placeholder='1' value={priceMin} min='1' max='65' onChange={handleMin}/>
-            <p>Min</p>
-            <input className='priceMax' type='number' placeholder='75'value={priceMax} onChange={handleMax}/>
-            <p>Max</p>
+  return (
+    <div className='priceSlider'>
+        <h1>Select Price</h1>            
+        <div className="divOutput">
+        <span>{minValue2}</span>
+        <p>min</p>
         </div>
-    )
+
+      <div className="slider w-1/5">
+        <MultiRangeSlider
+        //   onInput={(e) => {
+        //     setMinValue(e.minValue);
+        //     setMaxValue(e.maxValue);
+        //   }}
+          onChange={(e) => {
+            setMinValue2(e.minValue);
+            setMaxValue2(e.maxValue);
+          }}
+          min={1.99}
+          max={77}
+          step={1}
+          ruler='false'></MultiRangeSlider>
+        <div className="divOutput">
+            <span>{maxValue2}</span>
+            <p>max</p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default PriceSlider
