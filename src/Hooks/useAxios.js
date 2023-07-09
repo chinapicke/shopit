@@ -215,8 +215,37 @@ const useAxios = (url) => {
   const [minValue2, setMinValue2] = useState(0);
   const [maxValue2, setMaxValue2] = useState(0);
 
-  
-  
+
+  const priceRangeProducts = async (min, max) => {
+    setIsLoading(true)
+    try {
+      const res = await axios.get(url, {
+        params: {
+          price_greater_than: min,
+          price_less_than: max
+        }
+      });
+      console.log(res.data)
+      if (res.status === 200) {
+        console.log('Success!');
+        const productsWithQuantity = res.data.map((item)=>{
+          return(
+          item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+        )})
+        setProducts(productsWithQuantity);
+      }
+      else {
+        setServerErr(`Server error: ${res.status}`)
+      }
+    }
+    catch (err) {
+      console.log(`Fetch error: ${err}`);
+      setError(err.message)
+    }
+    finally {
+      setIsLoading(false)
+    }
+  }
 
 
   return {
@@ -233,7 +262,8 @@ const useAxios = (url) => {
     maxValue2,
     setMaxValue2,
     minValue2, 
-    setMinValue2
+    setMinValue2,
+    priceRangeProducts
     
     // sortThis
   }

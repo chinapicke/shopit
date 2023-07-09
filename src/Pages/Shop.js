@@ -17,7 +17,7 @@ import '../Assets/Styles/Shop.css'
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error, filterProduct  } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error, filterProduct,priceRangeProducts  } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -151,7 +151,7 @@ function Shop() {
         onInput={filterProduct}
       />
       <PriceSlider 
-      ></PriceSlider>
+      onSlider={priceRangeProducts}></PriceSlider>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
       {/* <Sort onSort={filterProduct}></Sort> */}
       <select onChange={sortThis}>Sort it out 

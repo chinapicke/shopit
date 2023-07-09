@@ -2,7 +2,11 @@ import MultiRangeSlider from "multi-range-slider-react";
 import useAxios from '../Hooks/useAxios';
 
 
-const PriceSlider =()=>{
+const PriceSlider =({onSlider})=>{
+
+    const sliderNumbers = () =>{
+        onSlider(minValue2,maxValue2)
+    }
     const {minValue2, setMinValue2,maxValue2, setMaxValue2}= useAxios()
 
   return (
@@ -21,12 +25,14 @@ const PriceSlider =()=>{
         //   }}
           onChange={(e) => {
             setMinValue2(e.minValue);
-            setMaxValue2(e.maxValue);
+            setMaxValue2(e.maxValue)
+            ;
           }}
           min={1.99}
           max={77}
           step={1}
           ruler='false'></MultiRangeSlider>
+          <button onClick={sliderNumbers}>Submit</button>
         <div className="divOutput">
             <span>{maxValue2}</span>
             <p>max</p>
