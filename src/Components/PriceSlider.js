@@ -23,6 +23,7 @@ const PriceSlider =({onSlider})=>{
         //     setMinValue(e.minValue);
         //     setMaxValue(e.maxValue);
         //   }}
+        passive={true}
           onChange={(e) => {
             setMinValue2(e.minValue);
             setMaxValue2(e.maxValue)

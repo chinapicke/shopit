@@ -212,8 +212,8 @@ const useAxios = (url) => {
 
   
   // state for slider and API call
-  const [minValue2, setMinValue2] = useState(0);
-  const [maxValue2, setMaxValue2] = useState(0);
+  const [minValue2, setMinValue2] = useState(17);
+  const [maxValue2, setMaxValue2] = useState(77);
 
 
   const priceRangeProducts = async (min, max) => {
@@ -264,9 +264,7 @@ const useAxios = (url) => {
     minValue2, 
     setMinValue2,
     priceRangeProducts
-    
-    // sortThis
-  }
+    }
 
 }
 

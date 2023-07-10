@@ -13,6 +13,7 @@ import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
 // import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
+import { useEffect } from 'react';
 import '../Assets/Styles/Shop.css'
 
 function Shop() {
@@ -33,44 +34,22 @@ function Shop() {
   const saveDispatch = Savestate.saveDispatch
   // console.log(Savestate)
 
-  //////////////////////////////////////////////////////////////////////////////
-  // onClick changes the heart from empty to full
-  // const changeIcon = (index) => {
-  //   setLikedIndex(state => ({
-  //     ...state, [index] // copies previous state 
-  //       : !state[index] // updates the state by adding the index key this is how it identifies which index has been clicked
-  //   }))
-  //   console.log(setLikedIndex)
-  // }
-  /////////////////////////////////////////////////////////////////////////////////
-  // const [productOpen, setProductOpen] = useState(false)
-  // const [showModal, setShowModal] = useState([])
-
-  // const openModal = (index) => {
-  //   setProductOpen(true)
-  //   setShowModal(index)
-  // }
-
-  // const closeModal = (index) => {
-  //   setProductOpen(false)
-  //   // setShowModal(index)
-  // }
-  // const handleClose = () => setProductOpen(false);
-  // const handleOpen = (index) => {
-  //   console.log('modal is opened')
-  //   setProductOpen(true);
-  // }
-  /////////////////////////////////////
-  // Randomly go through the array of data, this changes each time the user refreshes the page 
-  //   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
-  //   const randomProducts = shuffle(products)
-  // //////////////////////////////////////////
-
 
   // pagination 
   // set to 0 because if I set it to 1 then it doesn't show all the data
   const [currentPage, setCurrentPage] = useState(0)
-  const productPerPage = 10
+  const [productPerPage, setProductPerPage] = useState(10)
+  const totalPageCount = Math.ceil(products.length / productPerPage);
+
+
+  
+    const handleChanges = (e)=>{
+      setProductPerPage(e.target.value)
+      console.log(productPerPage)
+    }
+
+
+
 
   const pagesVisited = currentPage * productPerPage
 
@@ -123,7 +102,6 @@ function Shop() {
 
   // calucates total pages need for all the data with how many items to be shown each page
   // Math.ceil rounds the number of pages to a whole integer
-  const totalPageCount = Math.ceil(products.length / productPerPage);
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
     setCurrentPage(selected)
@@ -139,27 +117,50 @@ function Shop() {
     setProducts(prices)
   }
 
- 
-  
 
 
   return (
     <div>
+      <div className='searchBar'>
       <Searchbar
         onSearch={getProductsByBrand}
         onFilter={getProductsByType}
         onInput={filterProduct}
       />
+      </div>
+      <div className='priceSlider'>
       <PriceSlider 
       onSlider={priceRangeProducts}></PriceSlider>
+      </div>
+      <div className='listOfBrands'>
       <BrandList brandDropDown={getProductsByBrand}></BrandList>
-      {/* <Sort onSort={filterProduct}></Sort> */}
+      </div>
+      <div className='sortingDropdown'>
       <select onChange={sortThis}>Sort it out 
         <option defaultValue>Sort</option>
         <option value={'asc'}>Ascending</option>
         <option value={'desc'}>Descending</option>
       </select>
+      </div>
+      <div className='productsPerPage'>
+        <select 
+        value={productPerPage}
+        onChange={handleChanges}>
+          <option defaultValue>Products per page</option>
+          <option value={5}>
+            5 products
+          </option>
+          <option value={25}>
+            25 products
+          </option>
+          <option value={50}>
+            50 products
+          </option>
+        </select>
+      </div>
+      <div className='productTypeButtons'>
       <OptionButtons onButton={selectAProduct} />
+      </div>      
       <button>
         Reset filters
       </button>
