@@ -2,6 +2,7 @@ import MultiRangeSlider from "multi-range-slider-react";
 import useAxios from '../Hooks/useAxios';
 
 
+
 const PriceSlider =({onSlider})=>{
 
     const sliderNumbers = () =>{

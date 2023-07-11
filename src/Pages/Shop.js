@@ -13,7 +13,6 @@ import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
 // import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
-import { useEffect } from 'react';
 import '../Assets/Styles/Shop.css'
 
 function Shop() {

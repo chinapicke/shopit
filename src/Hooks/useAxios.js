@@ -200,7 +200,6 @@ const useAxios = (url) => {
           console.log(`Server error: ${res.status}`);
         }
       } catch (err) {
-        console.log(`Fetch error: ${err}`);
         setError(err.message);
       }
       finally {
