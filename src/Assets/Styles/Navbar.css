@@ -4,3 +4,24 @@
 .navbarSeperator{
     background-color: black;
 }
+
+.footerSection{
+    background-color: black;
+    color: white;
+}
+
+.footerSubtitles{
+    font-family: 'Krona One';
+}
+
+.footerSubtitles li{
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif;
+    ;
+}
+
+
+.footerLogo{
+    font-size: 20px;
+    font-family: 'Caprasimo', cursive;
+}

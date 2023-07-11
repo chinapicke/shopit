@@ -9,10 +9,13 @@ import { AppContext } from '../Context/Context';
 import CartPopUp from '../Components/CartPopUp';
 import SavedHook from '../Hooks/savedHook';
 import Footer from '.././Components/Footer'
+import Drawer from '@material-tailwind/react'
+
 
 export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const{cartDrawer, openDrawer} = SavedHook()
+    const closeDrawer = () => setMobileOpen(false);
     // const [cartDrawer, setCartDrawer] = useState(false);
 
     const CartState = useContext(AppContext);
@@ -37,7 +40,9 @@ export default function RootLayout() {
         <>
             <div className='jumbotron flex justify-between'>
                 <div className='py-2'>
-                    ShopIt
+                    <NavLink to='/'>
+                      ShopIt  
+                    </NavLink>
                 </div>
 
                 <nav className='largeMenuCentre hidden justify-center w-full inline-block lg:flex lg:w-auto lg:order-1 md:flex md:w-auto md:order-1'>
@@ -90,6 +95,7 @@ export default function RootLayout() {
                     <FontAwesomeIcon icon={faBars} size="xl" />
                 </div>
                 {mobileOpen ?
+                <Drawer onClose={closeDrawer}>
                     <ul className='navOptions flex flex-col mt-4 lg:hidden md:hidden'>
                         <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/'>Home</NavLink>
@@ -101,11 +107,13 @@ export default function RootLayout() {
                             <NavLink to='/shop'>Shop</NavLink>
                         </li>
                         <li className='block py-2 pl-3 pr-4 rightSideNavbar' id='findIcon'>
+                            <NavLink to='/shop'>
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
                             </button>
+                            </NavLink>
                         </li>
                         <li className='block py-2 pl-3 pr-4 rightSideNavbar' id='saveIcon'>
                             <NavLink to='/saved'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -122,7 +130,8 @@ export default function RootLayout() {
                                 <CartPopUp /> : null
                                 }
                         </li>
-                    </ul> : null
+                    </ul>
+                    </Drawer> : null
                 }
             </div>
 

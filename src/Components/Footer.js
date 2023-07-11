@@ -7,12 +7,12 @@ function Footer() {
 const navigate = useNavigate()
 
   return (
-    <div className='footerSection grid grid-cols-5'>
-      <div className='shopLogo'>
+    <div className='footerSection grid grid-cols-2 md:grid-cols-5'>
+      <div className='footerLogo'>
         ShopIt
       </div>
       <div className='aboutFooter'>
-        <ul onClick={()=>navigate("/about")}>about
+        <ul className='footerSubtitles'onClick={()=>navigate("/about")}>about
           <li>About ShopIt</li>
           <li>Careers</li>
           <li>Stands Social Impact</li>
@@ -23,12 +23,12 @@ const navigate = useNavigate()
         </ul>
       </div>
       <div className='makeupTypes'>
-        <ul onClick={()=>navigate("/shop")}>makeup
-          <li>Blush</li>
+        <ul className='footerSubtitles columns-2 pt-2'  onClick={()=>navigate("/shop")}>makeup
+          <li className='pt-1 '>Blush</li>
           <li>Bronzer</li>
           <li>Eyebrow</li>
           <li>Eyeliner</li>
-          <li>Eyeshadow</li>
+          <li className='pt-6'>Eyeshadow</li>
           <li>Foundation</li>
           <li>Lip Liner</li>
           <li>Lipstick</li>
@@ -37,7 +37,7 @@ const navigate = useNavigate()
         </ul>
       </div>
       <div className='contactFooter'>
-        <ul>contact
+        <ul className='footerSubtitles'>contact
           <li>ShopIt</li>
           <li>2c Covent Garden</li>
           <li>London</li>
@@ -47,7 +47,7 @@ const navigate = useNavigate()
           <li>Email: info@shopIt.com</li>
         </ul>
       </div>
-      <div className='socialIcons'>
+      <div className='socialIcons flex sm:flex-row md:flex-col'>
       <FontAwesomeIcon icon={faFacebookF} style={{color: "#fdd261",}}/>
       <FontAwesomeIcon icon={faInstagram} style={{color: "#fdd261",}}/>
       <FontAwesomeIcon icon={faTwitter} style={{color: "#fdd261",}}/>
