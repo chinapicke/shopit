@@ -7,6 +7,7 @@ function Footer() {
 const navigate = useNavigate()
 
   return (
+    <>
     <div className='footerSection grid grid-cols-2 md:grid-cols-5'>
       <div className='footerLogo'>
         ShopIt
@@ -52,8 +53,9 @@ const navigate = useNavigate()
       <FontAwesomeIcon icon={faInstagram} style={{color: "#fdd261",}}/>
       <FontAwesomeIcon icon={faTwitter} style={{color: "#fdd261",}}/>
       </div>
-
     </div>
+    <h1 className='copywrite'>Copyright © 2023 ShopIt UK, Inc. All rights reserved. Terms of Use| Privacy Policy</h1>
+    </>
   )
 }
 
