@@ -30,7 +30,7 @@ const PriceSlider =({onSlider})=>{
             setMaxValue2(e.maxValue)
             ;
           }}
-          min={1.99}
+          min={1}
           max={77}
           step={1}
           ruler='false'></MultiRangeSlider>
