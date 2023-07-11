@@ -38,7 +38,7 @@ function Shop() {
   // pagination 
   // set to 0 because if I set it to 1 then it doesn't show all the data
   const [currentPage, setCurrentPage] = useState(0)
-  const [productPerPage, setProductPerPage] = useState(10)
+  const [productPerPage, setProductPerPage] = useState(40)
   const totalPageCount = Math.ceil(products.length / productPerPage);
 
 
@@ -147,8 +147,8 @@ function Shop() {
         value={productPerPage}
         onChange={handleChanges}>
           <option defaultValue>Products per page</option>
-          <option value={5}>
-            5 products
+          <option value={10}>
+            10 products
           </option>
           <option value={25}>
             25 products
