@@ -9,13 +9,12 @@ import { AppContext } from '../Context/Context';
 import CartPopUp from '../Components/CartPopUp';
 import SavedHook from '../Hooks/savedHook';
 import Footer from '.././Components/Footer'
-import Drawer from '@material-tailwind/react'
 
 
 export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const{cartDrawer, openDrawer} = SavedHook()
-    const closeDrawer = () => setMobileOpen(false);
+
     // const [cartDrawer, setCartDrawer] = useState(false);
 
     const CartState = useContext(AppContext);
@@ -33,8 +32,6 @@ export default function RootLayout() {
     const openDropdown = () => {
         setMobileOpen(current => !current);
     }
-    
- 
 
     return (
         <>
@@ -95,7 +92,6 @@ export default function RootLayout() {
                     <FontAwesomeIcon icon={faBars} size="xl" />
                 </div>
                 {mobileOpen ?
-                <Drawer onClose={closeDrawer}>
                     <ul className='navOptions flex flex-col mt-4 lg:hidden md:hidden'>
                         <li className='block py-2 pl-3 pr-4'>
                             <NavLink to='/'>Home</NavLink>
@@ -131,7 +127,7 @@ export default function RootLayout() {
                                 }
                         </li>
                     </ul>
-                    </Drawer> : null
+                    : null
                 }
             </div>
 
