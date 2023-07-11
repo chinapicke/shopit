@@ -15,9 +15,6 @@
     background-color: skyblue;
 }
 
-.subscriptionBanner{
-    background-color: darkkhaki;
-}
 
 .homepageText{
     background-color: cadetblue;
@@ -25,4 +22,63 @@
 
 .slider:ruler{
 display: none;
+}
+
+/* .subscriptionColoured{
+    background-image: url('../Images/Backgrounds/4YellowDot.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: left;
+} */
+
+.subscriptionColouredText{
+    font-size: 10px;
+}
+
+.subscribeBtn{
+    font-size: 8px;
+}
+
+.background{
+    width: 70%;
+    margin-left: 70px;
+}
+
+@media only screen and (min-width: 416px){
+    .present{
+        width: 14rem;
+        height: 12rem;
+        margin-left:0px;
+        padding-right: 15px;
+    }
+
+    .subscriptionColouredText{
+        margin-left: 6rem;
+    }
+    .formSubscription{
+        margin-left:4rem;
+        padding-right:1.4rem;
+    }
+
+}
+@media only screen and (min-width: 550px){
+    .present{
+        width: 18rem;
+        height: 15rem;
+        margin-left:0px;
+        padding-right: 20px;
+    }
+
+    .subscriptionColouredText{
+       font-size: 14px;
+       margin-left:8rem;
+    }
+    .formSubscription{
+        padding-top: 2rem;
+        margin-left:4rem;
+        padding-right:3.5rem;
+    }
+    .subscribeBtn{
+        font-size: 12px;
+    }
 }

@@ -7,8 +7,8 @@ function Footer() {
 const navigate = useNavigate()
 
   return (
-    <>
-    <div className='footerSection grid grid-cols-2 py-4 px-4 md:grid-cols-5'>
+    <div className='footerSection'>
+    <div className='upperFooter grid grid-cols-2 py-4 px-4 mt-3 md:grid-cols-5'>
       <div className='footerLogo mx-2 my-3 text-3xl md:mx-4 my-1 pr-2'>
         ShopIt
       </div>
@@ -55,7 +55,7 @@ const navigate = useNavigate()
       </div>
     </div>
     <h1 className='copywrite'>Copyright © 2023 ShopIt UK, Inc. All rights reserved. Terms of Use| Privacy Policy</h1>
-    </>
+    </div>
   )
 }
 
