@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AppContext } from '../Context/Context';
 import CartPopUp from '../Components/CartPopUp';
 import SavedHook from '../Hooks/savedHook';
+import Footer from '.././Components/Footer'
 
 export default function RootLayout() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -129,6 +130,9 @@ export default function RootLayout() {
             <main>
                 <Outlet />
             </main>
+            <footer>
+                <Footer />
+            </footer>
         </>
     )
 }
