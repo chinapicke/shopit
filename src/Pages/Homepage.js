@@ -25,14 +25,15 @@ function Homepage() {
         <div className='leftMidPicture'>
           <h3>Fast and ecological solutions for you </h3>
           <button onClick={BtnDirectShop}>See more</button>
-          <img src='https://sdcdn.io/mac/gb/mac_sku_SK3709_1x1_2.png?width=1080&height=1080' alt='MAC eyeshadow'></img>
           <p>from <span>£17.99</span></p>
+          <img src='https://sdcdn.io/mac/gb/mac_sku_SK3709_1x1_2.png?width=1080&height=1080' alt='MAC eyeshadow'></img>
+          
         </div>
-        <div className='rightMidPicture'>
+        <div className='rightMidPicture flex flex-col'>
           <h3>Beauty has a purpose, and the purpose is you.</h3>
           <button onClick={BtnDirectShop}>See more</button>
-          <img src={GlossierSet} alt='ClossierSet'></img>
           <p>per set <span>£39.99</span></p>
+          <img className='glossierSet mt-auto' src={GlossierSet} alt='GlossierSet'></img>
         </div>
       </div>
       <div className='homepageBottomBanner'>
