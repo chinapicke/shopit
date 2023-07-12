@@ -37,7 +37,7 @@ display: none;
     width:55%;
     left: 30%;
     bottom:18%;
-    font-size:2.7vw;
+    font-size:2.5vw;
     font-family: 'Caprasimo', cursive;
 }
 
@@ -66,6 +66,20 @@ display: none;
     overflow-wrap: break-word
 }
 
+.basketTopPicks:hover{
+    color:rgba(253,210,97,255);
+}
+
+.circleShadow{
+    background-image: url('../Images/Backgrounds/greyCirlce.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.redHeart{
+    fill:red;
+}
 @media only screen and (min-width: 410px){
     .subscriptionColouredText{
         width:55%;
