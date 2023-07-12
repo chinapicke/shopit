@@ -24,57 +24,159 @@
 display: none;
 }
 
-/* .subscriptionColoured{
-    background-image: url('../Images/Backgrounds/4YellowDot.png');
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: left;
-} */
+.background{
+    width: 80%; height: 100%;
+    margin-left: 6rem;
+}
+.present{
+    width: 37%; height: 35%;  position: relative; right: 90%;
+    margin-top:11%;
+}
 
 .subscriptionColouredText{
-    font-size: 10px;
+    width:55%;
+    left: 30%;
+    bottom:18%;
+    font-size:2.7vw;
+    font-family: 'Caprasimo', cursive;
 }
 
 .subscribeBtn{
-    font-size: 8px;
+    width: 60%;
+    margin-right:25%;
+    margin-top: 2%;
 }
 
-.background{
-    width: 70%;
-    margin-left: 70px;
+
+
+@media only screen and (min-width: 410px){
+    .subscriptionColouredText{
+        width:55%;
+        left: 27%;
+        bottom:22%;
+        font-size:2.7vw;
+    }    
+
+    .formSubscription{
+        margin-left: 20%;
+    }
 }
 
-@media only screen and (min-width: 416px){
+@media only screen and (min-width: 550px){
+    .presentBackground{
+        margin-left:7rem;
+    }
+
     .present{
-        width: 14rem;
-        height: 12rem;
-        margin-left:0px;
-        padding-right: 15px;
+        width: 30%; height: 30%;  position: relative; right: 90%;
+        margin-top:11%;
+    }
+}
+
+@media only screen and (min-width:760px){
+    .subscriptionColouredText{
+        width:50%;
+        left: 26%;
+        bottom:22%;
+        font-size:2.7vw;
+    }    
+    
+}
+
+@media only screen and (min-width: 1024px){
+    .background{
+        width: 65%;
+    }
+
+    .present{
+        right: 77%;
+        margin-top:5%;
     }
 
     .subscriptionColouredText{
+        width: 44%;
+        left: 26%;
+        bottom: 12%;
+    }
+
+    .subscribeBtn{
+        margin-top: 2%;
+    }
+
+}
+
+@media only screen and (min-width: 1192px){
+    .presentBackground{
+        justify-content: normal;
+    }
+    .subscriptionColouredText{
+        width: 49%;
+        left: 24%;
+        bottom: 10%;
+    }
+
+    .formSubscription{
+       margin-top: 3%;
+    }
+
+}
+
+
+@media only screen and (min-width: 1330px){
+    .presentBackground{
+        justify-content: normal;
+    }
+
+    .subscribeBtn{
+        width: 70%;
+        margin-top: 2%;
+        margin-right: 20%;
+    }
+
+    .subscriptionColouredText{
+        width: 49%;
+        left: 22%;
+        bottom: 10%;
+    }
+
+
+}
+
+
+
+/* @media only screen and (min-width: 375px){
+    .present{
+        max-width: 30%;
+        height: auto;
+        width:auto
+    }
+}
+
+
+@media only screen and (min-width: 416px){
+ 
+
+    .subscriptionColouredText{
         margin-left: 6rem;
+        font-size: 12px;
     }
     .formSubscription{
-        margin-left:4rem;
+        margin-left:3rem;
         padding-right:1.4rem;
     }
 
 }
-@media only screen and (min-width: 550px){
-    .present{
-        width: 18rem;
-        height: 15rem;
-        margin-left:0px;
-        padding-right: 20px;
-    }
 
-    .subscriptionColouredText{
-       font-size: 14px;
-       margin-left:8rem;
+
+@media only screen and (min-width: 700px){
+   */
+
+    /* .subscriptionColouredText{
+       font-size: 18px;
+       margin-left:11rem;
     }
     .formSubscription{
-        padding-top: 2rem;
+        padding-top: 3rem;
         margin-left:4rem;
         padding-right:3.5rem;
     }
@@ -82,3 +184,35 @@ display: none;
         font-size: 12px;
     }
 }
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    .subscriptionColouredText{
+        font-size: 20px;
+     }
+
+
+} */
+
+/* @media only screen and (min-width: 1024px){
+    .background{
+        margin-left: 10rem;
+        width:40rem;
+        height: 18rem;
+    }
+    .present{
+        margin-left: 6rem ;
+        max-width: 25%;
+        height: auto;
+        width:auto
+    } */
+    /* .subscriptionColouredText{
+        width:60%;
+        font-size: 20px;
+        margin-left: 19rem;
+     } */
+
+     /* .formSubscription{
+       width: 100%;
+       margin-left:9rem;
+       margin-top: 2rem;
+    }
+}  */
