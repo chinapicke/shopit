@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { AppContext } from '../Context/Context'
 import savedHook from '../Hooks/savedHook'
 import { useNavigate } from 'react-router-dom';
+import'../Assets/Styles/Shop.css'
 
 
 function TopPicks() {

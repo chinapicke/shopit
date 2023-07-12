@@ -19,3 +19,38 @@
 .paginationActive a{
     border-color: green;
 }
+
+.productText{
+    overflow-wrap: break-word
+}
+
+.productImg{
+    width: 50%;
+    height: auto;
+}
+
+.productType{
+    color:rgba(253,210,97,255);
+    font-weight: bold;
+}
+
+.productBrand, .productName{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.basketProduct:hover{
+    color:rgba(253,210,97,255);
+}
+
+.redHeart{
+    fill:red;
+}
+
+.circleShadow{
+    background-image: url('../Images/Backgrounds/grey.png');
+    background-size: 22px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    background-repeat: no-repeat;
+}
