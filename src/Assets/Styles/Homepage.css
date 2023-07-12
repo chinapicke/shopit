@@ -1,3 +1,7 @@
+.wholeHomepage{
+   margin:10px;
+}
+
 .homepagePictures{
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -24,6 +28,7 @@
 display: none;
 }
 
+/* Subscription Banner */
 .background{
     width: 80%; height: 100%;
     margin-left: 6rem;
@@ -46,7 +51,9 @@ display: none;
     margin-right:25%;
     margin-top: 2%;
 }
+/*/////////////////////////// */
 
+/* Top Picks */
 .topPickImage{
     width: 50%;
     height: auto;
@@ -65,21 +72,31 @@ display: none;
 .topPickText{
     overflow-wrap: break-word
 }
-
 .basketTopPicks:hover{
     color:rgba(253,210,97,255);
-}
-
-.circleShadow{
-    background-image: url('../Images/Backgrounds/greyCirlce.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .redHeart{
     fill:red;
 }
+
+.topPicksSeeBtn{
+    background-color:rgba(253,210,97,255) ;
+    font-family: 'Krona One';
+
+}
+
+.circleShadow{
+    background-image: url('../Images/Backgrounds/grey.png');
+    background-size: 22px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    background-repeat: no-repeat;
+}
+
+
+/* //////////////////////////// */
+
 @media only screen and (min-width: 410px){
     .subscriptionColouredText{
         width:55%;
@@ -126,8 +143,8 @@ display: none;
 
     .subscriptionColouredText{
         width: 44%;
-        left: 26%;
-        bottom: 12%;
+        left: 28%;
+        bottom: 10%;
     }
 
     .subscribeBtn{
@@ -166,82 +183,8 @@ display: none;
 
     .subscriptionColouredText{
         width: 49%;
-        left: 22%;
+        left: 23%;
         bottom: 10%;
     }
 }
 
-
-
-/* @media only screen and (min-width: 375px){
-    .present{
-        max-width: 30%;
-        height: auto;
-        width:auto
-    }
-}
-
-
-@media only screen and (min-width: 416px){
- 
-
-    .subscriptionColouredText{
-        margin-left: 6rem;
-        font-size: 12px;
-    }
-    .formSubscription{
-        margin-left:3rem;
-        padding-right:1.4rem;
-    }
-
-}
-
-
-@media only screen and (min-width: 700px){
-   */
-
-    /* .subscriptionColouredText{
-       font-size: 18px;
-       margin-left:11rem;
-    }
-    .formSubscription{
-        padding-top: 3rem;
-        margin-left:4rem;
-        padding-right:3.5rem;
-    }
-    .subscribeBtn{
-        font-size: 12px;
-    }
-}
-@media only screen and (min-width: 768px) and (max-width: 979px) {
-    .subscriptionColouredText{
-        font-size: 20px;
-     }
-
-
-} */
-
-/* @media only screen and (min-width: 1024px){
-    .background{
-        margin-left: 10rem;
-        width:40rem;
-        height: 18rem;
-    }
-    .present{
-        margin-left: 6rem ;
-        max-width: 25%;
-        height: auto;
-        width:auto
-    } */
-    /* .subscriptionColouredText{
-        width:60%;
-        font-size: 20px;
-        margin-left: 19rem;
-     } */
-
-     /* .formSubscription{
-       width: 100%;
-       margin-left:9rem;
-       margin-top: 2rem;
-    }
-}  */

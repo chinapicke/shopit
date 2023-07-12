@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AppContext } from '../Context/Context'
 import savedHook from '../Hooks/savedHook'
+import { useNavigate } from 'react-router-dom';
 
 
 function TopPicks() {
@@ -13,6 +14,10 @@ function TopPicks() {
   const { likedIndex, changeIcon } = savedHook()
 
 
+  const navigate = useNavigate();
+  const shopNavTopPicks = () => {
+    navigate('/shop')
+  }
   // filter function, filter through topPick and if item has same id, return it 
   const filterById = topPick.filter(item => {
     return item.id === 495 || item.id === 140 || item.id === 310 || item.id === 402
@@ -29,15 +34,15 @@ function TopPicks() {
   // id  492, 140, 310, 402
   return (
     <>
-      <div className="headerTopPicks grid grid-cols-2 pt-4">
-        <h1 className='topPickHeader'>Our Top Picks!</h1>
-        <button className='topPicksSeeBtn'> See more</button>
+      <div className="headerTopPicks flex flex-row pt-4">
+        <h1 className='topPickHeader text-2xl'>Our Top Picks!</h1>
+        <button onClick={shopNavTopPicks} className='topPicksSeeBtn text-sm text-black px-2 md:py-4 px-6 rounded-full ml-auto mr-4' type="button"> See more</button>
       </div>
-      <div className='topPicks grid grid-cols-2 py-4 px-6 md:grid-cols-4 lg:grid-cols-4'>
+      <div className='topPicks grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
         {filterById.map((item, index) => {
           return (
-            <div className='topProductCard h-full flex flex-col border mx-1 ' key={item.id}>
-              < button value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
+            <div className='topProductCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg ' key={item.id}>
+              < button className='mx-1 my-1' value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
                 {likedIndex[index] ?
                   (
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="redHeart w-6 h-6">
@@ -59,20 +64,18 @@ function TopPicks() {
                   <p className='topPickBrand'>
                     {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} </p>
                   <p className='topPickName'>{item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
-                    {/* <p className='topPickNumber align-text-bottom'>£{Number(item.price).toFixed(2)
-                    }</p> */}
                 </div>
               </Link>
               <div className='flex flex-row mt-auto mx-2 my-2'>
-              <div className='mr-auto mt-auto'>
-              <p className='topPickNumber '><span className='circleShadow'>£</span>{Number(item.price).toFixed(2)
-                    }</p>
-              </div>
-              <div className='addToCart ml-auto mt-auto '>
-                <button className='basketTopPicks ' onClick={() => dispatch({ type: 'ADD', payload: item })}>
-                  <FontAwesomeIcon icon={faBasketShopping} />
-                </button>
-              </div>
+                <div className='mr-auto mt-auto'>
+                  <p className='topPickNumber'><span className='circleShadow '>£{Number(item.price).toFixed(2)}</span>
+                  </p>
+                </div>
+                <div className='addToCart ml-auto mt-auto '>
+                  <button className='basketTopPicks ' onClick={() => dispatch({ type: 'ADD', payload: item })}>
+                    <FontAwesomeIcon icon={faBasketShopping} />
+                  </button>
+                </div>
               </div>
             </div>
 

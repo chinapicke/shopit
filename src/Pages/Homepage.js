@@ -16,7 +16,7 @@ function Homepage() {
     navigate('/shop')
   }
   return (
-    <>
+    <div className='wholeHomepage'>
       <Jumbotron />
       <div className='popularProducts'>
         <TopPicks />
@@ -47,7 +47,7 @@ function Homepage() {
       <div>
         <SubscriptionBanner />
       </div>
-    </>
+    </div>
   )
 }
 
