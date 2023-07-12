@@ -95,16 +95,13 @@ display: none;
 
 /* Left and right banner */
 .rightMidPicture{
-
 background-image: url('../Images/Backgrounds/homepageRight.png');
 background-size: cover;
 background-repeat: no-repeat;
 background-position:90%;
 }
 
-.glossierSet {
-    margin-left: 18px;
-}
+
 
 /* /////////////////////////// */
 
@@ -126,6 +123,17 @@ background-position:90%;
     .rightMidPicture{
         background-size: cover;
         }
+
+        .glossierSet{
+            height: auto;
+            width: 50%;
+            margin-left: 6rem;
+        }
+    .glossierPrice{
+        justify-content: end;
+    }
+    
+       
 }
 
 
@@ -148,6 +156,12 @@ background-position:90%;
         bottom:22%;
         font-size:2.7vw;
     }    
+
+    .glossierSet{
+        height: auto;
+        width: 50%;
+        margin-left: 10rem;
+    }
 
 
     
@@ -173,6 +187,13 @@ background-position:90%;
         margin-top: 2%;
     }
 
+    .glossierSet{
+        margin-left: 12rem;
+    }
+
+
+  
+
 }
 
 @media only screen and (min-width: 1192px){
@@ -187,6 +208,10 @@ background-position:90%;
 
     .formSubscription{
        margin-top: 3%;
+    }
+
+    .glossierSet{
+        margin-left: 16rem;
     }
 
 }

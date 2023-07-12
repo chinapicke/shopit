@@ -29,11 +29,13 @@ function Homepage() {
           <img src='https://sdcdn.io/mac/gb/mac_sku_SK3709_1x1_2.png?width=1080&height=1080' alt='MAC eyeshadow'></img>
           
         </div>
-        <div className='rightMidPicture flex flex-col'>
-          <h3>Beauty has a purpose, and the purpose is you.</h3>
-          <button onClick={BtnDirectShop}>See more</button>
-          <p>per set <span>£39.99</span></p>
-          <img className='glossierSet mt-auto' src={GlossierSet} alt='GlossierSet'></img>
+        <div className='rightMidPicture flex flex-col '>
+          <div>
+          <h3 className=' text-md mr-3 md:text-2xl mr-12 lg:text-3xl mr-6'>Beauty has a purpose, <br></br>and the purpose is you.</h3>
+          <button onClick={BtnDirectShop}  className='productsSeeBtn text-xs bg-black text-white px-2 md:text-sm py-4 px-6 rounded-full ml-auto mr-4' type="button">See more</button>
+          </div>
+          <p className='glossierPrice flex justify-end mr-5 md:mr-10 lg:mr-24 xl:mr-32'>per set <span>£39.99</span></p>
+          <img className='glossierSet' src={GlossierSet} alt='GlossierSet'></img>
         </div>
       </div>
       <div className='homepageBottomBanner'>
