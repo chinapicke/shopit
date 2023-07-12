@@ -89,13 +89,11 @@ function Shop() {
         {productOpen && index === showModal && <Product close={()=>closeModal()}/>} */}
 
           <div className='addToCart'>
-            <div className='productQuantity'>
-            </div>
             <button onClick={() => dispatch({ type: 'ADD', payload: item })}>
               <FontAwesomeIcon icon={faBasketShopping} />
             </button>
           </div>
-        </div>
+          </div>
       )
     })
 

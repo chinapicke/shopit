@@ -47,7 +47,24 @@ display: none;
     margin-top: 2%;
 }
 
+.topPickImage{
+    width: 50%;
+    height: auto;
+}
 
+.topPickProductType{
+    color:rgba(253,210,97,255);
+    font-weight: bold;
+}
+
+.topPickBrand, .topPickName{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.topPickText{
+    overflow-wrap: break-word
+}
 
 @media only screen and (min-width: 410px){
     .subscriptionColouredText{
