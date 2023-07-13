@@ -101,6 +101,10 @@ background-repeat: no-repeat;
 background-position:90%;
 }
 
+.glossierPrice {
+    font-family: 'Krona One';
+}
+
 
 
 /* /////////////////////////// */
@@ -147,7 +151,9 @@ background-position:90%;
         margin-top:11%;
     }
 
+
 }
+
 
 @media only screen and (min-width:760px){
     .subscriptionColouredText{
@@ -161,6 +167,7 @@ background-position:90%;
         height: auto;
         width: 50%;
         margin-left: 10rem;
+        padding-bottom: 6rem;
     }
 
 
@@ -189,6 +196,7 @@ background-position:90%;
 
     .glossierSet{
         margin-left: 12rem;
+        padding-bottom: 8rem;
     }
 
 
@@ -233,5 +241,13 @@ background-position:90%;
         left: 23%;
         bottom: 10%;
     }
+
+    .beautyText{
+       font-size: 3rem;
+    line-height: 3rem;
+    width: 50%;  
+    }
+   
+
 }
 
