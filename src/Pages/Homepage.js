@@ -31,12 +31,11 @@ function Homepage() {
         <TopPicks />
       </div>
       <div className='homepagePictures gap-4 h-5/6'>
-        <div className='leftMidPicture h-5/6 w-auto'>
+        <div className='leftMidPicture h-full md:h-5/6 xl:h-5/6'>
           <h3 className='pl-1 md:text-2xl md:py-2 md:pl-3 lg:text-3xl xl:text-5xl'>Fast and ecological solutions for you.</h3>
           <button onClick={BtnDirectShop} className='productsSeeBtn text-xs bg-black text-white px-2 my-2 md:my-6 ml-2 text-sm py-4 px-6 rounded-full ml-auto mr-4' type="button">See more</button>
           <p className='flex justify-end relative md:bottom-8'>from <span>£17.99</span></p>
           <img className='relative md:bottom-16'src='https://sdcdn.io/mac/gb/mac_sku_SK3709_1x1_2.png?width=1080&height=1080' alt='MAC eyeshadow'></img>
-          
         </div>
         <div className='rightMidPicture flex flex-col md:h-5/6 xl:h-5/6'>
           <div> 
@@ -53,7 +52,7 @@ function Homepage() {
       <div>
         <VeganProduct />
       </div>
-      <div className='homepageBottomBanner'>
+      <div>
         <HomepageBottomBanner />
       </div>
       <div>

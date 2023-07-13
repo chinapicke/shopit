@@ -16,7 +16,7 @@ function TopPicks() {
 
   // filter function, filter through topPick and if item has same id, return it 
   const filterById = veganProduct.filter(item => {
-    return item.id ===  1043 || item.id === 5 || item.id === 1023 || item.id === 308
+    return item.id ===  377 || item.id === 5 || item.id === 1023 || item.id === 308
   })
 
   const navigate = useNavigate();

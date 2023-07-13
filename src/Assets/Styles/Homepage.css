@@ -7,10 +7,6 @@
     grid-template-columns: 1fr 2fr;
 }
 
-.homepageBottomBanner{
-    background-color: skyblue;
-}
-
 
 .homepageText{
     background-color: cadetblue;
@@ -90,7 +86,7 @@ display: none;
 /* Left and right banner */
 
 .homepagePictures{
-    align-items: center;
+    align-items: flex-end;
 }
 .rightMidPicture{
 background-image: url('../Images/Backgrounds/homepageRight.png');
@@ -110,8 +106,27 @@ background-repeat: no-repeat;
 background-position:80%;
 }
 
-
 /* /////////////////////////// */
+
+/* Homepage Bottom Banner */
+.homepageBottomBanner{
+background-image: url('../Images/pinkBg.png');
+background-size: cover;
+background-repeat: no-repeat;
+background-position:70%;
+height:50vh;
+}
+
+.cliniqueSet{
+    width:100%;
+};
+
+@media only screen and (min-width: 375px){
+    .homepageBottomBanner{
+        height:250px;
+        }
+}
+
 
 @media only screen and (min-width: 410px){
     .subscriptionColouredText{
@@ -128,10 +143,7 @@ background-position:80%;
 }
 
 @media only screen and (min-width: 468px){
-    .rightMidPicture{
-        background-size: cover;
-        }
-
+  
         .glossierSet{
             height: auto;
             width: 50%;
@@ -140,8 +152,10 @@ background-position:80%;
     .glossierPrice{
         justify-content: end;
     }
-    
-       
+
+    /* .homepageBottomBanner{
+        height:300px;
+        } */
 }
 
 
@@ -158,10 +172,24 @@ background-position:80%;
     .leftMidPicture{
         background-position:90%;
         }
-
-
+    
+        .cliniqueSet{
+            width:70%;
+        };
 }
 
+@media only screen and (min-width: 600px){
+/* .homepageBottomBanner{
+    height:400px;
+    } */
+}
+
+@media only screen and (max-width: 767px){
+    .leftMidPicture{
+        height:100%;
+        }
+
+}
 
 @media only screen and (min-width:760px){
     .subscriptionColouredText{
@@ -176,12 +204,20 @@ background-position:80%;
         width: 60%;
         margin-left: 10rem;
     }
-
-    
-
-
+    .cliniqueSet{
+        width:60%;
+    };
     
 }
+
+@media only screen and (min-width: 900px){
+    .homepageBottomBanner{
+        height:65vh;
+        }
+        
+}
+
+
 
 @media only screen and (min-width: 1024px){
     .background{
@@ -212,9 +248,15 @@ background-position:80%;
         background-position:88%;
         }
 
+      
+
+        /* .homepageBottomBanner{
+            height:350px;
+            }
+        } */
+    }
   
 
-}
 
 @media only screen and (min-width: 1192px){
     .presentBackground{
@@ -233,6 +275,8 @@ background-position:80%;
     .glossierSet{
         margin-left: 17rem;
     }
+
+ 
 
 }
 
