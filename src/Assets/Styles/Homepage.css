@@ -7,12 +7,6 @@
     grid-template-columns: 1fr 2fr;
 }
 
-.leftMidPicture{
-    background-color: burlywood;
-}
-
-
-
 .homepageBottomBanner{
     background-color: skyblue;
 }
@@ -94,6 +88,10 @@ display: none;
 /* //////////////////////////// */
 
 /* Left and right banner */
+
+.homepagePictures{
+    align-items: center;
+}
 .rightMidPicture{
 background-image: url('../Images/Backgrounds/homepageRight.png');
 background-size: cover;
@@ -105,6 +103,12 @@ background-position:90%;
     font-family: 'Krona One';
 }
 
+.leftMidPicture{
+background-image: url('../Images/Backgrounds/greyandyellow1.png');
+background-size: cover;
+background-repeat: no-repeat;
+background-position:80%;
+}
 
 
 /* /////////////////////////// */
@@ -151,6 +155,10 @@ background-position:90%;
         margin-top:11%;
     }
 
+    .leftMidPicture{
+        background-position:90%;
+        }
+
 
 }
 
@@ -165,10 +173,11 @@ background-position:90%;
 
     .glossierSet{
         height: auto;
-        width: 50%;
+        width: 60%;
         margin-left: 10rem;
-        padding-bottom: 6rem;
     }
+
+    
 
 
     
@@ -199,6 +208,9 @@ background-position:90%;
         padding-bottom: 8rem;
     }
 
+    .leftMidPicture{
+        background-position:88%;
+        }
 
   
 
@@ -219,7 +231,7 @@ background-position:90%;
     }
 
     .glossierSet{
-        margin-left: 16rem;
+        margin-left: 17rem;
     }
 
 }
