@@ -86,25 +86,38 @@ display: none;
 /* Left and right banner */
 
 .homepagePictures{
-    align-items: flex-end;
+    overflow: hidden;
 }
 .rightMidPicture{
 background-image: url('../Images/Backgrounds/homepageRight.png');
 background-size: cover;
 background-repeat: no-repeat;
-background-position:90%;
+background-position:90%;    
+max-height: 320px ;
+
 }
 
 .glossierPrice {
     font-family: 'Krona One';
 }
 
+.glossierSet{
+    max-width: 60%;
+}
+
+.bannerPrice{
+    margin-top:5px;
+}
+
+
 .leftMidPicture{
 background-image: url('../Images/Backgrounds/greyandyellow1.png');
 background-size: cover;
 background-repeat: no-repeat;
 background-position:80%;
-}
+max-height: 500px ;
+} 
+
 
 /* /////////////////////////// */
 
@@ -121,10 +134,18 @@ height:50vh;
     width:100%;
 };
 
+
 @media only screen and (min-width: 375px){
     .homepageBottomBanner{
         height:250px;
         }
+}
+
+@media only screen and (max-width:396px){
+    .bannerPrice{
+        margin-top:5px;
+    }
+    
 }
 
 
@@ -140,22 +161,30 @@ height:50vh;
         margin-left: 20%;
     }
 
+    .rightMidPicture{
+        min-height: 400px
+    }
+    .bannerPrice{
+        margin-top:0px;
+    }
+
+
 }
+
+@media only screen and (max-width: 468px){
+    .cliniqueSet{
+        margin-top: 20px;
+    };
+
+}
+
 
 @media only screen and (min-width: 468px){
   
-        .glossierSet{
-            height: auto;
-            width: 50%;
-            margin-left: 6rem;
-        }
     .glossierPrice{
         justify-content: end;
     }
 
-    /* .homepageBottomBanner{
-        height:300px;
-        } */
 }
 
 
@@ -173,23 +202,30 @@ height:50vh;
         background-position:90%;
         }
     
+    .cliniqueSet{
+            width:80%;
+        };
+
+    .bannerPrice{
+        padding-right: 3rem;
+        }
+}
+
+@media only screen and (min-width: 660px){
+    .glossierSet{
+            height: auto;
+            width: 50%;
+            margin-left: 6rem;
+        } 
         .cliniqueSet{
             width:70%;
+            margin-top: 10px;
         };
 }
 
-@media only screen and (min-width: 600px){
-/* .homepageBottomBanner{
-    height:400px;
-    } */
-}
 
-@media only screen and (max-width: 767px){
-    .leftMidPicture{
-        height:100%;
-        }
 
-}
+
 
 @media only screen and (min-width:760px){
     .subscriptionColouredText{
@@ -199,24 +235,59 @@ height:50vh;
         font-size:2.7vw;
     }    
 
-    .glossierSet{
-        height: auto;
-        width: 60%;
-        margin-left: 10rem;
-    }
     .cliniqueSet{
-        width:60%;
+        width:70%;
     };
+    .rightMidPicture{
+            min-height: 400px;
+        } 
     
 }
 
-@media only screen and (min-width: 900px){
-    .homepageBottomBanner{
-        height:65vh;
-        }
-        
+@media only screen and (min-width: 768px){
+    .rightMidPicture{
+        min-height: 500px;
+    }
+
+    .glossierSet{
+        bottom:20%;
+        left:5%;
+    }
+
+    .bannerPrice{
+        position: relative;
+        margin-top: 0px;
+        top: 20px;   
+        left:50px; 
+    }
+
+    .perSet{
+        position: relative;
+        top:20px;
+        left:60px;
+    }
 }
 
+
+@media only screen and (min-width: 900px){
+    .homepageBottomBanner{
+        height:55vh;
+        }
+
+        .beParagraph{
+            width:70%;
+        }
+    
+}
+
+@media only screen and (min-width: 1000px){
+    .glossierSet{
+        bottom:25%;
+        left:5%;
+    }
+
+    
+}
 
 
 @media only screen and (min-width: 1024px){
@@ -239,22 +310,44 @@ height:50vh;
         margin-top: 2%;
     }
 
-    .glossierSet{
-        margin-left: 12rem;
-        padding-bottom: 8rem;
-    }
-
     .leftMidPicture{
         background-position:88%;
         }
-
-      
-
-        /* .homepageBottomBanner{
-            height:350px;
-            }
-        } */
+    .priceLeft{
+        bottom:10%;
     }
+
+    .fromWord{
+        position: relative;
+        bottom:10%;
+    }
+
+    .homepageBottomBanner{
+            height:65vh;
+        }
+
+    .glossierSet{
+            bottom: 45%;
+            left: 25%;
+        }
+    .mac{
+            bottom:17%;
+        }
+    }
+
+    .beParagraph{
+        margin-top:1rem;
+        margin-left: 1rem;
+        width:65%;
+    }
+
+    .productsSeeBtn{
+        margin-left: 1rem;
+    }
+    .bannerPrice{
+        font-size: 25px;
+    }
+
   
 
 
@@ -272,13 +365,23 @@ height:50vh;
        margin-top: 3%;
     }
 
-    .glossierSet{
-        margin-left: 17rem;
+    .mac{
+        bottom:20%
     }
 
- 
-
+    /* .glossierSet{
+        bottom:40%;
+     } */
 }
+
+@media only screen and (min-width: 1279px){
+
+    .mac{
+        bottom:5%;
+        width:70%;
+    }
+}
+
 
 
 @media only screen and (min-width: 1330px){
@@ -298,12 +401,29 @@ height:50vh;
         bottom: 10%;
     }
 
-    .beautyText{
-       font-size: 3rem;
-    line-height: 3rem;
-    width: 50%;  
+
+    .glossierSet{
+        width:45%;
+        left: 25%;
     }
-   
+
 
 }
+
+@media only screen and (min-width: 1400px){
+    .homepageBottomBanner{
+        height:65vh;
+        }
+
+        .cliniqueSet{
+            width:60%;
+        };
+
+        .mac{
+            bottom:40%;
+        }
+
+        
+}
+
 
