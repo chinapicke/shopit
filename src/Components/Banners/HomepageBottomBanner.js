@@ -12,7 +12,7 @@ function HomepageBottomBanner() {
 
     <div className='homepageBottomBanner grid grid-cols-2 mx-0 md:mx-32 my-3'>
       <div>
-          <h1 className='beParagraph w-44 py-1 px-3 text-lg md:text-2xl lg:text-4xl'>Be confident,
+          <h1 className='beParagraph w-44 py-1 px-3 text-lg md:text-2xl lg:text-3xl'>Be confident,
             be beautiful,
             be you.
         </h1>

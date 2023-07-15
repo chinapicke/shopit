@@ -1,8 +1,10 @@
+
+
 .jumbotron{
     font-family: 'Krona One';
-}
-.navbarSeperator{
-    background-color: black;
+    background-color: #f8f8f8;
+    font-size: 5vw;
+
 }
 
 .footerSection{
@@ -36,5 +38,15 @@
 @media only screen and (min-width: 768px){
     .footerSubtitles li{
         font-size: 12px;
+    }
+
+    .jumbotron{
+        font-size: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .jumbotron{
+        font-size: 1.8vw;
     }
 }

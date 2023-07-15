@@ -34,9 +34,9 @@ export default function RootLayout() {
     }
 
     return (
-        <>
+        <div className='navbar'>
             <div className='jumbotron flex justify-between'>
-                <div className='py-2'>
+                <div className='py-2 px-2 md:pl-8 lg:pl-12'>
                     <NavLink to='/'>
                       ShopIt  
                     </NavLink>
@@ -130,14 +130,12 @@ export default function RootLayout() {
                     : null
                 }
             </div>
-
-            <div className='navbarSeperator w-full h-4'></div>
             <main>
                 <Outlet />
             </main>
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     )
 }

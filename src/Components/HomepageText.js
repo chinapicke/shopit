@@ -2,7 +2,7 @@ import purpleBrushes from '../Assets/Images/purple.png';
 
 function HomepageText() {
   return (
-    <div className='homepageText grid grid-cols-5 my-3 lg:my-10'>
+    <div className='homepageText grid grid-cols-5 py-3 lg:py-10'>
         <div className='homepageTextPhoto col-span-2 lg:ml-6'>
             <img className='purpleBrushes' src={purpleBrushes} alt='Purple brushes' />
         </div>
