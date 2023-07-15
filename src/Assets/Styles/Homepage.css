@@ -1,15 +1,14 @@
-
-.heroBanner{
+.heroBanner {
     background-color: #f8f8f8;
 }
 
-.bannerInfo{
+.bannerInfo {
     font-size: 5vw;
 }
 
-.splashImg{
+.splashImg {
     filter: drop-shadow(1px 1px 1px black);
-    object-fit:scale-down;
+    object-fit: scale-down;
 }
 
 .sectionWithoutJumbotron {
@@ -152,17 +151,14 @@
     width: 100%;
 }
 
-.gradientHomepageBanner{
-    margin:0px;
-    background: linear-gradient(
-    to bottom,
-    white 0%,
-    white 50%,
-    #f8f8f8,   
-    #f8f8f8 100%);
+.gradientHomepageBanner {
+    margin: 0px;
+    background: linear-gradient(to bottom,
+            white 50%,
+            #f8f8f8 50%);
 }
 
-.homepageText{
+.homepageText {
     padding-top: 50px;
     background-color: #f8f8f8;
     margin-top: -12px;
@@ -201,9 +197,30 @@
     object-fit: cover;
 }
 
-
-
 /* /////////////////// */
+
+/* Footer icons */
+.footerIcon {
+    height: 10vw;
+    width: 10vw;
+    margin-left: 5vw;
+}
+
+.yellowCircle {
+    background-color: rgba(253, 210, 97, 255);
+    z-index: -1;
+    height: 10vw;
+    width: 10vw;
+}
+
+.benefitSmallText{
+    font-size:2vw;
+}
+
+.benefitHeader{
+    font-size: 3vw;
+}
+/* ////////////////// */
 
 @media only screen and (min-width: 375px) {
     .homepageBottomBanner {
@@ -298,6 +315,17 @@
     .homepageTextParagraph {
         font-size: 2vw;
     }
+
+    .footerIcon {
+        height: 5vw;
+        width: 5vw;
+        margin-left: 2vw;
+    }
+
+    .yellowCircle {
+        height: 5vw;
+        width: 5vw;
+    }
 }
 
 @media only screen and (min-width: 660px) {
@@ -336,10 +364,14 @@
 
 @media only screen and (min-width: 768px) {
 
-    .heroBanner{
+    .heroBanner {
         background-color: #f8f8f8;
         min-height: 450px;
         padding-bottom: 20px;
+    }
+
+    .pSubscription{
+        font-size: 1.5vw;
     }
 
     .rightMidPicture {
@@ -373,8 +405,16 @@
         font-size: 1.6vw;
     }
 
-    .bannerInfo{
+    .bannerInfo {
         font-size: 4vw;
+    }
+
+    .benefitSmallText{
+        font-size:1.5vw;
+    }
+    
+    .benefitHeader{
+        font-size: 2.5vw;
     }
 }
 
@@ -395,20 +435,20 @@
         bottom: 25%;
         left: 5%;
     }
-
-
 }
 
 
 @media only screen and (min-width: 1024px) {
 
-    .heroBanner{
+    .heroBanner {
         background-color: #f8f8f8;
         min-height: 500px;
     }
-    .bannerInfo{
+
+    .bannerInfo {
         font-size: 3.2vw;
     }
+
     .background {
         width: 65%;
     }
@@ -419,7 +459,7 @@
     }
 
     .subscriptionColouredText {
-        width: 44%;
+        width: 40%;
         left: 28%;
         bottom: 10%;
     }
@@ -479,20 +519,30 @@
     .purpleBrushes {
         margin-top: 0rem;
         min-width: 90%;
-        max-width:90%;
+        max-width: 90%;
         min-height: 300px;
         max-height: 360px;
         object-fit: scale-down;
     }
 
-    .glossierRightText{
-        bottom:13.5rem;
+    .glossierRightText {
+        bottom: 13.5rem;
     }
 
-    .perSet{
-        right:5rem;
+    .perSet {
+        right: 5rem;
     }
 
+    .footerIcon {
+        height: 3vw;
+        width: 3vw;
+        margin-left: 1vw;
+    }
+
+    .yellowCircle {
+        height: 3vw;
+        width: 3vw;
+    }
 
 }
 
@@ -507,7 +557,7 @@
     .subscriptionColouredText {
         width: 49%;
         left: 24%;
-        bottom: 10%;
+        bottom: 20%;
     }
 
     .formSubscription {
@@ -516,6 +566,14 @@
 
     .mac {
         bottom: 20%
+    }
+
+    .benefitSmallText{
+        font-size:1vw;
+    }
+    
+    .benefitHeader{
+        font-size: 1.8vw;
     }
 
 }
@@ -535,7 +593,7 @@
         justify-content: normal;
     }
 
-    .heroBanner{
+    .heroBanner {
         min-height: 530px;
     }
 
@@ -545,10 +603,10 @@
         margin-right: 20%;
     }
 
-    .subscriptionColouredText {
-        width: 49%;
-        left: 23%;
-        bottom: 10%;
+    .subscriptionColouredText{
+        text-align: center;
+        width: 35%;
+        left: 30%;
     }
 
 
@@ -563,12 +621,12 @@
         width: 60%;
     }
 
-    .productsSeeBtn{
+    .productsSeeBtn {
         margin-left: 2.5rem;
 
     }
 
-    .cliniqueSet{
+    .cliniqueSet {
         width: 60%;
     }
 
@@ -580,8 +638,8 @@
         left: 35%;
     }
 
-    .glossierRightText{
-        bottom:11rem;
+    .glossierRightText {
+        bottom: 11rem;
     }
 }
 

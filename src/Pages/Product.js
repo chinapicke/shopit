@@ -8,6 +8,7 @@ import GetSingleProduct from '../Hooks/getSingleProduct'
 import { AppContext } from '../Context/Context'
 import '../Assets/Styles/Product.css'
 import TopPicks from '../Components/TopPicks'
+import FooterIcons from '../Components/Banners/FooterIcons'
 
 function Product() {
   // able to use useParams to direct to the page with the id of the product that has been clicked
@@ -77,6 +78,9 @@ function Product() {
             </div>
         }
           </div >
+          <div>
+            <FooterIcons />
+          </div>
           <div className='topPicksProductPage'>
           <TopPicks /> 
 
