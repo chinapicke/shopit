@@ -1,79 +1,82 @@
-.wholeHomepage{
-   margin:10px;
+.wholeHomepage {
+    margin: 10px;
 }
 
-.homepagePictures{
+.homepagePictures {
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
-
-.homepageText{
-    background-color: cadetblue;
-}
-
-.slider:ruler{
-display: none;
+.slider:ruler {
+    display: none;
 }
 
 /* Subscription Banner */
-.background{
-    width: 80%; height: 100%;
+.background {
+    width: 80%;
+    height: 100%;
     margin-left: 6rem;
 }
-.present{
-    width: 37%; height: 35%;  position: relative; right: 90%;
-    margin-top:11%;
+
+.present {
+    width: 37%;
+    height: 35%;
+    position: relative;
+    right: 90%;
+    margin-top: 11%;
 }
 
-.subscriptionColouredText{
-    width:55%;
+.subscriptionColouredText {
+    width: 55%;
     left: 30%;
-    bottom:18%;
-    font-size:2.5vw;
+    bottom: 18%;
+    font-size: 2.5vw;
     font-family: 'Caprasimo', cursive;
 }
 
-.subscribeBtn{
+.subscribeBtn {
     width: 60%;
-    margin-right:25%;
+    margin-right: 25%;
     margin-top: 2%;
 }
+
 /*/////////////////////////// */
 
 /* Top Picks */
-.topPickImage{
+.topPickImage {
     width: 50%;
     height: auto;
 }
 
-.topPickProductType{
-    color:rgba(253,210,97,255);
+.topPickProductType {
+    color: rgba(253, 210, 97, 255);
     font-weight: bold;
 }
 
-.topPickBrand, .topPickName{
+.topPickBrand,
+.topPickName {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
 }
 
-.topPickText{
+.topPickText {
     overflow-wrap: break-word
 }
-.basketTopPicks:hover{
-    color:rgba(253,210,97,255);
+
+.basketTopPicks:hover {
+    color: rgba(253, 210, 97, 255);
 }
 
-.redHeart{
-    fill:red;
+.redHeart {
+    fill: red;
 }
 
-.topPicksSeeBtn{
-    background-color:rgba(253,210,97,255) ;
+.topPicksSeeBtn {
+    background-color: rgba(253, 210, 97, 255);
     font-family: 'Krona One';
 }
 
-.circleShadow{
+.circleShadow {
     background-image: url('../Images/Backgrounds/grey.png');
     background-size: 22px;
     padding-bottom: 2px;
@@ -85,15 +88,16 @@ display: none;
 
 /* Left and right banner */
 
-.homepagePictures{
+.homepagePictures {
     overflow: hidden;
 }
-.rightMidPicture{
-background-image: url('../Images/Backgrounds/homepageRight.png');
-background-size: cover;
-background-repeat: no-repeat;
-background-position:90%;    
-max-height: 320px ;
+
+.rightMidPicture {
+    background-image: url('../Images/Backgrounds/homepageRight.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 90%;
+    max-height: 320px;
 
 }
 
@@ -101,272 +105,367 @@ max-height: 320px ;
     font-family: 'Krona One';
 }
 
-.glossierSet{
+.glossierSet {
     max-width: 60%;
 }
 
-.bannerPrice{
-    margin-top:5px;
+.bannerPrice {
+    margin-top: 5px;
 }
 
-
-.leftMidPicture{
-background-image: url('../Images/Backgrounds/greyandyellow1.png');
-background-size: cover;
-background-repeat: no-repeat;
-background-position:80%;
-max-height: 500px ;
-} 
+.leftMidPicture {
+    background-image: url('../Images/Backgrounds/greyandyellow1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80%;
+    max-height: 500px;
+}
 
 
 /* /////////////////////////// */
 
 /* Homepage Bottom Banner */
-.homepageBottomBanner{
-background-image: url('../Images/pinkBg.png');
-background-size: cover;
-background-repeat: no-repeat;
-background-position:70%;
-height:50vh;
+.homepageBottomBanner {
+    background-image: url('../Images/pinkBg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 70%;
+    height: 50vh;
 }
 
-.cliniqueSet{
-    width:100%;
-};
-
-
-@media only screen and (min-width: 375px){
-    .homepageBottomBanner{
-        height:250px;
-        }
+.cliniqueSet {
+    width: 100%;
 }
 
-@media only screen and (max-width:396px){
-    .bannerPrice{
-        margin-top:5px;
+;
+/* ///////////////////// */
+
+/* Homepage Text Banner */
+
+.homepageTextPhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.purpleBrushes {
+    object-fit: cover;
+    min-width: 80%;
+    min-height: 100%;
+    margin-top: 1rem;
+}
+
+
+.homepageTextTitle {
+    font-size: 4vw;
+}
+
+.homepageTextParagraph {
+    font-size: 3vw;
+}
+
+.purpleBrushes {
+    min-height: 90%;
+    max-height: 90%;
+    object-fit: cover;
+}
+
+
+
+/* /////////////////// */
+
+@media only screen and (min-width: 375px) {
+    .homepageBottomBanner {
+        height: 250px;
     }
-    
+}
+
+@media only screen and (max-width:396px) {
+    .bannerPrice {
+        margin-top: 5px;
+    }
+
 }
 
 
-@media only screen and (min-width: 410px){
-    .subscriptionColouredText{
-        width:55%;
+@media only screen and (min-width: 410px) {
+    .subscriptionColouredText {
+        width: 55%;
         left: 27%;
-        bottom:22%;
-        font-size:2.7vw;
-    }    
+        bottom: 22%;
+        font-size: 2.7vw;
+    }
 
-    .formSubscription{
+    .formSubscription {
         margin-left: 20%;
     }
 
-    .rightMidPicture{
+    .rightMidPicture {
         min-height: 400px
     }
-    .bannerPrice{
-        margin-top:0px;
+
+    .bannerPrice {
+        margin-top: 0px;
     }
 
+    /* .purpleBrushes {
+        overflow: hidden;
+        min-width: 100%;
+        min-height: 90%;
+        object-position: top;
+    } */
+
 
 }
 
-@media only screen and (max-width: 468px){
-    .cliniqueSet{
+@media only screen and (max-width: 468px) {
+    .cliniqueSet {
         margin-top: 20px;
-    };
-
+    }
 }
 
 
-@media only screen and (min-width: 468px){
-  
-    .glossierPrice{
+@media only screen and (min-width: 468px) {
+
+    .glossierPrice {
         justify-content: end;
     }
 
+    .purpleBrushes {
+        margin-top: 1rem;
+    }
+
+}
+
+@media only screen and (max-width:550px) and (min-width:490px) {
+    .cliniqueSet {
+        width: 90%;
+    }
+
+
 }
 
 
-@media only screen and (min-width: 550px){
-    .presentBackground{
-        margin-left:7rem;
+@media only screen and (min-width: 550px) {
+    .presentBackground {
+        margin-left: 7rem;
     }
 
-    .present{
-        width: 30%; height: 30%;  position: relative; right: 90%;
-        margin-top:11%;
+    .present {
+        width: 30%;
+        height: 30%;
+        position: relative;
+        right: 90%;
+        margin-top: 11%;
     }
 
-    .leftMidPicture{
-        background-position:90%;
-        }
-    
-    .cliniqueSet{
-            width:80%;
-        };
+    .leftMidPicture {
+        background-position: 90%;
+    }
 
-    .bannerPrice{
+    .cliniqueSet {
+        width: 80%;
+    }
+
+    .bannerPrice {
         padding-right: 3rem;
-        }
+    }
+
+    .homepageTextParagraph {
+        font-size: 2vw;
+    }
 }
 
-@media only screen and (min-width: 660px){
-    .glossierSet{
-            height: auto;
-            width: 50%;
-            margin-left: 6rem;
-        } 
-        .cliniqueSet{
-            width:70%;
-            margin-top: 10px;
-        };
+@media only screen and (min-width: 660px) {
+    .glossierSet {
+        height: auto;
+        width: 50%;
+        margin-left: 6rem;
+    }
+
+    .cliniqueSet {
+        width: 60%;
+        margin-top: 10px;
+    }
+
+
 }
 
 
 
 
 
-@media only screen and (min-width:760px){
-    .subscriptionColouredText{
-        width:50%;
+@media only screen and (min-width:760px) {
+    .subscriptionColouredText {
+        width: 50%;
         left: 26%;
-        bottom:22%;
-        font-size:2.7vw;
-    }    
+        bottom: 22%;
+        font-size: 2.7vw;
+    }
 
-    .cliniqueSet{
-        width:70%;
-    };
-    .rightMidPicture{
-            min-height: 400px;
-        } 
-    
+
+    .rightMidPicture {
+        min-height: 400px;
+    }
+
 }
 
-@media only screen and (min-width: 768px){
-    .rightMidPicture{
+@media only screen and (min-width: 768px) {
+    .rightMidPicture {
         min-height: 500px;
     }
 
-    .glossierSet{
-        bottom:20%;
-        left:5%;
+    .glossierSet {
+        bottom: 20%;
+        left: 5%;
     }
 
-    .bannerPrice{
+    .bannerPrice {
         position: relative;
         margin-top: 0px;
-        top: 20px;   
-        left:50px; 
+        top: 20px;
+        left: 50px;
     }
 
-    .perSet{
+    .perSet {
         position: relative;
-        top:20px;
-        left:60px;
+        top: 20px;
+        left: 60px;
+    }
+
+    .cliniqueSet {
+        width: 70%;
+        margin-top: 13px;
+    }
+
+    .homepageTextParagraph {
+        font-size: 1.6vw;
     }
 }
 
 
-@media only screen and (min-width: 900px){
-    .homepageBottomBanner{
-        height:55vh;
-        }
-
-        .beParagraph{
-            width:70%;
-        }
-    
-}
-
-@media only screen and (min-width: 1000px){
-    .glossierSet{
-        bottom:25%;
-        left:5%;
+@media only screen and (min-width: 900px) {
+    .homepageBottomBanner {
+        height: 55vh;
     }
 
-    
+    .beParagraph {
+        width: 70%;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    .glossierSet {
+        bottom: 25%;
+        left: 5%;
+    }
+
+
 }
 
 
-@media only screen and (min-width: 1024px){
-    .background{
+@media only screen and (min-width: 1024px) {
+    .background {
         width: 65%;
     }
 
-    .present{
+    .present {
         right: 77%;
-        margin-top:5%;
+        margin-top: 5%;
     }
 
-    .subscriptionColouredText{
+    .subscriptionColouredText {
         width: 44%;
         left: 28%;
         bottom: 10%;
     }
 
-    .subscribeBtn{
+    .subscribeBtn {
         margin-top: 2%;
     }
 
-    .leftMidPicture{
-        background-position:88%;
-        }
-    .priceLeft{
-        bottom:10%;
+    .leftMidPicture {
+        background-position: 88%;
     }
 
-    .fromWord{
+    .priceLeft {
+        bottom: 10%;
+    }
+
+    .fromWord {
         position: relative;
-        bottom:10%;
+        bottom: 10%;
     }
 
-    .homepageBottomBanner{
-            height:65vh;
-        }
-
-    .glossierSet{
-            bottom: 45%;
-            left: 25%;
-        }
-    .mac{
-            bottom:17%;
-        }
+    .homepageBottomBanner {
+        height: 65vh;
     }
 
-    .beParagraph{
-        margin-top:1rem;
+    .glossierSet {
+        bottom: 45%;
+        left: 25%;
+    }
+
+    .mac {
+        bottom: 17%;
+    }
+
+    .homepageTextParagraph {
+        font-size: 1.2vw;
+    }
+
+    .homepageTextTitle {
+        font-size: 2vw;
+    }
+
+    .beParagraph {
+        margin-top: 1rem;
         margin-left: 1rem;
-        width:65%;
+        width: 65%;
     }
 
-    .productsSeeBtn{
+    .productsSeeBtn {
         margin-left: 1rem;
     }
-    .bannerPrice{
+
+    .bannerPrice {
         font-size: 25px;
     }
 
-  
+    .purpleBrushes {
+        margin-top: 0rem;
+        min-width: 90%;
+        max-width:90%;
+        min-height: 300px;
+        max-height: 360px;
+        object-fit: scale-down;
+    }
 
 
-@media only screen and (min-width: 1192px){
-    .presentBackground{
+}
+
+
+
+
+@media only screen and (min-width: 1192px) {
+    .presentBackground {
         justify-content: normal;
     }
-    .subscriptionColouredText{
+
+    .subscriptionColouredText {
         width: 49%;
         left: 24%;
         bottom: 10%;
     }
 
-    .formSubscription{
-       margin-top: 3%;
+    .formSubscription {
+        margin-top: 3%;
     }
 
-    .mac{
-        bottom:20%
+    .mac {
+        bottom: 20%
     }
 
     /* .glossierSet{
@@ -374,56 +473,56 @@ height:50vh;
      } */
 }
 
-@media only screen and (min-width: 1279px){
+@media only screen and (min-width: 1279px) {
 
-    .mac{
-        bottom:5%;
-        width:70%;
+    .mac {
+        bottom: 5%;
+        width: 70%;
     }
 }
 
 
 
-@media only screen and (min-width: 1330px){
-    .presentBackground{
+@media only screen and (min-width: 1330px) {
+    .presentBackground {
         justify-content: normal;
     }
 
-    .subscribeBtn{
+    .subscribeBtn {
         width: 70%;
         margin-top: 2%;
         margin-right: 20%;
     }
 
-    .subscriptionColouredText{
+    .subscriptionColouredText {
         width: 49%;
         left: 23%;
         bottom: 10%;
     }
 
 
-    .glossierSet{
-        width:45%;
+    .glossierSet {
+        width: 45%;
         left: 25%;
     }
 
 
 }
 
-@media only screen and (min-width: 1400px){
-    .homepageBottomBanner{
-        height:65vh;
-        }
+@media only screen and (min-width: 1400px) {
+    .homepageBottomBanner {
+        height: 65vh;
+    }
 
-        .cliniqueSet{
-            width:60%;
-        };
+    .cliniqueSet {
+        width: 60%;
+    }
 
-        .mac{
-            bottom:40%;
-        }
+    ;
 
-        
+    .mac {
+        bottom: 40%;
+    }
+
+
 }
-
-

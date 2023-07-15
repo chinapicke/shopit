@@ -1,17 +1,17 @@
-import Brushes from '../Assets/Images/brushes.png';
+import purpleBrushes from '../Assets/Images/purple.png';
 
 function HomepageText() {
   return (
-    <div className='homepageText grid grid-cols-2 gap-4'>
-        <div className='homepageTextPhoto'>
-            <img src={Brushes} alt='Sephora brushes' />
+    <div className='homepageText grid grid-cols-5 my-3 lg:my-10'>
+        <div className='homepageTextPhoto col-span-2 lg:ml-6'>
+            <img className='purpleBrushes' src={purpleBrushes} alt='Purple brushes' />
         </div>
-        <div className='homepageTextRightSide'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <div className='homepageTextRightSide col-span-3 md:mr-12 lg:mr-24 lg:pr-6'>
+          <h1 className='homepageTextTitle mx-2'>Elegance is what you deserve.</h1>
+            <p className='homepageTextParagraph mx-2 md:mt-4'>We believe that beauty thrives in diversity and discovery. Our purpose is to expand the way the world sees beauty by empowering each of us.</p>
+            <br></br>
+            <p className='homepageTextParagraph mx-2 '>Our commitment to our customer's beauty begins with ensuring we have the best selection of the products people love form the brands they trust. We have a range of products that is inclusive of all our users needs, whether it is chemical-free to vegan, we have it all. We always strive to promote responsible products and formulas, and to elevate sustainable sourcing and transparency in formulation and packaging.</p>
+                        </div>
     </div>
   )
 }
