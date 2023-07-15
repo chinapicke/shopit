@@ -17,7 +17,7 @@ function TopPicks() {
 
   // filter function, filter through topPick and if item has same id, return it 
   const filterById = topPick.filter(item => {
-    return item.id === 495 || item.id === 140 || item.id === 310 || item.id === 402
+    return item.id === 495 || item.id === 140 || item.id === 310 || item.id === 402|| item.id === 326 || item.id === 258 || item.id === 35 || item.id === 99
   })
 
 
