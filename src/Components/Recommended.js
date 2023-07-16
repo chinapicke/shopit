@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import GetRecommended from '../Hooks/getRecommended'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
@@ -7,34 +7,34 @@ import { useContext } from 'react'
 import { AppContext } from '../Context/Context'
 import savedHook from '../Hooks/savedHook'
 import'../Assets/Styles/Shop.css'
+import { useCallback } from 'react';
 
 
 function Recommended() {
     
-  const { recommended } = GetRecommended('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { recommended} = GetRecommended('https://makeup-api.herokuapp.com/api/v1/products.json')
   const { likedIndex, changeIcon } = savedHook()
-
-  const listRecommended =[]
-  for(let i=0; i<4; i++){
-      listRecommended.push(Math.floor(Math.random() * recommended.length))
-  }
-  console.log(listRecommended)
-  // filter through res.data and filter out the ids that match with listRecommended
-  const filterOut = recommended.filter(({id})=> listRecommended.includes(id))
-  console.log(filterOut)
 
   const Savestate = useContext(AppContext)
   const saveDispatch = Savestate.saveDispatch
 
   const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
-  // console.log(filterById)
-  // console.log(topPick)
-  // id  492, 140, 310, 402
+  const listRecommended = []
+    for(let i=0; i<4; i++){
+        listRecommended.push(Math.floor(Math.random() * recommended.length))
+    }
+
+
+  // filter out the ids that match with listRecommended
+  const filterOut =recommended.filter(({id})=> listRecommended.includes(id))
+  console.log(filterOut)
+
   return (
     <>
-
+        <h1 className='recommendedHeader text-2xl'>Recommended</h1>
       <div className='recommended grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
+
          {filterOut.map((item, index) =>{
             return(
                 <div className='topProductCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg ' key={item.id}>
@@ -81,5 +81,6 @@ function Recommended() {
     </>
   )
 }
+
 
 export default Recommended

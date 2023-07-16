@@ -29,6 +29,7 @@ const GetRecommended = (url) => {
             } catch (err) {
                 console.log(`Fetch error: ${err}`);
             }
+
         }
         getRecommendedProducts(url)
     }
