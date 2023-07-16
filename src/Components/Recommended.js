@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+// import { useMemo } from 'react'
 import GetRecommended from '../Hooks/getRecommended'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { AppContext } from '../Context/Context'
 import savedHook from '../Hooks/savedHook'
 import'../Assets/Styles/Shop.css'
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 
 
 function Recommended() {
