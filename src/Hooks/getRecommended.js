@@ -3,7 +3,6 @@ import axios from 'axios'
 
 const GetRecommended = (url) => {
     const [recommended, setRecommended] = useState([])
-    const listRecommended =[]
     useEffect(() => {
         const getRecommendedProducts = async (url) => {
             // useCallback means that the API call will not be made everytime we make a change to the page e.g. reviewing a products info
@@ -15,7 +14,8 @@ const GetRecommended = (url) => {
                     // const randomIndex = Math.floor(Math.random() * res.data.length)
                     // console.log(randomIndex)
                     // empty array to push the random numbers to 
-                    // adds 4 random numbers to the empty arrat 
+                    // adds 4 random numbers to the empty array
+                    const listRecommended =[]
                     for(let i=0; i<4; i++){
                         listRecommended.push(Math.floor(Math.random() * res.data.length))
                     }
@@ -40,12 +40,12 @@ const GetRecommended = (url) => {
         }
         getRecommendedProducts(url)
     }
-    
-        , [url]);
+
+, [url]);
 
 
     return {
-        recommended
+        recommended,
     }
 }
 

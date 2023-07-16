@@ -9,7 +9,6 @@ import { AppContext } from '../Context/Context'
 import '../Assets/Styles/Product.css'
 import FooterIcons from '../Components/Banners/FooterIcons'
 import Recommended from '../Components/Recommended'
-import GetRecommended from '../Hooks/getRecommended'
 
 function Product() {
   // able to use useParams to direct to the page with the id of the product that has been clicked
