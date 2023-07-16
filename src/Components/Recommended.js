@@ -9,22 +9,19 @@ import savedHook from '../Hooks/savedHook'
 import'../Assets/Styles/Shop.css'
 
 
-function TopPicks() {
+function Recommended() {
     
   const { recommended } = GetRecommended('https://makeup-api.herokuapp.com/api/v1/products.json')
   const { likedIndex, changeIcon } = savedHook()
 
-// const listRecommended =[]
-// const randomIndex = Math.floor(Math.random() * recommended.length)
-// console.log(randomIndex)
-// const filtered = recommended.filter(item =>{
-//     return item.id===randomIndex
-// })
-// for(let i = 0; i < 6; i++) {
-//     listRecommended.push(filtered);
-//   }
-
-// console.log(listRecommended)
+  const listRecommended =[]
+  for(let i=0; i<4; i++){
+      listRecommended.push(Math.floor(Math.random() * recommended.length))
+  }
+  console.log(listRecommended)
+  // filter through res.data and filter out the ids that match with listRecommended
+  const filterOut = recommended.filter(({id})=> listRecommended.includes(id))
+  console.log(filterOut)
 
   const Savestate = useContext(AppContext)
   const saveDispatch = Savestate.saveDispatch
@@ -38,7 +35,7 @@ function TopPicks() {
     <>
 
       <div className='recommended grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
-         {recommended.map((item, index) =>{
+         {filterOut.map((item, index) =>{
             return(
                 <div className='topProductCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg ' key={item.id}>
                 < button className='mx-1 my-1' value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
@@ -85,4 +82,4 @@ function TopPicks() {
   )
 }
 
-export default TopPicks
+export default Recommended

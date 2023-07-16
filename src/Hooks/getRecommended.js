@@ -11,20 +11,12 @@ const GetRecommended = (url) => {
                 const res = await axios.get(url)
                 if (res.status === 200) {
                     console.log('Success!');
-                    // const randomIndex = Math.floor(Math.random() * res.data.length)
-                    // console.log(randomIndex)
+                    
                     // empty array to push the random numbers to 
                     // adds 4 random numbers to the empty array
-                    const listRecommended =[]
-                    for(let i=0; i<4; i++){
-                        listRecommended.push(Math.floor(Math.random() * res.data.length))
-                    }
-                    console.log(listRecommended)
-                    // filter through res.data and filter out the ids that match with listRecommended
-                    const filterOut = res.data.filter(({id})=> listRecommended.includes(id))
-                    console.log(filterOut)
+                   
                     // converts prices that are set to 0.0 by the API and adds quantity of 1 to eahc object in the data array
-                    const productsWithQuantity = filterOut.map((item) => {
+                    const productsWithQuantity = res.data.map((item) => {
                         return (
                             item.price === '0.0' || item.price === null ? { ...item, price: 8.50, quantity: 1 } : { ...item, quantity: 1 }
                         )
