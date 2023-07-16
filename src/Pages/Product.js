@@ -7,14 +7,16 @@ import { useState, useContext } from 'react'
 import GetSingleProduct from '../Hooks/getSingleProduct'
 import { AppContext } from '../Context/Context'
 import '../Assets/Styles/Product.css'
-import TopPicks from '../Components/TopPicks'
 import FooterIcons from '../Components/Banners/FooterIcons'
+import Recommended from '../Components/Recommended'
+import GetRecommended from '../Hooks/getRecommended'
 
 function Product() {
   // able to use useParams to direct to the page with the id of the product that has been clicked
   const { id } = useParams()
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
   const [clickedColour, setClickedColour] = useState([])
+
 
   // const disablePlusBtn = () => {
   //   singleProduct.quantity === 10 || singleProduct.quantity === 0 ?
@@ -81,9 +83,8 @@ function Product() {
           <div>
             <FooterIcons />
           </div>
-          <div className='topPicksProductPage'>
-          <TopPicks /> 
-
+          <div>
+            <Recommended />
           </div>
     </>
       )

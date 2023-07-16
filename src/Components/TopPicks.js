@@ -72,7 +72,6 @@ function TopPicks() {
                 </div>
               </div>
             </div>
-
           )
         }
         )}
