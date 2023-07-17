@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Assets/Styles/jumbotron.css'
+// import '../Assets/Styles/jumbotron.css'
 import Splash from '../Assets/Images/splash.png'
 import 'animate.css';
 

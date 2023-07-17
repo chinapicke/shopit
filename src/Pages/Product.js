@@ -42,23 +42,26 @@ function Product() {
   return (
     <>
       <div className='routeTaken'>
-        <ol>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/shop'>Shop</Link></li>
+        <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
+        <ol className='flex flex-row'>
+          <li><Link to='/'>Home/</Link></li>
+          <li><Link to='/shop'>Shop/</Link></li>
           <li>Current page</li>
         </ol>
       </div>
-      <div className='productInfo'>
+      <div className='productInfo '>
         {error && <div>{error}</div>}
         {isLoading ?
           (<div>Loading...</div>) :
-          <div id={singleProduct.id}>
+          <div id={singleProduct.id} className='productPageCard relative'>
             <img src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
-            <p>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
+            <p className='productPageType'>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
 
-            <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
-            <h2> £{singleProduct.price === '0.0' || singleProduct.price === null ? '8.50' : Number(singleProduct.price).toFixed(2)}</h2>
-            <h3>{singleProduct.description}</h3>
+            <h1 className='productPageNameBrand '>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
+            <div className="priceShadow absolute rounded-full "></div>
+            <h2 className='productPrice pb-5'> £{singleProduct.price === '0.0' || singleProduct.price === null ? '8.50' : Number(singleProduct.price).toFixed(2)}</h2>
+            <h3 className='productPageDescriptionTitle'>Description</h3>
+            <h4 className='productPageDescription'>{singleProduct.description}</h4>
             {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
             <div className="colourList grid grid-cols-4">
@@ -75,18 +78,18 @@ function Product() {
                 )
               })}
             </div>
-              <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
-            </div>
+            <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
+          </div>
         }
-          </div >
-          <div>
-            <FooterIcons />
-          </div>
-          <div>
-            <Recommended />
-          </div>
+      </div >
+      <div>
+        <FooterIcons />
+      </div>
+      <div>
+        <Recommended />
+      </div>
     </>
-      )
+  )
 }
 
-      export default Product
+export default Product

@@ -6,3 +6,50 @@
     background-color: black;
 }
 
+.routeTaken{
+    width: 100%;
+    background: linear-gradient(
+    #f8f8f8,white)
+    /* #f8f8f8 50%
+    #f8f8f8 100%); */
+}
+
+.productPageType{
+        color: rgba(253, 210, 97, 255);
+        font-weight: bold;
+}
+
+.productPageNameBrand{
+    font-weight:600;
+    font-size: 5vw;
+}
+
+.productPageDescriptionTitle{
+    font-weight:bold;
+    font-size: 4vw;
+}
+
+.productPageDescription{
+    height: 30vh;
+    overflow: auto;
+    font-weight:normal;
+    font-size: 4vw;
+}
+
+.productPageCard{
+    margin: 10px;
+}
+
+.priceShadow{
+    /* background-color: rgba(253, 210, 97, 255); */
+    background-color:#b8b4b4;
+    z-index: -1;
+    height: 7vw;
+    width: 7vw;
+    right: 91vw;
+
+}
+
+.productPrice{
+    font-size: 4vw;
+}
