@@ -21,7 +21,27 @@ const GetRecommended = (url) => {
                             item.price === '0.0' || item.price === null ? { ...item, price: 8.50, quantity: 1 } : { ...item, quantity: 1 }
                         )
                     })
-                    setRecommended(productsWithQuantity);
+                    let ranges =[]
+                    const newIndex = (min, max)=>{
+                        if(max< 4){
+                          return false;
+                        }
+                        for(let i=0; i<4; i++){
+                          const val =Math.floor(Math.random() * (max - min) + min)
+                          if(ranges.includes(val)){
+                              i--;
+                          }
+                          else{
+                           ranges.push( productsWithQuantity[val])
+                           }
+                           }
+                           return ranges
+                      } 
+                      newIndex(1,productsWithQuantity.length)
+
+                    
+                    console.log(ranges)
+                    setRecommended(ranges);
                 }
                 else {
                     console.log(`Server error: ${res.status}`);
@@ -29,9 +49,8 @@ const GetRecommended = (url) => {
             } catch (err) {
                 console.log(`Fetch error: ${err}`);
             }
-
-        }
-        getRecommendedProducts(url)
+    }
+    getRecommendedProducts(url)
     }
 
 , [url]);

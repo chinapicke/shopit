@@ -20,22 +20,41 @@ function Recommended() {
 
   const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
-  const listRecommended = []
-    for(let i=0; i<4; i++){
-        listRecommended.push(Math.floor(Math.random() * recommended.length))
-    }
+  // const listRecommended = [];
+  // let filterOut;
 
+  // const generateRandom = ()=>{
+  //   // const randomNumber = () =>{
+  //     for(let i=0; i<4; i++){
+  //       listRecommended.push(Math.floor(Math.random() * recommended.length))
+  //       filterOut=recommended.filter(({id})=> listRecommended.includes(id))
+  //       console.log(filterOut)
+  //       return filterOut
+  //   // } 
+  //   }
+    // randomNumber()
+    // if(filterOut <4)
+    // {
+    //   filterOut=[]
+    //   randomNumber()
+    // }
+  // }
+
+  // generateRandom()
+    
+    // const filterOut =recommended.filter(({id})=> listRecommended.includes(id))
+    // console.log(filterOut)
+    // if (filter)
 
   // filter out the ids that match with listRecommended
-  const filterOut =recommended.filter(({id})=> listRecommended.includes(id))
-  console.log(filterOut)
+
 
   return (
     <>
         <h1 className='recommendedHeader text-2xl'>Recommended</h1>
       <div className='recommended grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
 
-         {filterOut.map((item, index) =>{
+         {recommended.map((item, index) =>{
             return(
                 <div className='topProductCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg ' key={item.id}>
                 < button className='mx-1 my-1' value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
