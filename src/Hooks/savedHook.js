@@ -12,6 +12,10 @@ const SavedHook = () => {
     
   }
 
+  const changeIconProduct = () =>{
+    setLikedIndex(current => !current)
+  }
+
   const openDrawer = () => {
     setCartDrawer(current => !current);
 }
@@ -20,7 +24,8 @@ const SavedHook = () => {
     likedIndex, 
     changeIcon, 
     cartDrawer,
-    openDrawer
+    openDrawer,
+    changeIconProduct
   }
 }
 
