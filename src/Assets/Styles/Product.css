@@ -59,11 +59,15 @@
     font-family: 'Krona One';
 }
 
+.heartIconCaption{
+    color: #b8b4b4;
+    margin-top: 0.55vh;
+    font-size: 3vw;
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 @media only screen and (min-width: 768px) {
     .priceShadow{
-        /* background-color: rgba(253, 210, 97, 255); */
-        background-color:#b8b4b4;
-        z-index: -1;
         height: 2.5vw;
         width: 2.5vw;
         right: 46.3vw;
@@ -89,20 +93,36 @@
         font-size:2vw;
         margin-left: 3px;
     }
+
+    .heartIconCaption{
+        margin-top: 0.55vh;
+        font-size: 1.5vw;
+    }
     
 }
 
 @media only screen and (min-width: 1024px) {
 
+    .productPrice{
+        font-size:1.5vw;
+        margin-left: 3px;
+    }
+
     .priceShadow {
-        height: 3vw;
-        width: 3vw;
+        height: 2.3vw;
+        width: 2.3vw;
         right: 46.5vw;
+    }
+     .heartIconCaption{
+        margin-top: 0.65vh;
+        font-size: 1vw;
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1200px) {
     .productPageType{
         font-size: 1.4vw;
     }
+
+   
 }
