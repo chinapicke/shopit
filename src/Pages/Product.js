@@ -13,12 +13,15 @@ import savedHook from '../Hooks/savedHook'
 
 
 
+
 function Product() {
   // able to use useParams to direct to the page with the id of the product that has been clicked
   const { id } = useParams()
   const { singleProduct, isLoading, error } = GetSingleProduct(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`)
   const [clickedColour, setClickedColour] = useState([])
   const { likedIndex, changeIconProduct } = savedHook()
+  const  [hover, setHover] = useState({});
+
 
 
   // const disablePlusBtn = () => {
@@ -43,6 +46,25 @@ function Product() {
     console.log(setClickedColour)
   }
 
+ 
+  const mouseOver = (event, index) => {
+    setHover(c => {
+        return {
+            ...c,
+            [index]: false
+        };
+    })
+}
+
+const mouseOut = (event, index) => {
+    setHover(c => {
+        return {
+            ...c,
+            [index]: true
+        };
+    })
+}
+
   return (
     <>
       <div className='routeTaken'>
@@ -58,8 +80,8 @@ function Product() {
         {isLoading ?
           (<div>Loading...</div>) :
           <div id={singleProduct.id} className='productPageCard relative ml-2 mr-8 md:grid grid-cols-2'>
-            <div>
-            <img src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
+            <div className='flex justify-center my-3'>
+            <img className='productPageImg' src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
             </div>
             <div>
             < button className='my-1 flex flex-row' value={singleProduct.brand + singleProduct.product_type} onClick={() => { changeIconProduct(); saveDispatch({ type: 'SAVE', saveIt: singleProduct }) }}>
@@ -87,23 +109,34 @@ function Product() {
             <div className='flex flex-row pb-3 justify-between'>
             <div className="priceShadow absolute rounded-full mt-4"></div>
             <h2 className='productPrice mt-4'> £{singleProduct.price === '0.0' || singleProduct.price === null ? '8.50' : Number(singleProduct.price).toFixed(2)}</h2>
-            <button className='addBasketProductPage mt-2 mr-2 text-sm text-black px-2 py-3 rounded-full ml-auto mr-4 md:mr-10 md:py-2 lg:mr-12 ' type="button" onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>add to basket</button>
+            <button className='addBasketProductPage mt-2 mr-2 text-sm text-black px-2 py-3 rounded-full ml-auto mr-4 md:mr-10 md:py-2 lg:mr-12 lg:py-4 lg:px-4' type="button" onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>add to basket</button>
             </div>
             <h3 className='productPageDescriptionTitle'>Description</h3>
-            <h4 className='productPageDescription'>{singleProduct.description}</h4>
+            <h4 className='productPageDescription mb-3 '>{singleProduct.description}</h4>
             {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
-            <div className="colourList grid grid-cols-4">
+            <div className="colourList grid grid-cols-5 justify-items-center">
               {singleProduct.product_colors?.map((colour, index) => {
                 return (
-                  <button onClick={() => handleColour(index)} className='colourItem' key={index} style={{ backgroundColor: colour.hex_value }}>
-                    {colour.hex_value}
+                  <>
+                  <button onClick={() => handleColour(index)}onMouseEnter={(e) => {
+                        mouseOver(e, index);
+                    }} 
+                    onMouseLeave={(e) => {
+                        mouseOut(e, index);
+                    }} className='colourItem mb-2 flex flex-row' key={index} style={{ backgroundColor: colour.hex_value }}>
                     {clickedColour[index] ?
                       (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
-                      ) : (null)}
+                      )
+                      : (null)}
+                      <div hidden={hover[index]}>
+                        {colour.colour_name}
+                    </div>
                   </button>
+                  
+                  </> 
                 )
               })}
             </div>

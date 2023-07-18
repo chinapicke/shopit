@@ -98,6 +98,11 @@
         margin-top: 0.55vh;
         font-size: 1.5vw;
     }
+
+    .productPageImg{
+        object-fit: scale-down;
+    }
+    
     
 }
 
@@ -117,6 +122,19 @@
         margin-top: 0.65vh;
         font-size: 1vw;
     }
+
+    .productPageImg{
+        object-fit: contain;
+    height: 50vh;
+    margin-top: 15vh;
+    }
+
+    .productPageDescription{
+        font-size:1.2vw;
+        width:45vw;
+        height: 30vh;
+        overflow: auto;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -124,5 +142,15 @@
         font-size: 1.4vw;
     }
 
+    .productPrice{
+        font-size:1.3vw;
+        margin-left: 3px;
+    }
+
+    .priceShadow {
+        height: 2.1vw;
+        width: 2.1vw;
+        right: 46.4vw;
+    }
    
 }
