@@ -44,14 +44,19 @@
     /* background-color: rgba(253, 210, 97, 255); */
     background-color:#b8b4b4;
     z-index: -1;
-    height: 7vw;
-    width: 7vw;
-    right: 91vw;
+    height: 8vw;
+    width: 8vw;
+    right: 88vw;
 
 }
 
 .productPrice{
-    font-size: 4vw;
+    font-size: 5vw;
+}
+
+.addBasketProductPage{
+    background-color: rgba(253, 210, 97, 255);
+    font-family: 'Krona One';
 }
 
 @media only screen and (min-width: 768px) {
@@ -59,29 +64,45 @@
         /* background-color: rgba(253, 210, 97, 255); */
         background-color:#b8b4b4;
         z-index: -1;
-        height: 3.6vw;
-    width: 3.9vw;
-    right: 45.5vw;
+        height: 2.5vw;
+        width: 2.5vw;
+        right: 46.3vw;
     }
 
     .productPageNameBrand{
         font-size: 2vw;
+        margin-bottom: 0.2vw;
     }
     
-    .productPrice, .productPageDescriptionTitle{
-        font-size: 1.3vw;
+    .productPageDescriptionTitle{
+        font-size: 1.5vw;
     }
 
     .productPageDescription{
-        font-size:1vw;
+        font-size:1.2vw;
         width:45vw;
         height: 30vh;
         overflow: auto;
     }
 
     .productPrice{
-        margin-top:5px;
-        margin-left: 2px;
+        font-size:2vw;
+        margin-left: 3px;
     }
     
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .priceShadow {
+        height: 3vw;
+        width: 3vw;
+        right: 46.5vw;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .productPageType{
+        font-size: 1.4vw;
+    }
 }
