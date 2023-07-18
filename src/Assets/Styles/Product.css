@@ -53,3 +53,35 @@
 .productPrice{
     font-size: 4vw;
 }
+
+@media only screen and (min-width: 768px) {
+    .priceShadow{
+        /* background-color: rgba(253, 210, 97, 255); */
+        background-color:#b8b4b4;
+        z-index: -1;
+        height: 3.6vw;
+    width: 3.9vw;
+    right: 45.5vw;
+    }
+
+    .productPageNameBrand{
+        font-size: 2vw;
+    }
+    
+    .productPrice, .productPageDescriptionTitle{
+        font-size: 1.3vw;
+    }
+
+    .productPageDescription{
+        font-size:1vw;
+        width:45vw;
+        height: 30vh;
+        overflow: auto;
+    }
+
+    .productPrice{
+        margin-top:5px;
+        margin-left: 2px;
+    }
+    
+}

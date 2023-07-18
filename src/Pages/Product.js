@@ -53,10 +53,12 @@ function Product() {
         {error && <div>{error}</div>}
         {isLoading ?
           (<div>Loading...</div>) :
-          <div id={singleProduct.id} className='productPageCard relative'>
+          <div id={singleProduct.id} className='productPageCard relative md:grid grid-cols-2'>
+            <div>
             <img src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
+            </div>
+            <div>
             <p className='productPageType'>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase().split('_').join(' ') : singleProduct.product_type}</p>
-
             <h1 className='productPageNameBrand '>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
             <div className="priceShadow absolute rounded-full "></div>
             <h2 className='productPrice pb-5'> £{singleProduct.price === '0.0' || singleProduct.price === null ? '8.50' : Number(singleProduct.price).toFixed(2)}</h2>
@@ -79,6 +81,7 @@ function Product() {
               })}
             </div>
             <button onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>Add to basket</button>
+          </div>
           </div>
         }
       </div >
