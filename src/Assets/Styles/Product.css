@@ -65,6 +65,10 @@
     font-size: 3vw;
 }
 
+.hoverColour{
+       margin-top: 10vh;
+    font-size: 2.5vw;
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 @media only screen and (min-width: 768px) {
     .priceShadow{
@@ -102,9 +106,13 @@
     .productPageImg{
         object-fit: scale-down;
     }
-    
-    
+
+    .hoverColour{
+    font-size: 1.3vw;
+    }
 }
+    
+    
 
 @media only screen and (min-width: 1024px) {
 
@@ -124,9 +132,9 @@
     }
 
     .productPageImg{
-        object-fit: contain;
-    height: 50vh;
-    margin-top: 15vh;
+        object-fit: cover;
+    height: 80vh;
+    margin-top: 5vh;
     }
 
     .productPageDescription{
@@ -135,6 +143,12 @@
         height: 30vh;
         overflow: auto;
     }
+
+    .hoverColour{
+        font-size: 0.7vw;
+        margin-top: 8vh;
+        }
+
 }
 
 @media only screen and (min-width: 1200px) {

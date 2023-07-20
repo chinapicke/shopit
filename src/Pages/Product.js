@@ -81,10 +81,10 @@ function Product() {
         {isLoading ?
           (<div>Loading...</div>) :
           <div id={singleProduct.id} className='productPageCard relative ml-2 mr-8 md:grid grid-cols-2'>
-            <div className='flex justify-center my-3'>
+            <div className='flex justify-center my-3 md:mr-1 lg:mr-0'>
               <img className='productPageImg' src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
             </div>
-            <div>
+            <div >
               < button className='my-1 flex flex-row' value={singleProduct.brand + singleProduct.product_type} onClick={() => { changeIconProduct(); saveDispatch({ type: 'SAVE', saveIt: singleProduct }) }}>
                 {likedIndex ?
                   (
@@ -116,7 +116,7 @@ function Product() {
               <h4 className='productPageDescription mb-3 '>{singleProduct.description}</h4>
               {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
-              <div className="colourList grid grid-cols-5 justify-items-center">
+              <div className="colourList grid grid-cols-5 justify-items-center md:mr-3">
                 {singleProduct.product_colors?.map((colour, index) => {
                   return (
                     <>
@@ -126,10 +126,10 @@ function Product() {
                         }} 
                         onMouseLeave={(e) => {
                         mouseOut(e, index);}}
-                        className='colourItem mb-2 flex flex-row' key={index} style={{ backgroundColor: colour.hex_value }}>
+                        className='colourItem mb-10 flex flex-row justify-center' key={index} style={{ backgroundColor: colour.hex_value }}>
                           {/* hover over to show colour name */}
                           {hover[index]?
-                          (<h1>{colour.colour_name}</h1>):null}
+                          (<h1 className='hoverColour flex justify-center '>{colour.colour_name}</h1>):null}
                         {clickedColour[index] ?
                         <>
                           (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
