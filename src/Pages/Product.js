@@ -10,6 +10,7 @@ import '../Assets/Styles/Product.css'
 import FooterIcons from '../Components/Banners/FooterIcons'
 import Recommended from '../Components/Recommended'
 import savedHook from '../Hooks/savedHook'
+import HomepageBottomBanner from '../Components/Banners/HomepageBottomBanner'
 
 
 
@@ -68,11 +69,13 @@ function Product() {
 
   return (
     <>
-      <div className='routeTaken'>
+      <div className='routeTaken px-2'>
         <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
-        <ol className='flex flex-row'>
+        <ol className='routeProductPage flex flex-row'>
           <li><Link to='/'>Home/</Link></li>
           <li><Link to='/shop'>Shop/</Link></li>
+          <li>{singleProduct.product_type}/</li>
+          <li>{singleProduct.brand}/</li>
           <li>Current page</li>
         </ol>
       </div>
@@ -113,10 +116,10 @@ function Product() {
                 <button className='addBasketProductPage mt-2 mr-2 text-sm text-black px-2 py-3 rounded-full ml-auto mr-4 md:mr-10 md:py-2 lg:mr-12 lg:py-4 lg:px-4' type="button" onClick={() => dispatch({ type: 'ADD', payload: singleProduct })}>add to basket</button>
               </div>
               <h3 className='productPageDescriptionTitle'>Description</h3>
-              <h4 className='productPageDescription mb-3 '>{singleProduct.description}</h4>
+              <h4 className='productPageDescription mb-3'>{singleProduct.description}</h4>
               {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
-              <div className="colourList grid grid-cols-5 justify-items-center md:mr-3">
+              <div className="colourList grid grid-cols-5  justify-items-center md:mr-3">
                 {singleProduct.product_colors?.map((colour, index) => {
                   return (
                     <>
@@ -126,7 +129,7 @@ function Product() {
                         }} 
                         onMouseLeave={(e) => {
                         mouseOut(e, index);}}
-                        className='colourItem mb-10 flex flex-row justify-center' key={index} style={{ backgroundColor: colour.hex_value }}>
+                        className='colourItem mb-12 flex flex-row justify-center' key={index} style={{ backgroundColor: colour.hex_value }}>
                           {/* hover over to show colour name */}
                           {hover[index]?
                           (<h1 className='hoverColour flex justify-center '>{colour.colour_name}</h1>):null}
@@ -137,7 +140,6 @@ function Product() {
                           </svg>
                           )</> : (null)}
                       </button>
-
                     </>
                   )
                 })}
@@ -151,6 +153,9 @@ function Product() {
       </div>
       <div>
         <Recommended />
+      </div>
+      <div>
+      <HomepageBottomBanner />
       </div>
     </>
   )

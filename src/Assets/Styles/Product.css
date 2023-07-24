@@ -69,6 +69,16 @@
        margin-top: 10vh;
     font-size: 2.5vw;
 }
+
+.colourList{
+    width: 45vw;
+    height: 30vh;
+    overflow-y: auto;
+}
+
+.routeProductPage{
+    font:2vw;
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 @media only screen and (min-width: 768px) {
     .priceShadow{
@@ -110,6 +120,7 @@
     .hoverColour{
     font-size: 1.3vw;
     }
+
 }
     
     
@@ -132,9 +143,9 @@
     }
 
     .productPageImg{
-        object-fit: cover;
-    height: 80vh;
-    margin-top: 5vh;
+        object-fit: contain;
+    height: 50vh;
+    margin-top: 15vh;
     }
 
     .productPageDescription{

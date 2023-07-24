@@ -50,7 +50,7 @@ function Recommended() {
 
 
   return (
-    <>
+    <div className='px-2 mx-2'>
         <h1 className='recommendedHeader text-2xl'>Recommended</h1>
       <div className='recommended grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
 
@@ -97,7 +97,7 @@ function Recommended() {
         }
            )} 
       </div >
-    </>
+    </div>
   )
 }
 
