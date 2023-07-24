@@ -69,13 +69,13 @@ function Product() {
 
   return (
     <>
-      <div className='routeTaken px-2'>
-        <h1>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
-        <ol className='routeProductPage flex flex-row'>
+      <div className='routeTaken mx-2'>
+        <h1 className='navigationHeader'>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand} {singleProduct?.name ? singleProduct.name.charAt(0).toUpperCase() + singleProduct.name.slice(1).toLowerCase() : singleProduct.name}</h1>
+        <ol className='routeProductPage flex flex-row mr-2'>
           <li><Link to='/'>Home/</Link></li>
           <li><Link to='/shop'>Shop/</Link></li>
-          <li>{singleProduct.product_type}/</li>
-          <li>{singleProduct.brand}/</li>
+          <li>{singleProduct?.product_type ? singleProduct.product_type.charAt(0).toUpperCase() + singleProduct.product_type.slice(1).toLowerCase() : singleProduct.product_type}/</li>
+          <li>{singleProduct?.brand ? singleProduct.brand.charAt(0).toUpperCase() + singleProduct.brand.slice(1).toLowerCase() : singleProduct.brand}/</li>
           <li>Current page</li>
         </ol>
       </div>
@@ -154,7 +154,7 @@ function Product() {
       <div>
         <Recommended />
       </div>
-      <div>
+      <div className='productPinkBanner'>
       <HomepageBottomBanner />
       </div>
     </>
