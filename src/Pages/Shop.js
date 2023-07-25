@@ -17,7 +17,7 @@ import '../Assets/Styles/Shop.css'
 
 function Shop() {
   // States //////////////////////////////////////////////////////////////
-  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error, filterProduct,priceRangeProducts  } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -40,17 +40,12 @@ function Shop() {
   const [productPerPage, setProductPerPage] = useState(40)
   const totalPageCount = Math.ceil(products.length / productPerPage);
 
-
-  
-    const handleChanges = (e)=>{
-      setProductPerPage(e.target.value)
-      console.log(productPerPage)
-    }
-
-
-
-
+  const handleChanges = (e) => {
+    setProductPerPage(e.target.value)
+    console.log(productPerPage)
+  }
   const pagesVisited = currentPage * productPerPage
+  const paged = pagesVisited + productPerPage
 
   // How I want the data to be shown on the page
   const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage)
@@ -75,27 +70,27 @@ function Shop() {
 
           </button>
           <Link to={`/product/${item.id}`} name={item.brand}>
-            <img className='productImg ml-8 mb-2 md:ml-12 xl:ml-20'src={item.api_featured_image} alt={item.brand + item.product_type}></img>
+            <img className='productImg ml-8 mb-2 md:ml-12 xl:ml-20' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
             {/* To display the brand name with as sentence case */}
             <div className='productText px-2 flex flex-col content-end'>
-            <p className='productType'>{item?.product_type ? item.product_type.charAt(0) + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</p>
-            <p className='productBrand'>
-              {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} </p>
+              <p className='productType'>{item?.product_type ? item.product_type.charAt(0) + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</p>
+              <p className='productBrand'>
+                {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} </p>
               <p className='productName'>{item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
             </div>
           </Link>
-            <div className='flex flex-row mt-auto mx-2 my-2'>
-                <div className='mr-auto mt-auto'>
-                  <p className='productPrice'><span className='circleShadow '>£{Number(item.price).toFixed(2)}</span>
-                  </p>
-                </div>
-                <div className='addToCart ml-auto mt-auto '>
-                  <button className='basketProduct' onClick={() => dispatch({ type: 'ADD', payload: item })}>
-                    <FontAwesomeIcon icon={faBasketShopping} />
-                  </button>
-                </div>
-              </div>
+          <div className='flex flex-row mt-auto mx-2 my-2'>
+            <div className='mr-auto mt-auto'>
+              <p className='productPrice'><span className='circleShadow '>£{Number(item.price).toFixed(2)}</span>
+              </p>
+            </div>
+            <div className='addToCart ml-auto mt-auto '>
+              <button className='basketProduct' onClick={() => dispatch({ type: 'ADD', payload: item })}>
+                <FontAwesomeIcon icon={faBasketShopping} />
+              </button>
+            </div>
           </div>
+        </div>
       )
     })
 
@@ -110,83 +105,114 @@ function Shop() {
     const sorting = e.target.value
     const productList = [...products]
     const prices = productList.sort((a, b) => {
-      return sorting==='asc' ? a.price-b.price: b.price-a.price
+      return sorting === 'asc' ? a.price - b.price : b.price - a.price
     });
-  
+
     setProducts(prices)
   }
 
 
 
   return (
-    <div>
-      <div className='searchBar'>
-      <Searchbar
-        onSearch={getProductsByBrand}
-        onFilter={getProductsByType}
-        onInput={filterProduct}
-      />
+    <>
+      <div className='shopTopBanner'>
+        <h1>Cosmetics for you</h1>
+        <ol className='routeProductPage flex flex-row mr-2'>
+          <li><Link to='/'>Home/</Link></li>
+          <li><Link to='/shop'>Shop</Link></li>
+        </ol>
       </div>
-      <div className='priceSlider'>
-      <PriceSlider 
-      onSlider={priceRangeProducts}></PriceSlider>
-      </div>
-      <div className='listOfBrands'>
-      <BrandList brandDropDown={getProductsByBrand}></BrandList>
-      </div>
-      <div className='sortingDropdown'>
-      <select onChange={sortThis}>Sort it out 
-        <option defaultValue>Sort</option>
-        <option value={'asc'}>Ascending</option>
-        <option value={'desc'}>Descending</option>
-      </select>
-      </div>
-      <div className='productsPerPage'>
-        <select 
-        value={productPerPage}
-        onChange={handleChanges}>
-          <option defaultValue>Products per page</option>
-          <option value={10}>
-            10 products
-          </option>
-          <option value={25}>
-            25 products
-          </option>
-          <option value={50}>
-            50 products
-          </option>
-        </select>
-      </div>
-      <div className='productTypeButtons'>
-      <OptionButtons onButton={selectAProduct} />
-      </div>      
-      <button>
-        Reset filters
-      </button>
-      {serverErr && <div>{serverErr}</div>}
-      {error && <div>{error}</div>}
-      <div className='shopCards grid grid-cols-2 py-4 md:grid-cols-4 lg:grid-cols-4'>
-        {!isLoading ? <>
-          {products.length ?
-            [displayProducts]
-            : <h1>No results found</h1>}
-        </> :
-          <h1>Loading...</h1>
-        }
+      <div className='shopColumn'>
+        <div className='leftShopColumn'>
+          <div className='priceSlider'>
+            <PriceSlider
+              onSlider={priceRangeProducts}></PriceSlider>
+          </div>
+          <div className='productTypeButtons'>
+            <OptionButtons onButton={selectAProduct} />
+          </div>
+        </div>
 
-      </div >
-      <Pagination
-        previousLabel={'Previous page'}
-        nextLabel={'Next page'}
-        pageCount={totalPageCount}
-        onPageChange={changePage}
-        containerClassName={'paginationBtns'}
-        previousLinkClassName={'previousBtn'}
-        nextLinkClassName={'nextBtn'}
-        disabledClassName={'paginationDisbaled'}
-        activeClassName={'paginationActive'}
-      />
-    </div >
+        <div className='rightShopColumn'>
+          <div className='searchBar'>
+            <Searchbar
+              onSearch={getProductsByBrand}
+              onFilter={getProductsByType}
+              onInput={filterProduct}
+            />
+          </div>
+          <div className='listOfBrands'>
+            <BrandList brandDropDown={getProductsByBrand}></BrandList>
+          </div>
+          <div className='sortingDropdown'>
+            <select onChange={sortThis}>Sort it out
+              <option defaultValue>Sort</option>
+              <option value={'asc'}>Ascending</option>
+              <option value={'desc'}>Descending</option>
+            </select>
+          </div>
+          <div className='productsPerPage'>
+            <select
+              value={productPerPage}
+              onChange={handleChanges}>
+              <option defaultValue>Products per page</option>
+              <option value={10}>
+                10 products
+              </option>
+              <option value={25}>
+                25 products
+              </option>
+              <option value={50}>
+                50 products
+              </option>
+            </select>
+          </div>
+
+          <button>
+            Reset filters
+          </button>
+          {serverErr && <div>{serverErr}</div>}
+          {error && <div>{error}</div>}
+          <div className='shopCards grid grid-cols-2 py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
+            {!isLoading ? <>
+              {products.length ?
+                <>
+                  {displayProducts}
+                  <div className='flex flex-col'>
+                    <div >
+                      <h1> Showing {paged} of {products.length}</h1>
+                    </div>
+                    <div>
+                      <Pagination
+                        previousLabel={'Previous page'}
+                        nextLabel={'Next page'}
+                        pageCount={totalPageCount}
+                        pageClassName='pageNoneDisplay'
+                        breakClassName='pageNoneDisplay'
+                        onPageChange={changePage}
+                        containerClassName={'paginationBtns py-3'}
+                        previousLinkClassName={'previousBtn'}
+                        nextLinkClassName={'nextBtn'}
+                        disabledClassName={'paginationDisbaled'}
+                        activeClassName={'paginationActive'}
+                      />
+                    </div>
+                  </div>
+                </>
+                : <h1>No results found</h1>}
+            </> :
+              <>
+                <h1>Loading...</h1>
+                <Pagination
+                  previousLabel={'Previous page'}
+                  nextLabel={'Next page'}
+                />
+              </>
+            }
+          </div >
+        </div>
+      </div>
+    </>
   )
 }
 

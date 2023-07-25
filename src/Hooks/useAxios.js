@@ -14,6 +14,7 @@ const useAxios = (url) => {
 
   const [singleProduct, setSingleProduct] = useState([])
 
+
   // call when user filters by brand
   const getProductsByBrand = async (brandName) => {
     setIsLoading(true)

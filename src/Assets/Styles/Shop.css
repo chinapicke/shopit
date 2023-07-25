@@ -54,3 +54,30 @@
     padding-left: 15px;
     background-repeat: no-repeat;
 }
+
+.paginationBtns{
+    font-size: 3vw;
+}
+
+.pageNoneDisplay{
+    display:none;
+}
+
+.shopTopBanner{
+    background-color:#2a4637;
+}
+    
+@media only screen and (min-width: 768px) {
+
+    .paginationBtns{
+        font-size: 1vw;
+        width: 80vw;
+    }
+    .pageNoneDisplay{
+        display: block;
+    }
+    .shopColumn{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+}

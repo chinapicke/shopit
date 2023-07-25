@@ -137,6 +137,10 @@ font-size:3vw;}
     .navigationHeader{
         font-size:2vw;
     }
+
+    .routeTaken{
+        padding-left: 1.5rem;
+    }
     
 
 }
@@ -178,6 +182,9 @@ font-size:3vw;}
         margin-top: 8vh;
         }
 
+    .routeTaken{
+            padding-left: 2.5rem;
+        }
 }
 
 @media only screen and (min-width: 1200px) {
