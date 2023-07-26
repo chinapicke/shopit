@@ -13,6 +13,8 @@ import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
 // import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
+import Drawer from 'react-modern-drawer'
+import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
 function Shop() {
@@ -111,6 +113,16 @@ function Shop() {
     setProducts(prices)
   }
 
+  const [filterDrawer, setFilterDrawer] = useState(false)
+  const [accordionOpen, setAccordionOpen] = useState(0)
+
+  const openFilterDrawer = () => {
+    setFilterDrawer(current => !current)
+  }
+
+  const handleFilterAccordionOpen = (value) => {
+    setAccordionOpen(accordionOpen === value ? 0 : value);
+  }
 
 
   return (
@@ -134,29 +146,76 @@ function Shop() {
           <div className='productTypeButtons'>
             <OptionButtons onButton={selectAProduct} />
           </div>
-          <div className='scrollMenu flex flex-row'>
-              <button>
-                More Options
-              </button>
-              <button>
-                Sort Button
-              </button>
-              <button>
-                More Options
-              </button>
-              <button>
-                More Options
-              </button>
-              <button>
-                More Options
-              </button>
+          <div className='scrollMenu flex flex-row md:hidden'>
+            <button onClick={openFilterDrawer}>
+              More Options
+            </button>
+            <button>
+              Sort
+            </button>
+            <button>
+              Price Range
+            </button>
+            <button>
+              Brand
+            </button>
+            <button>
+              More Options
+            </button>
           </div>
+
+          {filterDrawer ?
+            <>
+              <Drawer
+                open={filterDrawer}
+                onClose={openFilterDrawer}
+                direction='bottom'>
+                <h1>Filter and Sort </h1>
+                <div className='flex flex-col'>
+                  <div className='accordionItem' accordionOpen={accordionOpen===1}>
+                    <button className='accordionTitle' onClick={() => handleFilterAccordionOpen(1)}>Sort
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <p>This is some info</p>
+                  </div>
+
+                  <div className='accordionItem'>
+                    <button>Price Range
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  </div>
+
+                  <div className='accordionItem'>
+                    <button>Product Type
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  </div>
+                  
+                  <div className='accordionItem'>
+                     <button>Brand
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  </div>
+                   
+                </div>
+              </Drawer>
+            </>
+            : null}
+
 
           <div className='priceSlider'>
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div>
-          
+
           <div className='listOfBrands'>
             <BrandList brandDropDown={getProductsByBrand}></BrandList>
           </div>
