@@ -8,7 +8,9 @@ const OptionButtons= ({onButton})=> {
   }
 
   return (
-    <div className='productTypeButton' onClick={handleClick}>
+    <>
+    <h1 className='shopSideBarSubHeading flex justify-start mt-3'>Makeup</h1>
+    <div className='flex flex-col produc32tTypeButton items-start' onClick={handleClick}>
         <button value='lush'>Blush</button>
         <button value='bronzer'>Bronzer</button>
         <button value='eyebrow'>Eyebrow</button>
@@ -19,8 +21,8 @@ const OptionButtons= ({onButton})=> {
         <button value='lipstick'>Lipstick</button>
         <button value='mascara'>Mascara</button>
         <button value='nail_polish'>Nail Polish</button>
-
     </div>
+    </>
 )}
 
 export default OptionButtons

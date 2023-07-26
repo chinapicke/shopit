@@ -124,17 +124,24 @@ function Shop() {
       </div>
       <div className='shopColumn'>
         <div className='leftShopColumn'>
+        <div className='searchBar md:hidden'>
+            <Searchbar
+              onSearch={getProductsByBrand}
+              onFilter={getProductsByType}
+              onInput={filterProduct}
+            />
+          </div>
           <div className='priceSlider'>
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div>
-          <div className='productTypeButtons'>
+          <div className='productTypeButtons hidden md:inline-block lg:inline-block'>
             <OptionButtons onButton={selectAProduct} />
           </div>
         </div>
 
         <div className='rightShopColumn'>
-          <div className='searchBar'>
+          <div className='searchBar hidden md:inline-block'>
             <Searchbar
               onSearch={getProductsByBrand}
               onFilter={getProductsByType}
@@ -173,11 +180,13 @@ function Shop() {
           </button>
           {serverErr && <div>{serverErr}</div>}
           {error && <div>{error}</div>}
-          <div className='shopCards grid grid-cols-2 py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
+          <div >
             {!isLoading ? <>
               {products.length ?
                 <>
+                <div className='shopCards grid grid-cols-2 py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
                   {displayProducts}
+                  </div>
                   <div className='flex flex-col'>
                     <div >
                       <h1> Showing {paged} of {products.length}</h1>
@@ -203,10 +212,6 @@ function Shop() {
             </> :
               <>
                 <h1>Loading...</h1>
-                <Pagination
-                  previousLabel={'Previous page'}
-                  nextLabel={'Next page'}
-                />
               </>
             }
           </div >

@@ -119,7 +119,7 @@ function Product() {
               <h4 className='productPageDescription mb-3'>{singleProduct.description}</h4>
               {/* {singleProduct.map(colour => 
             <h1>{colour.product_colors}</h1>)} */}
-              <div className="colourList grid grid-cols-5  justify-items-center md:mr-3">
+              <div className="colourList grid grid-cols-5 justify-items-center md:mr-3">
                 {singleProduct.product_colors?.map((colour, index) => {
                   return (
                     <>

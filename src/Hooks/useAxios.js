@@ -159,14 +159,9 @@ const useAxios = (url) => {
             return(
             item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
           )})
-          
-          // res.data.map((item) => ({
-            
-          //   ...item, quantity: 1,
-          //   // ...item.price === '0.0' ? '8.50' : item.price
-          // }));
-          // converts prices that are set to 0.0 by the API
           setProducts(productsWithQuantity);
+          console.log(productsWithQuantity)
+
         }
         else {
           console.log(`Server error: ${res.status}`);

@@ -71,7 +71,6 @@
 }
 
 .colourList{
-    width: 45vw;
     height: 30vh;
     overflow-y: auto;
 }
@@ -90,6 +89,13 @@
 font-size:3vw;}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 @media only screen and (min-width: 768px) {
+
+    .colourList{
+        width: 45vw;
+        height: 30vh;
+        overflow-y: auto;
+    }
+
     .priceShadow{
         height: 2.5vw;
         width: 2.5vw;
