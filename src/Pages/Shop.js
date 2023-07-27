@@ -14,16 +14,33 @@ import BrandList from '../Components/BrandList';
 // import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
 import Drawer from 'react-modern-drawer'
+import Accordion from '../Components/Accordion';
 import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
+
+
+
 function Shop() {
+
   // States //////////////////////////////////////////////////////////////
-  const { products, setProducts, isLoading, serverErr, getProductsByBrand, getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  const { products, setProducts, isLoading, serverErr, getProductsByBrand,
+    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
-
+  const accordionData = [
+    {
+      'id': 1,
+      'heading': 'Price Range',
+      'content': <PriceSlider onSlider={priceRangeProducts} />
+    },
+    {
+      'id': 2,
+      'heading': 'Brand',
+      'content': <BrandList brandDropDown={getProductsByBrand} />
+    }
+  ]
 
   // useContext for the add to cart 
   const Cartstate = useContext(AppContext)
@@ -113,17 +130,11 @@ function Shop() {
     setProducts(prices)
   }
 
-  const [filterDrawer, setFilterDrawer] = useState(false)
-  const [accordionOpen, setAccordionOpen] = useState(0)
+  // const [filterDrawer, setFilterDrawer] = useState(false)
 
-  const openFilterDrawer = () => {
-    setFilterDrawer(current => !current)
-  }
-
-  const handleFilterAccordionOpen = (value) => {
-    setAccordionOpen(accordionOpen === value ? 0 : value);
-  }
-
+  // const openFilterDrawer = () => {
+  //   setFilterDrawer(current => !current)
+  // }
 
   return (
     <>
@@ -146,22 +157,36 @@ function Shop() {
           <div className='productTypeButtons'>
             <OptionButtons onButton={selectAProduct} />
           </div>
-          <div className='scrollMenu flex flex-row md:hidden'>
-            <button onClick={openFilterDrawer}>
+
+          <div className='mobileSortMenu flex flex-row md:hidden'>
+            <div>
+              <button onClick={openFilterDrawer}>
               More Options
             </button>
-            <button>
-              Sort
-            </button>
-            <button>
-              Price Range
-            </button>
-            <button>
-              Brand
-            </button>
-            <button>
-              More Options
-            </button>
+            </div>
+            <div className='productPerPageMobile'>
+              <select
+                value={productPerPage}
+                onChange={handleChanges}>
+                <option defaultValue>Products per page</option>
+                <option value={10}>
+                  10 products
+                </option>
+                <option value={25}>
+                  25 products
+                </option>
+                <option value={50}>
+                  50 products
+                </option>
+              </select>
+            </div>
+            <div className='sortingDropdownMobile'>
+                <select onChange={sortThis}>Sort it out
+                  <option defaultValue>Sort</option>
+                  <option value={'asc'}>Ascending</option>
+                  <option value={'desc'}>Descending</option>
+                </select>
+            </div>
           </div>
 
           {filterDrawer ?
@@ -170,63 +195,40 @@ function Shop() {
                 open={filterDrawer}
                 onClose={openFilterDrawer}
                 direction='bottom'>
-                <h1>Filter and Sort </h1>
+                <div className='flex flex-row'>
+                  <h1>Filter and Sort </h1>
+                  <h1 onClick={openFilterDrawer}>Close</h1>
+
+                </div>
                 <div className='flex flex-col'>
-                  <div className='accordionItem' accordionOpen={accordionOpen===1}>
-                    <button className='accordionTitle' onClick={() => handleFilterAccordionOpen(1)}>Sort
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  <p>This is some info</p>
-                  </div>
-
-                  <div className='accordionItem'>
-                    <button>Price Range
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  </div>
-
-                  <div className='accordionItem'>
-                    <button>Product Type
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  </div>
-                  
-                  <div className='accordionItem'>
-                     <button>Brand
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                      <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  </div>
-                   
+                  <ul className="accordion">
+                    {accordionData.map(({ heading, content }) => (
+                      <Accordion heading={heading} content={content} />
+                    ))}
+                  </ul>
                 </div>
               </Drawer>
             </>
             : null}
 
-
-          <div className='priceSlider'>
+          <div className='priceSlider hidden md:inline-block'>
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div>
 
-          <div className='listOfBrands'>
+          <div className='listOfBrands hidden md:inline-block'>
             <BrandList brandDropDown={getProductsByBrand}></BrandList>
           </div>
-          <div className='sortingDropdown'>
+
+          <div className='sortingDropdown hidden md:inline-block'>
             <select onChange={sortThis}>Sort it out
               <option defaultValue>Sort</option>
               <option value={'asc'}>Ascending</option>
               <option value={'desc'}>Descending</option>
             </select>
           </div>
-          <div className='productsPerPage'>
+
+          <div className='productsPerPage hidden md:inline-block'>
             <select
               value={productPerPage}
               onChange={handleChanges}>
@@ -242,6 +244,7 @@ function Shop() {
               </option>
             </select>
           </div>
+
           <button>
             Reset filters
           </button>

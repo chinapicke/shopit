@@ -17,7 +17,7 @@ const BrandList = ({ brandDropDown }) => {
     return (
 
         <div>
-            <label className='brandDroptown inline-flex' >Brand
+            <label className='brandDroptown hidden md:inline-flex' >Brand
                 {/* () => setDropDownOpen((prev) => !prev)}> */}
             </label>
             <button onClick={() => { setDropDownOpen(!dropDownOpen) }} defaultValue={''}>{selected.charAt(0).toUpperCase()+ selected.slice(1).toLowerCase()}
