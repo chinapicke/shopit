@@ -22,10 +22,6 @@ const PriceSlider = ({ onSlider }) => {
 
         <div className="slider md:w-1/5">
           <MultiRangeSlider
-            //   onInput={(e) => {
-            //     setMinValue(e.minValue);
-            //     setMaxValue(e.maxValue);
-            //   }}
             passive={true}
             onChange={(e) => {
               setMinValue2(e.minValue);

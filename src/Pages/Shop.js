@@ -52,10 +52,11 @@ function Shop() {
   // set to 0 because if I set it to 1 then it doesn't show all the data
   const [currentPage, setCurrentPage] = useState(0)
   const [productPerPage, setProductPerPage] = useState(40)
-  const totalPageCount = Math.ceil(products.length / productPerPage);
+  let totalPageCount = Math.ceil(products.length / productPerPage);
 
   const handleChanges = (e) => {
     setProductPerPage(e.target.value)
+
     console.log(productPerPage)
   }
   const pagesVisited = currentPage * productPerPage
@@ -81,9 +82,9 @@ function Shop() {
 
           </button>
           <Link to={`/product/${item.id}`} name={item.brand}>
-            <img className='productImg ml-8 mb-2 md:ml-12 xl:ml-20' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
+            <img className='productImg ml-8 mb-2 md:ml-8 xl:ml-14' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
             {/* To display the brand name with as sentence case */}
-            <div className='productText px-2 flex flex-col content-end'>
+            <div className='productText px-2 flex flex-col content-end md:px-1 '>
               <p className='productType'>{item?.product_type ? item.product_type.charAt(0) + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</p>
               <p className='productBrand'>
                 {item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} </p>
@@ -92,7 +93,7 @@ function Shop() {
           </Link>
           <div className='flex flex-row mt-auto mx-2 my-2'>
             <div className='mr-auto mt-auto'>
-              <p className='productPrice'><span className='circleShadow '>£{Number(item.price).toFixed(2)}</span>
+              <p className='productPriceShop'><span className='circleShadow '>£{Number(item.price).toFixed(2)}</span>
               </p>
             </div>
             <div className='addToCart ml-auto mt-auto '>

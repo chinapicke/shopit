@@ -28,10 +28,12 @@
     overflow-wrap: break-word
 }
 
-.productImg{
-    width: 50%;
-    aspect-ratio: 4.5/5;
+.productImg {
+    width: 70%;
+    aspect-ratio: 2/3;
 }
+
+
 
 .productType{
     color:rgba(253,210,97,255);
@@ -82,8 +84,27 @@
     overflow: auto;
 }
 
+.productPriceShop{
+    font-size: 5vw;
+}
+
+
+@media only screen and (min-width: 350px) {
+    .productPriceShop{
+        font-size:16px;
+    }
+}
+
+/* @media only screen and (min-width: 768px) and (max-width:800px){
+    
+} */
 
 @media only screen and (min-width: 768px) {
+
+    /* .productImg{
+        width: 50%;
+        aspect-ratio: 4.5/5;
+    } */
 
     .paginationBtns{
         font-size: 1vw;
