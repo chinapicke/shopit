@@ -4,14 +4,11 @@ import OptionButtons from '../Components/OptionButtons';
 import { AppContext } from '../Context/Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
-// import Modal from '../Components/Modal';
-// import Product from './Product';
 import { Link } from 'react-router-dom';
 import useAxios from '../Hooks/useAxios';
 import savedHook from '../Hooks/savedHook';
 import PriceSlider from '../Components/PriceSlider';
 import BrandList from '../Components/BrandList';
-// import Sort from '../Components/Sort'
 import Pagination from 'react-paginate'
 import Drawer from 'react-modern-drawer'
 import Accordion from '../Components/Accordion';
@@ -45,12 +42,10 @@ function Shop() {
   // useContext for the add to cart 
   const Cartstate = useContext(AppContext)
   const dispatch = Cartstate.dispatch;
-  // console.log(Cartstate)
 
   // Usecontext for the saved array as it uses a different function
   const Savestate = useContext(AppContext)
   const saveDispatch = Savestate.saveDispatch
-  // console.log(Savestate)
 
 
   // pagination 
@@ -64,15 +59,12 @@ function Shop() {
     console.log(productPerPage)
   }
   const pagesVisited = currentPage * productPerPage
-  const paged = pagesVisited + productPerPage
 
   // How I want the data to be shown on the page
   const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage)
     .map((item, index) => {
       return (
         <div className='singleCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg' key={item.id}>
-          {/* /* onClick={()=>openInformation(index)}>
-        {showInfo===index && <Product productName={item.brand+item.product_type}/>} */ }
           < button className='mx-1 my-1' value={item.brand + item.product_type} onClick={() => { changeIcon(index); saveDispatch({ type: 'SAVE', saveIt: item }) }}>
             {likedIndex[index] ?
               (
@@ -129,12 +121,6 @@ function Shop() {
 
     setProducts(prices)
   }
-
-  // const [filterDrawer, setFilterDrawer] = useState(false)
-
-  // const openFilterDrawer = () => {
-  //   setFilterDrawer(current => !current)
-  // }
 
   return (
     <>
@@ -262,8 +248,45 @@ function Shop() {
 
 
           {serverErr && <div>{serverErr}</div>}
-          {error && <div>{error}</div>}
-          <div >
+          {error ? <div>{error}</div>:
+                    <div>
+                    {!isLoading ? <>
+                      {products.length ?
+                        <>
+                          <div className='shopCards grid grid-cols-2 flex-wrap py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
+                            {displayProducts}
+                          </div>
+                          <div className='flex flex-col'>
+                            <div >
+                              <h1> Showing {products.length} products</h1>
+                            </div>
+                            <div>
+                              <Pagination
+                                previousLabel={'Previous page'}
+                                nextLabel={'Next page'}
+                                pageCount={totalPageCount}
+                                pageClassName='pageNoneDisplay'
+                                breakClassName='pageNoneDisplay'
+                                onPageChange={changePage}
+                                containerClassName={'paginationBtns py-3'}
+                                previousLinkClassName={'previousBtn'}
+                                nextLinkClassName={'nextBtn'}
+                                disabledClassName={'paginationDisbaled'}
+                                activeClassName={'paginationActive'}
+                              />
+                            </div>
+                          </div>
+                        </>
+                        : <h1>No results found</h1>}
+                    </> :
+                      <>
+                        <h1>Loading...</h1>
+                      </>
+                    }
+                  </div >
+        }
+          {/* {error && <div>{error}</div>} */}
+          {/* <div >
             {!isLoading ? <>
               {products.length ?
                 <>
@@ -272,7 +295,7 @@ function Shop() {
                   </div>
                   <div className='flex flex-col'>
                     <div >
-                      <h1> Showing {paged} of {products.length}</h1>
+                      <h1> Showing {products.length} products</h1>
                     </div>
                     <div>
                       <Pagination
@@ -297,7 +320,7 @@ function Shop() {
                 <h1>Loading...</h1>
               </>
             }
-          </div >
+          </div > */}
         </div>
       </div>
     </>

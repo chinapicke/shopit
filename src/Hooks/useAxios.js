@@ -34,12 +34,12 @@ const useAxios = (url) => {
         setProducts(productsWithQuantity);
       }
       else {
-        console.log(`Server error: ${res.status}`);
+        setServerErr(`Server error: ${res.status}`);
       }
     }
     catch (err) {
       console.log(`Fetch error: ${err}`);
-      setError(err.message)
+      setError(err.message,': we having some issues with our server to show you our products')
     }
     finally {
       setIsLoading(false)
@@ -71,8 +71,7 @@ const useAxios = (url) => {
       }
     }
     catch (err) {
-      console.log(`Fetch error: ${err}`);
-      setError(err.message);
+      setError(err.message,': we having some issues with our server to show you our products')
 
     }
     finally {
@@ -98,13 +97,12 @@ const useAxios = (url) => {
         setProducts(productsWithQuantity);
       }
       else {
-        console.log(`Server error: ${res.status}`);
+        setServerErr(`Server error: ${res.status}`);
 
       }
     }
     catch (err) {
-      console.log(`Fetch error: ${err}`);
-      setError(err.message)
+      setError(err.message,': we having some issues with our server to show you our products')
     }
     finally {
       setIsLoading(false)
@@ -126,11 +124,11 @@ const useAxios = (url) => {
           setProducts(filteredInput)
         } 
         else {
-          console.log(`Server error: ${res.status}`);
+          setServerErr(`Server error: ${res.status}`);
         }
       } catch (err) {
         console.log(`Fetch error: ${err}`);
-        setError(err.message);
+        setError(err.message,': we having some issues with our server to show you our products')
 
       }
       finally {
@@ -164,10 +162,10 @@ const useAxios = (url) => {
 
         }
         else {
-          console.log(`Server error: ${res.status}`);
+          setServerErr(`Server error: ${res.status}`);
         }
       } catch (err) {
-        setError(err.message);
+        setError(err.message,': we having some issues with our server to show you our products')
 
       }
       finally {
@@ -193,10 +191,10 @@ const useAxios = (url) => {
           setSingleProduct(verifiedPrice);
         }
         else {
-          console.log(`Server error: ${res.status}`);
+          setServerErr(`Server error: ${res.status}`);
         }
       } catch (err) {
-        setError(err.message);
+        setError(err.message,': we having some issues with our server to show you our products')
       }
       finally {
         setIsLoading(false)
@@ -235,7 +233,7 @@ const useAxios = (url) => {
     }
     catch (err) {
       console.log(`Fetch error: ${err}`);
-      setError(err.message)
+      setError(err.message,': we having some issues with our server to show you our products')
     }
     finally {
       setIsLoading(false)

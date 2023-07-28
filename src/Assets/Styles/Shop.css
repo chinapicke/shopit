@@ -87,13 +87,22 @@
 
     .paginationBtns{
         font-size: 1vw;
-        width: 30vw;
+        width:73vw;
     }
     .pageNoneDisplay{
         display: block;
+    }
+
+    .paginationBtns a{
+        margin: 5px;
+        padding:10px;
+        border-radius: 5px;
+        border: 1px solid black;
+        cursor: pointer;
     }
     .shopColumn{
         display: grid;
         grid-template-columns: 1fr 4fr;
     }
 }
+
