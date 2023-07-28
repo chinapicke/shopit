@@ -8,11 +8,8 @@ const PriceSlider = ({ onSlider }) => {
     console.log(minValue2, maxValue2)
     onSlider(minValue2, maxValue2)
   }
-  const { minValue2, setMinValue2, maxValue2, setMaxValue2, openFilterDrawer, setFilterDrawer } = useAxios()
+  const { minValue2, setMinValue2, maxValue2, setMaxValue2,} = useAxios()
 
-  const closeDrawer = () => {
-    setFilterDrawer(current => !current)
-  }
 
   return (
     <div className='priceSlider'>
