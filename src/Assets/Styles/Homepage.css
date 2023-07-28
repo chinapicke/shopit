@@ -63,7 +63,8 @@
 /* Top Picks */
 .topPickImage {
     width: 50%;
-    height: auto;
+    aspect-ratio: 4.5/5;
+
 }
 
 .topPickProductType {

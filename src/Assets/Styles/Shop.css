@@ -30,7 +30,7 @@
 
 .productImg{
     width: 50%;
-    height: auto;
+    aspect-ratio: 4.5/5;
 }
 
 .productType{
@@ -88,6 +88,7 @@
     .paginationBtns{
         font-size: 1vw;
         width:73vw;
+        justify-content: flex-start;
     }
     .pageNoneDisplay{
         display: block;
@@ -106,3 +107,9 @@
     }
 }
 
+@media only screen and (min-width:1024px) {
+    .paginationBtns{
+        font-size: 1vw;
+        justify-content: center;
+    }
+}

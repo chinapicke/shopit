@@ -273,6 +273,8 @@ function Shop() {
                                 nextLinkClassName={'nextBtn'}
                                 disabledClassName={'paginationDisbaled'}
                                 activeClassName={'paginationActive'}
+                                pageRangeDisplayed={1}
+                                marginPagesDisplayed={2}
                               />
                             </div>
                           </div>
