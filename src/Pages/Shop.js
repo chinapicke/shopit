@@ -51,18 +51,23 @@ function Shop() {
   // pagination 
   // set to 0 because if I set it to 1 then it doesn't show all the data
   const [currentPage, setCurrentPage] = useState(0)
-  const [productPerPage, setProductPerPage] = useState(40)
-  let totalPageCount = Math.ceil(products.length / productPerPage);
+  const [productPerPage, setProductPerPage] = useState(30)
+  // const [itemOffset, setItemOffset] = useState(0);
+  const pageCount = Math.ceil(products.length / productPerPage);
 
   const handleChanges = (e) => {
     setProductPerPage(e.target.value)
-
+    console.log(pageCount)
     console.log(productPerPage)
   }
+
   const pagesVisited = currentPage * productPerPage
 
   // How I want the data to be shown on the page
-  const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage)
+  const displayProducts = products.slice(
+    pagesVisited, pagesVisited * productPerPage
+    // pagesVisited + productPerPage
+    )
     .map((item, index) => {
       return (
         <div className='singleCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg' key={item.id}>
@@ -111,6 +116,8 @@ function Shop() {
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
     setCurrentPage(selected)
+    console.log(pagesVisited)
+    console.log(selected)
   }
 
   const sortThis = (e) => {
@@ -141,6 +148,12 @@ function Shop() {
               onInput={filterProduct}
             />
           </div>
+
+          <div className='priceSlider hidden md:inline-block'>
+            <PriceSlider
+              onSlider={priceRangeProducts}></PriceSlider>
+          </div>
+
           <div className='productTypeButtons'>
             <OptionButtons onButton={selectAProduct} />
           </div>
@@ -156,14 +169,14 @@ function Shop() {
                 value={productPerPage}
                 onChange={handleChanges}>
                 <option defaultValue>Products per page</option>
+                <option value={5}>
+                  5 products
+                </option>
                 <option value={10}>
                   10 products
                 </option>
-                <option value={25}>
-                  25 products
-                </option>
-                <option value={50}>
-                  50 products
+                <option value={20}>
+                  20 products
                 </option>
               </select>
             </div>
@@ -198,11 +211,6 @@ function Shop() {
             </>
             : null}
 
-          <div className='priceSlider hidden md:inline-block'>
-            <PriceSlider
-              onSlider={priceRangeProducts}></PriceSlider>
-          </div>
-
           <div className='listOfBrands hidden md:inline-block'>
             <BrandList brandDropDown={getProductsByBrand}></BrandList>
           </div>
@@ -220,15 +228,15 @@ function Shop() {
               value={productPerPage}
               onChange={handleChanges}>
               <option defaultValue>Products per page</option>
-              <option value={10}>
-                10 products
-              </option>
-              <option value={25}>
-                25 products
-              </option>
-              <option value={50}>
-                50 products
-              </option>
+              <option value={5}>
+                  5 products
+                </option>
+                <option value={10}>
+                  10 products
+                </option>
+                <option value={20}>
+                  20 products
+                </option>
             </select>
           </div>
 
@@ -259,13 +267,14 @@ function Shop() {
                           </div>
                           <div className='flex flex-col'>
                             <div >
-                              <h1> Showing {products.length} products</h1>
+                              <h1> Showing {pagesVisited===0?1:pagesVisited} - {pagesVisited===0?30: pagesVisited*2} of {products.length} products</h1>
                             </div>
                             <div>
                               <Pagination
                                 previousLabel={'Previous page'}
+                                onChange={handleChanges}
                                 nextLabel={'Next page'}
-                                pageCount={totalPageCount}
+                                pageCount={pageCount}
                                 pageClassName='pageNoneDisplay'
                                 breakClassName='pageNoneDisplay'
                                 onPageChange={changePage}
@@ -287,44 +296,7 @@ function Shop() {
                       </>
                     }
                   </div >
-        }
-          {/* {error && <div>{error}</div>} */}
-          {/* <div >
-            {!isLoading ? <>
-              {products.length ?
-                <>
-                  <div className='shopCards grid grid-cols-2 py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
-                    {displayProducts}
-                  </div>
-                  <div className='flex flex-col'>
-                    <div >
-                      <h1> Showing {products.length} products</h1>
-                    </div>
-                    <div>
-                      <Pagination
-                        previousLabel={'Previous page'}
-                        nextLabel={'Next page'}
-                        pageCount={totalPageCount}
-                        pageClassName='pageNoneDisplay'
-                        breakClassName='pageNoneDisplay'
-                        onPageChange={changePage}
-                        containerClassName={'paginationBtns py-3'}
-                        previousLinkClassName={'previousBtn'}
-                        nextLinkClassName={'nextBtn'}
-                        disabledClassName={'paginationDisbaled'}
-                        activeClassName={'paginationActive'}
-                      />
-                    </div>
-                  </div>
-                </>
-                : <h1>No results found</h1>}
-            </> :
-              <>
-                <h1>Loading...</h1>
-              </>
-            }
-          </div > */}
-        </div>
+        }        </div>
       </div>
     </>
   )

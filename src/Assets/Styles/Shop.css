@@ -67,9 +67,9 @@
     width:100vw;
 }
 
-.pageNoneDisplay{
+/* .pageNoneDisplay{
     display:none;
-}
+} */
 
 .shopTopBanner{
     background-color:#2a4637;
@@ -88,6 +88,13 @@
     font-size: 5vw;
 }
 
+.mobileSortMenu{
+width:70vw;
+}
+
+.priceSlider{
+    background-color: #f8f8f8;
+}
 
 @media only screen and (min-width: 350px) {
     .productPriceShop{
@@ -111,9 +118,9 @@
         width:73vw;
         justify-content: flex-start;
     }
-    .pageNoneDisplay{
+    /* .pageNoneDisplay{
         display: block;
-    }
+    } */
 
     .paginationBtns a{
         margin: 5px;
