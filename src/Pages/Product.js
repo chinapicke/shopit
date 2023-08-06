@@ -88,7 +88,7 @@ function Product() {
               <img className='productPageImg' src={singleProduct.api_featured_image} alt={singleProduct.product_type}></img>
             </div>
             <div >
-              < button className='my-1 flex flex-row' value={singleProduct.brand + singleProduct.product_type} onClick={() => { changeIconProduct(); saveDispatch({ type: 'SAVE', saveIt: singleProduct }) }}>
+              < button className='my-1 flex flex-row' value={singleProduct.brand + singleProduct.product_type} onClick={() => { changeIconProduct(); saveDispatch({ type: 'SAVE', saveIt: singleProduct }) }} key={singleProduct.id}>
                 {likedIndex ?
                   (
                     <>

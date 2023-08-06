@@ -73,6 +73,10 @@
 
 .shopTopBanner{
     background-color:#2a4637;
+    height:80px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
 }
 
 .scrollMenu{
@@ -95,7 +99,13 @@ width:70vw;
 .priceSlider{
     background-color: #f8f8f8;
 }
-
+.shopBannerImg{
+    right:20px;
+    top:30px;
+    position: absolute;
+    height: 100px;
+    width:100px;
+}
 @media only screen and (min-width: 350px) {
     .productPriceShop{
         font-size:16px;

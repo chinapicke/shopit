@@ -12,6 +12,7 @@ import BrandList from '../Components/BrandList';
 import Pagination from 'react-paginate'
 import Drawer from 'react-modern-drawer'
 import Accordion from '../Components/Accordion';
+import GlossierSet from '../Assets/Images/glossierSet.png'
 import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
@@ -52,21 +53,19 @@ function Shop() {
   // set to 0 because if I set it to 1 then it doesn't show all the data
   const [currentPage, setCurrentPage] = useState(0)
   const [productPerPage, setProductPerPage] = useState(30)
-  // const [itemOffset, setItemOffset] = useState(0);
-  const pageCount = Math.ceil(products.length / productPerPage);
+  const pageCount = Math.ceil(products.length / productPerPage)
 
-  const handleChanges = (e) => {
-    setProductPerPage(e.target.value)
-    console.log(pageCount)
-    console.log(productPerPage)
+  const handleItemsPerPage = (e) => {
+    setProductPerPage(parseInt(e.target.value))
   }
 
-  const pagesVisited = currentPage * productPerPage
+  
+  const offSet = currentPage * productPerPage
+
 
   // How I want the data to be shown on the page
   const displayProducts = products.slice(
-    pagesVisited, pagesVisited * productPerPage
-    // pagesVisited + productPerPage
+    offSet,  offSet + productPerPage
     )
     .map((item, index) => {
       return (
@@ -116,8 +115,8 @@ function Shop() {
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
     setCurrentPage(selected)
-    console.log(pagesVisited)
-    console.log(selected)
+    // console.log(offSet)
+  
   }
 
   const sortThis = (e) => {
@@ -138,6 +137,7 @@ function Shop() {
           <li><Link to='/'>Home/</Link></li>
           <li><Link to='/shop'>Shop</Link></li>
         </ol>
+        <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
       </div>
       <div className='shopColumn'>
         <div className='leftShopColumn'>
@@ -167,8 +167,8 @@ function Shop() {
             <div className='productPerPageMobile'>
               <select
                 value={productPerPage}
-                onChange={handleChanges}>
-                <option defaultValue>Products per page</option>
+                onChange={handleItemsPerPage}>
+                <option value={30}>Products per page</option>
                 <option value={5}>
                   5 products
                 </option>
@@ -226,8 +226,8 @@ function Shop() {
           <div className='productsPerPage hidden md:inline-block'>
             <select
               value={productPerPage}
-              onChange={handleChanges}>
-              <option defaultValue>Products per page</option>
+              onChange={handleItemsPerPage}>
+              <option value={30}>Products per page</option>
               <option value={5}>
                   5 products
                 </option>
@@ -267,12 +267,14 @@ function Shop() {
                           </div>
                           <div className='flex flex-col'>
                             <div >
-                              <h1> Showing {pagesVisited===0?1:pagesVisited} - {pagesVisited===0?30: pagesVisited*2} of {products.length} products</h1>
+                              <h1> Showing 
+                                {offSet===0?1:offSet} - {offSet===0?30: offSet*2}
+                                 of {products.length} products</h1>
                             </div>
                             <div>
                               <Pagination
                                 previousLabel={'Previous page'}
-                                onChange={handleChanges}
+                                // onChange={handleChanges}
                                 nextLabel={'Next page'}
                                 pageCount={pageCount}
                                 pageClassName='pageNoneDisplay'
