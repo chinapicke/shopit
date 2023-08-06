@@ -67,16 +67,12 @@
     width:100vw;
 }
 
-/* .pageNoneDisplay{
-    display:none;
-} */
-
 .shopTopBanner{
     background-color:#2a4637;
+    position: relative;
     height:80px;
     margin-bottom: 40px;
     margin-top: 40px;
-
 }
 
 .scrollMenu{
@@ -99,38 +95,41 @@ width:70vw;
 .priceSlider{
     background-color: #f8f8f8;
 }
+
 .shopBannerImg{
-    right:20px;
-    top:30px;
-    position: absolute;
+    position: relative;
+    bottom: 10px;
     height: 100px;
-    width:100px;
+    width: 100px;
 }
+
 @media only screen and (min-width: 350px) {
     .productPriceShop{
         font-size:16px;
     }
 }
 
-/* @media only screen and (min-width: 768px) and (max-width:800px){
-    
-} */
+@media only screen and (min-width: 425px) {
+    .shopTopBannerText{
+        margin-right: 20vw;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .shopTopBanner{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
 
 @media only screen and (min-width: 768px) {
-
-    /* .productImg{
-        width: 50%;
-        aspect-ratio: 4.5/5;
-    } */
 
     .paginationBtns{
         font-size: 1vw;
         width:73vw;
         justify-content: flex-start;
     }
-    /* .pageNoneDisplay{
-        display: block;
-    } */
+
 
     .paginationBtns a{
         margin: 5px;
@@ -142,6 +141,16 @@ width:70vw;
     .shopColumn{
         display: grid;
         grid-template-columns: 1fr 4fr;
+    }
+    .shopBannerImg{
+        left: 200px;
+    bottom: 30px;
+    height: 130px;
+    width: 130px;
+}
+
+    .shopTopBanner{
+        height:90px;
     }
 }
 

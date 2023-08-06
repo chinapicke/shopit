@@ -131,13 +131,17 @@ function Shop() {
 
   return (
     <>
-      <div className='shopTopBanner'>
+      <div className='shopTopBanner flex md:mx-6'>
+        <div className='shopTopBannerText flex-col'>
         <h1>Cosmetics for you</h1>
         <ol className='routeProductPage flex flex-row mr-2'>
           <li><Link to='/'>Home/</Link></li>
           <li><Link to='/shop'>Shop</Link></li>
         </ol>
+        </div>
+        <div className='flex'>
         <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
+        </div>
       </div>
       <div className='shopColumn'>
         <div className='leftShopColumn'>
