@@ -132,9 +132,9 @@ function Shop() {
   return (
     <>
       <div className='shopTopBanner flex md:mx-6'>
-        <div className='shopTopBannerText flex-col'>
-        <h1>Cosmetics for you</h1>
-        <ol className='routeProductPage flex flex-row mr-2'>
+        <div className='shopTopBannerText flex-col pl-3 mt-5'>
+        <h1 className='text-white'>Cosmetics for you!</h1>
+        <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
           <li><Link to='/'>Home/</Link></li>
           <li><Link to='/shop'>Shop</Link></li>
         </ol>

@@ -103,26 +103,49 @@ width:70vw;
     width: 100px;
 }
 
+.routeShopPage{
+    font-family: 'Kanit';
+}
+
 @media only screen and (min-width: 350px) {
     .productPriceShop{
         font-size:16px;
     }
 }
 
-@media only screen and (min-width: 425px) {
-    .shopTopBannerText{
-        margin-right: 20vw;
-    }
-}
 
 @media only screen and (min-width: 425px) {
     .shopTopBanner{
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    .shopTopBannerText{
+        margin-left: 30px;
+        margin-top: 5px;
+        margin-right: 20vw;
+    }
+
+    .shopBannerImg{
+        right:60px;
+        height: 110px;
+    width: 110px;
+    bottom:20px
+    }
 }
 
 @media only screen and (min-width: 768px) {
+
+    .shopTopBanner{
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .shopTopBannerText{
+        margin-left: 60px;
+        margin-top: 20px;
+        font-size:20px ;
+    }
 
     .paginationBtns{
         font-size: 1vw;
@@ -143,7 +166,7 @@ width:70vw;
         grid-template-columns: 1fr 4fr;
     }
     .shopBannerImg{
-        left: 200px;
+    right: 70px;
     bottom: 30px;
     height: 130px;
     width: 130px;
@@ -155,6 +178,22 @@ width:70vw;
 }
 
 @media only screen and (min-width:1024px) {
+
+    .shopTopBanner{
+        margin-top: 60px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    .shopTopBannerText{
+        margin-left: 100px;
+        font-size:25px ;
+    }
+
+    .shopBannerImg{
+        bottom: 55px;
+        height: 160px;
+        width: 160px;
+    }
     .paginationBtns{
         font-size: 1vw;
         justify-content: center;
