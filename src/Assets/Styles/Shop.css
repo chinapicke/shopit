@@ -35,6 +35,14 @@
 
 
 
+.sliderContainer{
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.slider{
+    margin-left: 5px;
+}
+
 .productType{
     color:rgba(253,210,97,255);
     font-weight: bold;
@@ -106,6 +114,10 @@ width:70vw;
 .routeShopPage{
     font-family: 'Kanit';
 }
+.bar-inner-right, .bar-inner-left {
+    background-color:rgba(253,210,97,255);
+}
+
 
 @media only screen and (min-width: 350px) {
     .productPriceShop{
@@ -175,6 +187,11 @@ width:70vw;
     .shopTopBanner{
         height:90px;
     }
+
+    .slider{
+        width:90%;
+    }
+    
 }
 
 @media only screen and (min-width:1024px) {
@@ -199,3 +216,17 @@ width:70vw;
         justify-content: center;
     }
 }
+
+@media only screen and (min-width:1200px) {
+
+    .sliderContainer{
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .shopTopBanner{
+        margin-top: 60px;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+

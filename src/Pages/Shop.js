@@ -144,7 +144,7 @@ function Shop() {
         </div>
       </div>
       <div className='shopColumn'>
-        <div className='leftShopColumn'>
+        <div className='leftShopColumn ml-3'>
           <div className='searchBar md:hidden'>
             <Searchbar
               onSearch={getProductsByBrand}

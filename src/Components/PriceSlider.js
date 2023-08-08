@@ -13,14 +13,14 @@ const PriceSlider = ({ onSlider }) => {
 
   return (
     <div className='priceSlider'>
-      <h1>Select Price</h1>
+      <h1 className='font-semibold pl-2 my-3 text-sm'>select price</h1>
       <div className='sliderContainer grid grid-cols-3'>
-        <div className="divOutput">
-          <span>{minValue2}</span>
-          <p>min</p>
+        <div className="divOutput ml-1 md:ml-1 mt-3">
+          <span className='bg-white px-3 py-2 text-xs'>{minValue2}</span>
+          <p className='text-xs pl-2 pt-1'>min.</p>
         </div>
 
-        <div className="slider md:w-1/5">
+        <div className="slider">
           <MultiRangeSlider
             passive={true}
             onChange={(e) => {
@@ -33,11 +33,13 @@ const PriceSlider = ({ onSlider }) => {
             step={1}
             ruler='false'></MultiRangeSlider>
           </div>
-        <div className="divOutput">
-            <span>{maxValue2}</span>
-            <p>max</p>
+        <div className="divOutput ml-3 md:ml-0 mr-1 mt-3">
+            <span className='bg-white px-3 py-2 text-xs'>{maxValue2}</span>
+            <p className='text-xs pl-1 pt-1'>max.</p>
         </div>
-        <button onClick={sliderNumbers}>Submit</button>
+      </div>
+      <div className='flex justify-center'>
+      <button className='pt-3 text-xs pb-1 font-semibold 'onClick={sliderNumbers}>Submit</button>
       </div>
     </div>
   )
