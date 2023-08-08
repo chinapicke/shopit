@@ -10,7 +10,7 @@ const OptionButtons= ({onButton})=> {
   return (
     <>
     <h1 className='shopSideBarSubHeading flex justify-start mt-3'>Makeup</h1>
-    <div className='flex flex-row md:flex-col productTypeButton items-start' onClick={handleClick}>
+    <div className='flex flex-row md:flex-col productTypeButton items-start pl-2' onClick={handleClick}>
         <button value='lush'>Blush</button>
         <button value='bronzer'>Bronzer</button>
         <button value='eyebrow'>Eyebrow</button>

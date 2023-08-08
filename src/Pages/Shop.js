@@ -215,35 +215,6 @@ function Shop() {
             </>
             : null}
 
-          <div className='listOfBrands hidden md:inline-block'>
-            <BrandList brandDropDown={getProductsByBrand}></BrandList>
-          </div>
-
-          <div className='sortingDropdown hidden md:inline-block'>
-            <select onChange={sortThis}>Sort it out
-              <option defaultValue>Sort</option>
-              <option value={'asc'}>Ascending</option>
-              <option value={'desc'}>Descending</option>
-            </select>
-          </div>
-
-          <div className='productsPerPage hidden md:inline-block'>
-            <select
-              value={productPerPage}
-              onChange={handleItemsPerPage}>
-              <option value={30}>Products per page</option>
-              <option value={5}>
-                  5 products
-                </option>
-                <option value={10}>
-                  10 products
-                </option>
-                <option value={20}>
-                  20 products
-                </option>
-            </select>
-          </div>
-
           <button>
             Reset filters
           </button>
@@ -258,6 +229,36 @@ function Shop() {
               onInput={filterProduct}
             />
           </div>
+
+        <div className='listOfBrands hidden md:inline-block'>
+            <BrandList brandDropDown={getProductsByBrand}></BrandList>
+        </div>
+
+        <div className='sortingDropdown hidden md:inline-block'>
+            <select onChange={sortThis}>Sort it out
+              <option defaultValue>Sort</option>
+              <option value={'asc'}>Ascending</option>
+              <option value={'desc'}>Descending</option>
+            </select>
+        </div>
+
+        <div className='productsPerPage hidden md:inline-block'>
+            <select
+              value={productPerPage}
+              onChange={handleItemsPerPage}>
+              <option value={30}>Products per page</option>
+              <option value={5}>
+                  5 products
+                </option>
+                <option value={10}>
+                  10 products
+                </option>
+                <option value={20}>
+                  20 products
+                </option>
+            </select>
+        </div>
+
 
 
           {serverErr && <div>{serverErr}</div>}
