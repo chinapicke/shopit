@@ -23,7 +23,7 @@ function Shop() {
 
   // States //////////////////////////////////////////////////////////////
   const { products, setProducts, isLoading, serverErr, getProductsByBrand,
-    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, refreshProducts } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -129,6 +129,13 @@ function Shop() {
     setProducts(prices)
   }
 
+  /////////////////////////////////////////
+  // const refreshPage = () => {
+  //   singleAPI
+   
+  // }
+  ////////////////////////
+
   return (
     <>
       <div className='shopTopBanner flex md:mx-6'>
@@ -215,7 +222,7 @@ function Shop() {
             </>
             : null}
 
-          <button>
+          <button onClick={refreshProducts}>
             Reset filters
           </button>
 

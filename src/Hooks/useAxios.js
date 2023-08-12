@@ -240,6 +240,8 @@ const useAxios = (url) => {
     }
   }
 
+
+
   const [filterDrawer, setFilterDrawer] = useState(false)
 
   const openFilterDrawer = () => {
@@ -255,6 +257,8 @@ const useAxios = (url) => {
     error,
     singleProduct,
     setProducts,
+    setServerErr,
+    setIsLoading,
     serverErr,
     filterProduct,
     maxValue2,
@@ -263,7 +267,9 @@ const useAxios = (url) => {
     setMinValue2,
     priceRangeProducts,
     filterDrawer,
-    openFilterDrawer,setFilterDrawer
+    openFilterDrawer,
+    setFilterDrawer,
+    refreshProducts
     }
 
 }

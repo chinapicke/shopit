@@ -48,7 +48,7 @@
     font-weight: bold;
 }
 
-.productBrand, .productName{
+.productBrand, .productName, .productTypeButton{
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
 }
