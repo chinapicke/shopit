@@ -23,7 +23,7 @@ function Shop() {
 
   // States //////////////////////////////////////////////////////////////
   const { products, setProducts, isLoading, serverErr, getProductsByBrand,
-    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, refreshProducts } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, resetFilters } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -130,10 +130,7 @@ function Shop() {
   }
 
   /////////////////////////////////////////
-  // const refreshPage = () => {
-  //   singleAPI
-   
-  // }
+  
   ////////////////////////
 
   return (
@@ -222,7 +219,7 @@ function Shop() {
             </>
             : null}
 
-          <button onClick={refreshProducts}>
+          <button onClick={resetFilters}>
             Reset filters
           </button>
 

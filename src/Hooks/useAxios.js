@@ -248,6 +248,36 @@ const useAxios = (url) => {
     setFilterDrawer(current => !current)
   }
 
+  const resetFilters = () =>{
+    const getAPI = async () => {
+        setIsLoading(true)
+      try {
+        const res = await axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
+        if (res.status === 200) {
+          console.log('Success!');
+          // converts prices that are set to 0.0 by the API and adds quantity of 1 to eahc object in the data array
+          const productsWithQuantity = res.data.map((item)=>{
+            return(
+            item.price === '0.0' || item.price === null ? {...item, price:8.50, quantity:1} :{...item, quantity:1}
+          )})
+          setProducts(productsWithQuantity);
+          console.log(productsWithQuantity)
+        }
+        else {
+          setServerErr(`Server error: ${res.status}`);
+        }
+      } catch (err) {
+        setError(err.message,': we having some issues with our server to show you our products')
+
+      }
+      finally {
+        setIsLoading(false)
+      }
+    }
+    getAPI()
+  };
+
+  
   return {
     isLoading,
     products,
@@ -269,7 +299,7 @@ const useAxios = (url) => {
     filterDrawer,
     openFilterDrawer,
     setFilterDrawer,
-    refreshProducts
+    resetFilters
     }
 
 }
