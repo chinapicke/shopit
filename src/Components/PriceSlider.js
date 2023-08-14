@@ -33,9 +33,9 @@ const PriceSlider = ({ onSlider }) => {
             step={1}
             ruler='false'></MultiRangeSlider>
           </div>
-        <div className="divOutput ml-3 md:ml-0 mr-1 mt-3">
-            <span className='bg-white px-3 py-2 text-xs'>{maxValue2}</span>
-            <p className='text-xs pl-1 pt-1'>max.</p>
+        <div className="divOutput ml-3 md:ml-0 mr-1 mt-3 ">
+            <span className='bg-white px-3 py-2 text-xs md:ml-3'>{maxValue2}</span>
+            <p className='text-xs pl-1 pt-1 md:pl-3'>max.</p>
         </div>
       </div>
       <div className='flex justify-center'>

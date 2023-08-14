@@ -148,7 +148,7 @@ function Shop() {
         </div>
       </div>
       <div className='shopColumn'>
-        <div className='leftShopColumn ml-3'>
+        <aside className='leftShopColumn ml- h-screen sticky top-5 pl-1'>
           <div className='searchBar md:hidden'>
             <Searchbar
               onSearch={getProductsByBrand}
@@ -157,7 +157,7 @@ function Shop() {
             />
           </div>
 
-          <div className='priceSlider hidden md:inline-block'>
+          <div className='priceSlider hidden md:inline-block '>
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div>
@@ -219,34 +219,34 @@ function Shop() {
             </>
             : null}
 
-          <button onClick={resetFilters}>
+          <button className='resetBtn mt-3 ml-6 md:sticky' onClick={resetFilters}>
             Reset filters
           </button>
 
-        </div>
+        </aside>
 
-        <div className='rightShopColumn'>
-          <div className='searchBar hidden md:inline-block'>
+        <div className='rightShopColumn '>
+        <div className='searchBar w-10/12 hidden md:inline-block'>
             <Searchbar
               onSearch={getProductsByBrand}
               onFilter={getProductsByType}
               onInput={filterProduct}
             />
           </div>
-
-        <div className='listOfBrands hidden md:inline-block'>
+          <div className='rightShopColumnTopBar flex justify-between'>
+          <div className='listOfBrands hidden md:inline-block'>
             <BrandList brandDropDown={getProductsByBrand}></BrandList>
-        </div>
+          </div>
 
-        <div className='sortingDropdown hidden md:inline-block'>
+          <div className='sortingDropdown hidden md:inline-block'>
             <select onChange={sortThis}>Sort it out
               <option defaultValue>Sort</option>
               <option value={'asc'}>Ascending</option>
               <option value={'desc'}>Descending</option>
             </select>
-        </div>
+          </div>
 
-        <div className='productsPerPage hidden md:inline-block'>
+          <div className='productsPerPage hidden md:inline-block'>
             <select
               value={productPerPage}
               onChange={handleItemsPerPage}>
@@ -261,9 +261,8 @@ function Shop() {
                   20 products
                 </option>
             </select>
-        </div>
-
-
+          </div>
+          </div>
 
           {serverErr && <div>{serverErr}</div>}
           {error ? <div>{error}</div>:

@@ -100,7 +100,7 @@
 width:70vw;
 }
 
-.priceSlider{
+.priceSlider, {
     background-color: #f8f8f8;
 }
 
@@ -121,6 +121,8 @@ width:70vw;
 .productTypeButtons{
     background-color: #f8f8f8;
 }
+
+
 
 
 @media only screen and (min-width: 350px) {
@@ -193,7 +195,11 @@ width:70vw;
     }
 
     .slider{
-        width:90%;
+        width:100%;
+    }
+
+    .priceSlider,.productTypeButtons{
+        width: 98%;
     }
     
 }
@@ -219,16 +225,27 @@ width:70vw;
         font-size: 1vw;
         justify-content: center;
     }
+
+    .priceSlider,.productTypeButtons{
+        width: 85%;
+    }
+
+    .sliderContainer{
+        width:115%;
+    }
+    
 }
 
 @media only screen and (min-width:1200px) {
 
-    .productTypeButtons{
-        width:90%;
+    .priceSlider,.productTypeButtons{
+        width: 75%;
     }
+    
 
     .sliderContainer{
         grid-template-columns: 1fr 3fr 1fr;
+        width: 130%;
     }
 
     .shopTopBanner{
@@ -236,6 +253,8 @@ width:70vw;
         margin-left: 200px;
         margin-right: 200px;
     }
+
+    
 }
 
 @media only screen and (min-width:1400px) {
