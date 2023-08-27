@@ -13,6 +13,7 @@ import Pagination from 'react-paginate'
 import Drawer from 'react-modern-drawer'
 import Accordion from '../Components/Accordion';
 import GlossierSet from '../Assets/Images/glossierSet.png'
+import { SpinnerCircular } from 'spinners-react';
 import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
@@ -307,11 +308,16 @@ function Shop() {
                       </div>
                     </div>
                   </>
-                  : <h1>No results found</h1>}
+                  : <h1 className='text-center ml-6'>No results found</h1>}
               </> :
-                <>
-                  <h1>Loading...</h1>
-                </>
+                <div className='flex justify-center mt-32'>
+                  <SpinnerCircular 
+                  className='loadSpinner justify-center'
+                  size={100}
+                  thickness={100}
+                  color='#fdd261'
+                  />
+                </div>
               }
             </div >
           }        </div>
