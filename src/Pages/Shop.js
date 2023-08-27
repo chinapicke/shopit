@@ -170,10 +170,10 @@ function Shop() {
 
 
           <div className='mobileSortMenu pt-3 md:hidden'>
-            <div className='flex flex-row justify-between mb-2 mr-2'>
+            <div className='flex flex-row justify-around mb-2 mr-2'>
               <div className='productPerPageMobile'>
                 <select
-                className='productsSelect py-1 pl-1 rounded-full'
+                className='productsSelect py-1 pl-1 rounded-full ' 
                   value={productPerPage}
                   onChange={handleItemsPerPage}>
                   <option className='bg-white' value={30}>Products</option>
@@ -273,8 +273,11 @@ function Shop() {
             </div>
           </div>
 
-          {serverErr && <div>{serverErr}</div>}
-          {error ? <div>{error}</div> :
+          {serverErr && <div>
+            <h1 className='ml-10'>{serverErr}</h1>
+            </div>}
+          {error ? <div>
+            <h1 className='ml-10 '>{error}</h1></div> :
             <div>
               {!isLoading ? <>
                 {products.length ?

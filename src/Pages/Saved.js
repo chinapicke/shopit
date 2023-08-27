@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext} from "react"
 import { AppContext } from '../Context/Context';
+import '../Assets/Styles/Saved.css'
 
 function Saved() {
   const SaveState = useContext(AppContext);
@@ -10,7 +11,11 @@ function Saved() {
   return (
     <div>
       {savedState.length === 0 ?
-        (<h1>You have no products saved</h1>) :
+      
+        (
+      <div>
+        <h1 className='noProducts py-12 text-center'>You have no products saved</h1>
+      </div>) :
 
         savedState.map((item, index) => {
           return (
