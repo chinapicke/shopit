@@ -129,9 +129,7 @@
 }
 
 .rightColumSelectBanner{
-    box-shadow: 0px 1px 1px 1px grey;
-}
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 @media only screen and (min-width: 350px) {
     .productPriceShop{
         font-size:16px;

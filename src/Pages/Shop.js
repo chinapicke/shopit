@@ -238,12 +238,12 @@ function Shop() {
               onInput={filterProduct}
             />
           </div>
-          <div className='rightShopColumnTopBar grid grid-cols-3 mr-2'>
+          <div className='rightShopColumnTopBar grid grid-cols-3 ml-5 '>
             <div className='listOfBrands hidden md:inline-block mt-2 '>
               <BrandList brandDropDown={getProductsByBrand}></BrandList>
             </div>
 
-            <div className='sortingDropdown hidden md:inline-block md:flex md:flex-col xl:flex-row mt-2 ml-2'>
+            <div className='sortingDropdown hidden md:inline-block md:flex md:justify-evenly md:flex-col xl:flex-row mt-2 ml-2'>
               <label className='text-center'>sort by</label>
               <select className='rightColumSelectBanner rounded-full text-center shadow-inner p-1' onChange={sortThis}>
                 <option defaultValue>price sort by</option>
@@ -252,7 +252,7 @@ function Shop() {
               </select>
             </div>
 
-            <div className='productsPerPage hidden md:inline-block md:flex md:flex-col xl:flex-row mt-2 ml-2'>
+            <div className='productsPerPage hidden md:inline-block md:flex md:justify-evenly md:flex-col xl:flex-row mt-2 ml-2'>
               <label className='text-center'>show</label>
               <select
               className='rightColumSelectBanner rounded-full text-center shadow-inner p-1'
