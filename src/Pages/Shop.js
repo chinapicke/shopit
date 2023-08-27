@@ -59,14 +59,14 @@ function Shop() {
     setProductPerPage(parseInt(e.target.value))
   }
 
-  
+
   const offSet = currentPage * productPerPage
 
 
   // How I want the data to be shown on the page
   const displayProducts = products.slice(
-    offSet,  offSet + productPerPage
-    )
+    offSet, offSet + productPerPage
+  )
     .map((item, index) => {
       return (
         <div className='singleCard h-full flex flex-col mx-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover: duration-300 hover:shadow-lg' key={item.id}>
@@ -116,7 +116,7 @@ function Shop() {
   const changePage = ({ selected }) => {
     setCurrentPage(selected)
     // console.log(offSet)
-  
+
   }
 
   const sortThis = (e) => {
@@ -130,25 +130,25 @@ function Shop() {
   }
 
   /////////////////////////////////////////
-  
+
   ////////////////////////
 
   return (
     <>
       <div className='shopTopBanner flex md:mx-6'>
         <div className='shopTopBannerText flex-col pl-3 mt-5'>
-        <h1 className='text-white'>Cosmetics for you!</h1>
-        <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
-          <li><Link to='/'>Home/</Link></li>
-          <li><Link to='/shop'>Shop</Link></li>
-        </ol>
+          <h1 className='text-white'>Cosmetics for you!</h1>
+          <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
+            <li><Link to='/'>Home/</Link></li>
+            <li><Link to='/shop'>Shop</Link></li>
+          </ol>
         </div>
         <div className='flex'>
-        <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
+          <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
         </div>
       </div>
       <div className='shopColumn'>
-        <aside className='leftShopColumn ml- h-screen sticky top-5 pl-1'>
+        <aside className='leftShopColumn md:ml-3 top-5 pl-1'>
           <div className='searchBar md:hidden'>
             <Searchbar
               onSearch={getProductsByBrand}
@@ -166,34 +166,39 @@ function Shop() {
             <OptionButtons onButton={selectAProduct} />
           </div>
 
-          <div className='mobileSortMenu flex flex-row md:hidden'>
-            <div>
-              <button onClick={openFilterDrawer}>
-              More Options
-            </button>
-            </div>
-            <div className='productPerPageMobile'>
-              <select
-                value={productPerPage}
-                onChange={handleItemsPerPage}>
-                <option value={30}>Products per page</option>
-                <option value={5}>
-                  5 products
-                </option>
-                <option value={10}>
-                  10 products
-                </option>
-                <option value={20}>
-                  20 products
-                </option>
-              </select>
-            </div>
-            <div className='sortingDropdownMobile'>
-                <select onChange={sortThis}>Sort it out
-                  <option defaultValue>Sort</option>
+
+
+          <div className='mobileSortMenu pt-3 md:hidden'>
+            <div className='flex flex-row justify-between mb-2 mr-2'>
+              <div className='productPerPageMobile'>
+                <select
+                className='productsSelect py-1 pl-1 rounded-full'
+                  value={productPerPage}
+                  onChange={handleItemsPerPage}>
+                  <option className='bg-white' value={30}>Products</option>
+                  <option value={5}>
+                    5 products
+                  </option>
+                  <option value={10}>
+                    10 products
+                  </option>
+                  <option value={20}>
+                    20 products
+                  </option>
+                </select>
+              </div>
+              <div className='sortingDropdownMobile '>
+                <select className='sortSelect py-1 pl-1 rounded-full' onChange={sortThis}>Sort it out
+                  <option defaultValue className='bg-white'>Sort</option>
                   <option value={'asc'}>Ascending</option>
                   <option value={'desc'}>Descending</option>
                 </select>
+              </div>
+            </div>
+            <div className='flex justify-center'>
+              <button className='moreOptionsBtn p-2 rounded-full px-3' onClick={openFilterDrawer}>
+                More Options
+              </button>
             </div>
           </div>
 
@@ -218,7 +223,7 @@ function Shop() {
               </Drawer>
             </>
             : null}
-
+{/* reset filters not functioning to original default of products per page */}
           <button className='resetBtn mt-3 ml-6 md:sticky' onClick={resetFilters}>
             Reset filters
           </button>
@@ -226,32 +231,34 @@ function Shop() {
         </aside>
 
         <div className='rightShopColumn '>
-        <div className='searchBar w-10/12 hidden md:inline-block'>
+          <div className='searchBar w-10/12 ml-0 hidden md:inline-block md:ml-3 md:w-11/12'>
             <Searchbar
               onSearch={getProductsByBrand}
               onFilter={getProductsByType}
               onInput={filterProduct}
             />
           </div>
-          <div className='rightShopColumnTopBar flex justify-between'>
-          <div className='listOfBrands hidden md:inline-block'>
-            <BrandList brandDropDown={getProductsByBrand}></BrandList>
-          </div>
+          <div className='rightShopColumnTopBar w-11/12 ml-3  flex justify-between'>
+            <div className='listOfBrands hidden md:inline-block mt-2'>
+              <BrandList brandDropDown={getProductsByBrand}></BrandList>
+            </div>
 
-          <div className='sortingDropdown hidden md:inline-block'>
-            <select onChange={sortThis}>Sort it out
-              <option defaultValue>Sort</option>
-              <option value={'asc'}>Ascending</option>
-              <option value={'desc'}>Descending</option>
-            </select>
-          </div>
+            <div className='sortingDropdown hidden md:inline-block md:flex md:flex-col lg:flex-row mt-2'>
+              <label >sort by</label>
+              <select onChange={sortThis}>
+                <option defaultValue>price sort by</option>
+                <option value={'asc'}>price low to high</option>
+                <option value={'desc'}>price high to low</option>
+              </select>
+            </div>
 
-          <div className='productsPerPage hidden md:inline-block'>
-            <select
-              value={productPerPage}
-              onChange={handleItemsPerPage}>
-              <option value={30}>Products per page</option>
-              <option value={5}>
+            <div className='productsPerPage hidden md:inline-block md:flex md:flex-col lg:flex-row mt-2'>
+              <label >show</label>
+              <select
+                value={productPerPage}
+                onChange={handleItemsPerPage}>
+                <option defaultValue={30}>30 products</option>
+                <option value={5}>
                   5 products
                 </option>
                 <option value={10}>
@@ -260,53 +267,53 @@ function Shop() {
                 <option value={20}>
                   20 products
                 </option>
-            </select>
-          </div>
+              </select>
+            </div>
           </div>
 
           {serverErr && <div>{serverErr}</div>}
-          {error ? <div>{error}</div>:
-                    <div>
-                    {!isLoading ? <>
-                      {products.length ?
-                        <>
-                          <div className='shopCards grid grid-cols-2 flex-wrap py-4 mr-1 md:grid-cols-4 lg:grid-cols-4'>
-                            {displayProducts}
-                          </div>
-                          <div className='flex flex-col'>
-                            <div >
-                              <h1> Showing 
-                                {offSet===0?1:offSet} - {offSet===0?30: offSet*2}
-                                 of {products.length} products</h1>
-                            </div>
-                            <div>
-                              <Pagination
-                                previousLabel={'Previous page'}
-                                // onChange={handleChanges}
-                                nextLabel={'Next page'}
-                                pageCount={pageCount}
-                                pageClassName='pageNoneDisplay'
-                                breakClassName='pageNoneDisplay'
-                                onPageChange={changePage}
-                                containerClassName={'paginationBtns py-3'}
-                                previousLinkClassName={'previousBtn'}
-                                nextLinkClassName={'nextBtn'}
-                                disabledClassName={'paginationDisbaled'}
-                                activeClassName={'paginationActive'}
-                                pageRangeDisplayed={1}
-                                marginPagesDisplayed={2}
-                              />
-                            </div>
-                          </div>
-                        </>
-                        : <h1>No results found</h1>}
-                    </> :
-                      <>
-                        <h1>Loading...</h1>
-                      </>
-                    }
-                  </div >
-        }        </div>
+          {error ? <div>{error}</div> :
+            <div>
+              {!isLoading ? <>
+                {products.length ?
+                  <>
+                    <div className='shopCards grid grid-cols-2 flex-wrap py-4 mr-6 md:grid-cols-4 lg:grid-cols-4'>
+                      {displayProducts}
+                    </div>
+                    <div className='flex flex-col'>
+                      <div >
+                        <h1> Showing
+                          {offSet === 0 ? 1 : offSet} - {offSet === 0 ? 30 : offSet * 2}
+                          of {products.length} products</h1>
+                      </div>
+                      <div>
+                        <Pagination
+                          previousLabel={'Previous page'}
+                          // onChange={handleChanges}
+                          nextLabel={'Next page'}
+                          pageCount={pageCount}
+                          pageClassName='pageNoneDisplay'
+                          breakClassName='pageNoneDisplay'
+                          onPageChange={changePage}
+                          containerClassName={'paginationBtns py-3'}
+                          previousLinkClassName={'previousBtn'}
+                          nextLinkClassName={'nextBtn'}
+                          disabledClassName={'paginationDisbaled'}
+                          activeClassName={'paginationActive'}
+                          pageRangeDisplayed={1}
+                          marginPagesDisplayed={2}
+                        />
+                      </div>
+                    </div>
+                  </>
+                  : <h1>No results found</h1>}
+              </> :
+                <>
+                  <h1>Loading...</h1>
+                </>
+              }
+            </div >
+          }        </div>
       </div>
     </>
   )

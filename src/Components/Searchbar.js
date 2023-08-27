@@ -39,7 +39,7 @@ const Searchbar = ({ onSearch, onFilter, onInput }) => {
                 onChange={e => setInput(e.target.value)}
                 className='block w-full p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 '
             />
-            <select className='text-black  absolute right-28 bottom-2.5 mr-4 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 '
+            <select className='searchByDropdown text-black text-center absolute right-28 bottom-2.5 mr-4 focus:ring-2 focus:outline-none focus:ring-gray-950 font-medium rounded-lg text-sm px-4 py-2 '
             placeholder='Search by'
                 onChange={e => setFiltered(e.target.value)}>
                 <option defaultValue>Search by...</option>
@@ -48,7 +48,7 @@ const Searchbar = ({ onSearch, onFilter, onInput }) => {
                 <option
                     value="Product">Product Type</option>
             </select>
-            <button className='text-white absolute right-2.5 bottom-2.5 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            <button className='submitBtn text-black absolute right-2.5 bottom-2.5  focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 '
                 onClick={() => searchProducts()}
             >Submit</button>
 
