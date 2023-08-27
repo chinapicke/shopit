@@ -128,8 +128,9 @@
     outline-style: none;
 }
 
-
-
+.rightColumSelectBanner{
+    box-shadow: 0px 1px 1px 1px grey;
+}
 
 @media only screen and (min-width: 350px) {
     .productPriceShop{
@@ -162,6 +163,9 @@
 
 @media only screen and (min-width: 768px) {
 
+    .searchBarScreenFull{
+        width:93%;
+    }
     .shopTopBanner{
         margin-left: 40px;
         margin-right: 40px;

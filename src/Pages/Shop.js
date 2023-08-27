@@ -231,30 +231,31 @@ function Shop() {
         </aside>
 
         <div className='rightShopColumn '>
-          <div className='searchBar w-10/12 ml-0 hidden md:inline-block md:ml-3 md:w-11/12'>
+          <div className='searchBarScreenFull ml-0 hidden md:inline-block md:ml-6 md:w-11/12'>
             <Searchbar
               onSearch={getProductsByBrand}
               onFilter={getProductsByType}
               onInput={filterProduct}
             />
           </div>
-          <div className='rightShopColumnTopBar w-11/12 ml-3  flex justify-between'>
-            <div className='listOfBrands hidden md:inline-block mt-2'>
+          <div className='rightShopColumnTopBar grid grid-cols-3 mr-2'>
+            <div className='listOfBrands hidden md:inline-block mt-2 '>
               <BrandList brandDropDown={getProductsByBrand}></BrandList>
             </div>
 
-            <div className='sortingDropdown hidden md:inline-block md:flex md:flex-col lg:flex-row mt-2'>
-              <label >sort by</label>
-              <select onChange={sortThis}>
+            <div className='sortingDropdown hidden md:inline-block md:flex md:flex-col xl:flex-row mt-2 ml-2'>
+              <label className='text-center'>sort by</label>
+              <select className='rightColumSelectBanner rounded-full text-center shadow-inner p-1' onChange={sortThis}>
                 <option defaultValue>price sort by</option>
-                <option value={'asc'}>price low to high</option>
-                <option value={'desc'}>price high to low</option>
+                <option value={'asc'}>low to high</option>
+                <option value={'desc'}>high to low</option>
               </select>
             </div>
 
-            <div className='productsPerPage hidden md:inline-block md:flex md:flex-col lg:flex-row mt-2'>
-              <label >show</label>
+            <div className='productsPerPage hidden md:inline-block md:flex md:flex-col xl:flex-row mt-2 ml-2'>
+              <label className='text-center'>show</label>
               <select
+              className='rightColumSelectBanner rounded-full text-center shadow-inner p-1'
                 value={productPerPage}
                 onChange={handleItemsPerPage}>
                 <option defaultValue={30}>30 products</option>
