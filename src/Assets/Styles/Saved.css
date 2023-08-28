@@ -1,7 +1,39 @@
 .noProducts{
     height: 28vh;
 }
+.savedCard{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border-color: #b8b4b4;
+}
 
+.savedBrand, .savedProductType, .savedPrice{
+    font-family: 'Raleway', sans-serif;
+}
+
+.savedBrand, .savedPrice{
+    font-weight:900
+}
+
+.circleShadow{
+    background-image: url('../Images/Backgrounds/grey.png');
+    background-size: 22px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    background-repeat: no-repeat;
+}
+/* 
+.savedBinIcon{
+    position:absolute;
+    left:0;
+    bottom:0;
+} */
+
+
+.savedProductType{
+    color: rgba(253,210,97,255);
+    font-weight:bolder;
+}
 @media only screen and (min-width: 768px){
     .noProducts{
         height: 46vh;
