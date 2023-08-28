@@ -72,8 +72,14 @@
 .paginationBtns{
     margin-top:7vh;
     font-size: 3vw;
-    width:100vw;
+    flex-wrap: wrap;
+    flex-shrink: 0;
 }
+
+.pageNoneDisplay{
+    margin-bottom: 2rem;
+}
+
 
 .shopTopBanner{
     background-color:#2a4637;

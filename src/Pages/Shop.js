@@ -225,9 +225,11 @@ function Shop() {
             </>
             : null}
 {/* reset filters not functioning to original default of products per page */}
-          <button className='resetBtn mt-3 ml-6 md:sticky' onClick={resetFilters}>
+          <div className='flex justify-center lg:justify-start'>
+            <button className='resetBtn mt-3  ' onClick={resetFilters}>
             Reset filters
-          </button>
+            </button>
+          </div>
 
         </aside>
 
@@ -282,7 +284,7 @@ function Shop() {
               {!isLoading ? <>
                 {products.length ?
                   <>
-                    <div className='shopCards grid grid-cols-2 flex-wrap py-4 mr-6 md:grid-cols-4 lg:grid-cols-4'>
+                    <div className='shopCards grid grid-cols-2 flex-wrap py-4 xl:mr-6 md:grid-cols-4 lg:grid-cols-4'>
                       {displayProducts}
                     </div>
                     <div className='flex flex-col'>
@@ -294,6 +296,7 @@ function Shop() {
                       <div>
                         <Pagination
                           previousLabel={'Previous page'}
+                          // className='paginationBar'
                           // onChange={handleChanges}
                           nextLabel={'Next page'}
                           pageCount={pageCount}
@@ -313,7 +316,7 @@ function Shop() {
                   </>
                   : <h1 className='text-center ml-6'>No results found</h1>}
               </> :
-                <div className='flex justify-center mt-32'>
+                <div className='flex justify-center md:mt-32'>
                   <SpinnerCircular 
                   className='loadSpinner justify-center'
                   size={100}
