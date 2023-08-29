@@ -20,12 +20,16 @@ const SavedHook = () => {
     setCartDrawer(current => !current);
 }
 
+const [mobileOpen, setMobileOpen] = useState(false);
+
   return{
     likedIndex, 
     changeIcon, 
     cartDrawer,
     openDrawer,
-    changeIconProduct
+    changeIconProduct,
+    mobileOpen,
+    setMobileOpen,
   }
 }
 

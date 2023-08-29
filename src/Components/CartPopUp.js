@@ -1,10 +1,14 @@
 import { AppContext } from '../Context/Context';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom'
+import SavedHook from '../Hooks/savedHook';
 
 
 function CartPopUp() {
-    const CartState = useContext(AppContext);
+
+  const {setMobileOpen} = SavedHook()
+
+  const CartState = useContext(AppContext);
   const state = CartState.state;
   const dispatch = CartState.dispatch;
 
@@ -42,7 +46,7 @@ function CartPopUp() {
         < h1 > Total:£{total.toFixed(2)}</h1>
       )}
       <button >
-        <NavLink to='/cart'>
+        <NavLink to='/cart' onClick={() => setMobileOpen(false)}>
           Go to cart
         </NavLink>
       </button>
