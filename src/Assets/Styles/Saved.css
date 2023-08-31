@@ -40,12 +40,16 @@
     }
 
     .savedProductType{
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
 @media only screen and (min-width: 102px){
     .noProducts{
         height: 65vh;
+    }
+
+    .savedBrand, .savedPrice{
+        font-size:18px;
     }
 }

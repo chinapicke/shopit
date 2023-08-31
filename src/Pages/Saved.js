@@ -21,10 +21,10 @@ function Saved() {
           return (
             <div className='savedCard my-3 mx-3 border-solid border-4 rounded-md' key={index}>
               <div className='flex justify-center'>
-                <img className='savedImg w-32 h-32 py-2 px-2 lg:w-44 h-44' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
+                <img className='savedImg w-32 h-32 py-2 px-2 lg:w-44 lg:h-44' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
                 {/* To display the brand name with as sentence case */}
               </div>
-              <div className='flex '>
+              <div className='flex lg:mt-4'>
                 <div className='max-w-full w-full'>
                   <h1 className='savedProductType'>{item?.product_type ? item.product_type.charAt(0).toUpperCase() + item.product_type.slice(1).toLowerCase().split('_').join(' ') : item.product_type}</h1>
                   <h2 className='savedBrand'>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</h2>

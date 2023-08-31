@@ -18,7 +18,7 @@ function CartPopUp() {
   }
     , 0)
   return (
-    <div>
+    <div className='absolute right-0 bg-white border-2'>
       {state.length === 0 ?
         (<h1>Your cart is empty </h1>) :
 
@@ -26,7 +26,7 @@ function CartPopUp() {
         state.map((item, index) => {
           return (
             <div className='addCard' key={index}>
-              <img src={item.api_featured_image} alt={item.brand + item.product_type}></img>
+              <img className='w-9 h-9' src={item.api_featured_image} alt={item.brand + item.product_type}></img>
               {/* To display the brand name with as sentence case */}
               <p>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</p>
               <p>£{(item?.price === '0.0')

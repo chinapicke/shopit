@@ -26,6 +26,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
     likedIndex, 
     changeIcon, 
     cartDrawer,
+    setCartDrawer,
     openDrawer,
     changeIconProduct,
     mobileOpen,
