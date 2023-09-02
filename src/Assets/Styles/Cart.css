@@ -1,0 +1,32 @@
+.cartPopupBrand{
+    font-family: 'Raleway', sans-serif;
+}
+
+.circleShadowCartPop{
+    background-image: url('../Images/Backgrounds/grey.png');
+    background-size: 18px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+}
+
+.addCard{
+    grid-template-columns: 45% 55%;
+    background-color:  hsl(0, 0%, 97%);
+    margin: 2px 2px 2px 2px;
+   
+}
+.innerPopupCart{
+    height:35vh;
+    overflow: scroll;
+}
+.popUpCart{
+    width: 65vw;
+    height:47vh;
+}
+
+@media only screen and (min-width:768px){
+    .popUpCart{
+        width: 40vw;
+    }
+}

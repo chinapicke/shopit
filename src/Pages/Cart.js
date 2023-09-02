@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../Context/Context"
+import '../Assets/Styles/Cart.css'
 
 function Cart() {
   const CartState = useContext(AppContext);
