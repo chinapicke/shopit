@@ -41,7 +41,7 @@ function CartPopUp() {
                 </div>
                 <div className='flex flex-col'>
                   <h1 className='cartPopupBrand md:text-sm lg:text-base'>{item?.brand ? item.brand.charAt(0).toUpperCase() + item.brand.slice(1).toLowerCase() : item.brand} {item?.name ? item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase() : item.name}</h1>
-                  <div className='flex flex-row justify-between mr-3 text-xs md:text-sm lg:text-base'>
+                  <div className='flex flex-row justify-between mr-3  lg:text-base'>
                     <h2 className='cartPopupPrice '><span className='circleShadowCartPop'>£{(item?.price === '0.0')
                       ? item.price = '8.50'
                       : Number(item.price).toFixed(2)}</span></h2>

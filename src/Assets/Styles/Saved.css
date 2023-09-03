@@ -34,6 +34,7 @@
     color: rgba(253,210,97,255);
     font-weight:bolder;
 }
+
 @media only screen and (min-width: 768px){
     .noProducts{
         height: 46vh;
