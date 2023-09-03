@@ -22,17 +22,26 @@
 }
 .popUpCart{
     width: 70vw;
-    height:47vh;
+    height:50vh;
 }
 
 .popUpItemDeleteBtn{
     background-color:rgba(253,210,97,255);
+}
 
+.closePopUpCard{
+    position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.gotocartBtn{
+    background-color:hsl(0, 0%, 97%);
 }
 
 @media only screen and (min-width:768px){
     .popUpCart{
-        width: 35vw;
+        width: 30vw;
     }
 
     .addCard{
@@ -42,8 +51,8 @@
 
 @media only screen and (min-width:1024px){
     .popUpCart{
-        margin-right: 3vw;
-        width: 30vw;
+        margin-right: 2vw;
+        width: 22vw;
     }
 
     .addCard{
