@@ -1,0 +1,77 @@
+.aboutMainHeader,
+.aboutHeader {
+  text-align: center;
+}
+
+.aboutHeader{
+    font-size: 18px;
+}
+
+.aboutMainHeader{
+    font-size: 24px;
+    text-shadow: 1px 1px grey;
+}
+
+.aboutText {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.aboutImgContainer {
+  background-image: url("https://images.unsplash.com/photo-1616769212339-9eea56b0014e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");
+  background-size: cover;
+  background-repeat: none;
+  height: 50vh;
+}
+
+.womenPhoto{
+    height:30vh;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aboutImgContainer {
+    margin-top: 20px;
+    background-image: url("https://images.unsplash.com/photo-1616769212339-9eea56b0014e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");
+    background-size: cover;
+    height: 100vh;
+  }
+
+  
+}
+
+@media screen and (min-width:1024px) {
+    .aboutText {
+        font-size: 2.5vh;
+      }
+
+      .aboutHeader{
+        font-size: 24px;
+    }
+
+    .aboutMainHeader{
+        font-size:4vh;
+        margin-left:0.8vw;
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .aboutText {
+        font-size: 3vh;
+      }
+
+      .aboutHeader{
+        font-size: 24px;
+    }
+
+    .aboutMainHeader{
+        font-size:5vh;
+        margin-left:0.8vw;
+    }
+}

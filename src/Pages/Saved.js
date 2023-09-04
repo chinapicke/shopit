@@ -9,9 +9,8 @@ function Saved() {
   const saveDispatch = SaveState.saveDispatch;
 
   return (
-    <div className='md:grid md:grid-cols-2'>
+    <div className=' md:grid md:grid-cols-2'>
       {savedState.length === 0 ?
-
         (
           <div>
             <h1 className='noProducts py-12 text-center'>You have no products saved</h1>

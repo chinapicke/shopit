@@ -54,7 +54,7 @@ export default function RootLayout() {
 
     return (
         <div className='navbar'>
-            <div className='jumbotron flex justify-between'>
+            <div className='jumbotron h-14 flex justify-between'>
                 <div className='py-2 px-2 md:pl-8 lg:pl-12'>
                     <NavLink to='/'>
                         ShopIt
@@ -175,10 +175,12 @@ export default function RootLayout() {
                     : null
                 }
             </div>
-            <main>
-                <Outlet />
+            <main className='pageContainer'>
+                    <Outlet />                
+                <div className='contentWrapper'>
+                </div>
             </main>
-            <footer>
+            <footer className='appFooter'>
                 <Footer />
             </footer>
         </div>
