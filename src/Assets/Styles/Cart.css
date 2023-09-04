@@ -1,6 +1,6 @@
-.cartPopupBrand{
+/* .cartPopupBrand{
     font-family: 'Raleway', sans-serif;
-}
+} */
 
 .circleShadowCartPop{
     background-image: url('../Images/Backgrounds/grey.png');
@@ -23,7 +23,7 @@
    
 }
 
-.cartBrand, .cartPrice, .cartPopupPrice, .cartQuantity, .totalCartItemPrice, .totalCartPriceLargeScreen, .totalText{
+.cartBrand, .cartPrice, .cartPopupPrice, .cartPopupBrand, .cartQuantity, .totalCartItemPrice, .totalCartPriceLargeScreen, .totalText, .promotionNormal{
     font-family: 'Raleway', sans-serif;
 }
 
@@ -67,6 +67,25 @@
     font-size: 22px;
 }
 
+.totalText{
+    font-weight: bold;
+}
+
+.promotionBold{
+    font-weight: bolder;
+}
+
+.promotionNormal{
+    font-weight: 500;
+}
+
+.checkout{
+    background-color: #f8f8f8;
+}
+
+.checkoutBtn{
+    color:white;
+}
 @media only screen and (min-width:768px){
     .popUpCart{
         width: 30vw;
@@ -78,6 +97,9 @@
 
     .innerAddcardCartPg{
         grid-template-columns: 32% 31% 29% 8%;
+        width: 80vw;
+    }
+    .innerCartPage{
         width: 80vw;
     }
 
@@ -116,6 +138,10 @@
         width: 80vw;
     }
 
+    .checkout{
+       width: 70vw;
+    }
+
     
 }
 
@@ -136,6 +162,10 @@
     .totalCartPriceLargeScreen{
         font-size: 25px;
     }
+
+    .checkout{
+        width: 50vw;
+     }
 
 }
 

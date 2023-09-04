@@ -12,10 +12,9 @@ function Saved() {
     <div className=' md:grid md:grid-cols-2'>
       {savedState.length === 0 ?
         (
-          <div>
-            <h1 className='noProducts py-12 text-center'>You have no products saved</h1>
+          <div className='py-26'>
+            <h1 className='noProducts py-24 text-center'>You have no products saved!</h1>
           </div>) :
-
         savedState.map((item, index) => {
           return (
             <div className='savedCard my-3 mx-3 border-solid border-4 rounded-md' key={index}>
