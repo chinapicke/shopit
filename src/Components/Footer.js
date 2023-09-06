@@ -2,9 +2,15 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faFacebookF ,faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-function Footer() {
+
+function Footer({onButton}) {
 
 const navigate = useNavigate()
+
+const handleFooter=()=>{
+  navigate('/shop')
+window.location.reload()
+}
 
   return (
     <div className='footerSection'>
@@ -24,8 +30,10 @@ const navigate = useNavigate()
         </ul>
       </div>
       <div className='makeupTypes pr-4 pt-2 md:pt-0 pl-4'>
-        <ul className='footerSubtitles columns-2 pt-2'  onClick={()=>navigate("/shop")}>makeup
-          <li className='pt-1 '>Blush</li>
+        <ul className='footerSubtitles columns-2 pt-2'  
+        onClick={handleFooter}
+        >makeup
+          <li className='pt-1' >Blush</li>
           <li>Bronzer</li>
           <li>Eyebrow</li>
           <li>Eyeliner</li>

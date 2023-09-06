@@ -54,7 +54,7 @@
 
 .subscribeBtn {
     width: 60%;
-    margin-right: 25%;
+    margin-right: 20%;
     margin-top: 2%;
 }
 
@@ -227,6 +227,10 @@
 
 .benefitHeader{
     font-size: 3vw;
+}
+
+.validationEmailMsg{
+font-size: 2vw;
 }
 /* ////////////////// */
 

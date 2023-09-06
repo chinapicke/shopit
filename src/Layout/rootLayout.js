@@ -1,4 +1,4 @@
-import React from 'react'
+import useAxios from '../Hooks/useAxios'
 import '../Assets/Styles/Navbar.css';
 import { NavLink, Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,6 +12,7 @@ import Footer from '.././Components/Footer'
 
 export default function RootLayout() {
     // const [mobileOpen, setMobileOpen] = useState(false);
+    const {selectAProduct}=useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
     const { cartDrawer, openDrawer, mobileOpen, setMobileOpen, setCartDrawer } = SavedHook()
 
 
@@ -181,7 +182,7 @@ export default function RootLayout() {
                 </div>
             </main>
             <footer className='appFooter'>
-                <Footer />
+                <Footer onButton={selectAProduct}/>
             </footer>
         </div>
     )
