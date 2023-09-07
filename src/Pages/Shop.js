@@ -226,7 +226,7 @@ function Shop() {
             : null}
 {/* reset filters not functioning to original default of products per page */}
           <div className='flex justify-center lg:justify-start'>
-            <button className='resetBtn mt-3  ' onClick={resetFilters}>
+            <button className='resetBtn mt-3 font-semibold ' onClick={resetFilters}>
             Reset filters
             </button>
           </div>
@@ -288,16 +288,14 @@ function Shop() {
                       {displayProducts}
                     </div>
                     <div className='flex flex-col'>
-                      <div >
+                      {/* <div >
                         <h1> Showing
                           {offSet === 0 ? 1 : offSet} - {offSet === 0 ? 30 : offSet * 2}
                           of {products.length} products</h1>
-                      </div>
+                      </div> */}
                       <div>
                         <Pagination
                           previousLabel={'Previous page'}
-                          // className='paginationBar'
-                          // onChange={handleChanges}
                           nextLabel={'Next page'}
                           pageCount={pageCount}
                           pageClassName='pageNoneDisplay'
@@ -314,7 +312,10 @@ function Shop() {
                       </div>
                     </div>
                   </>
-                  : <h1 className='text-center ml-6'>No results found</h1>}
+                  : 
+                  <div className='flex justify-center'>
+                    <h1 className='text-center ml-6 my-10 md:mt-40'>No results found</h1>
+                  </div>}
               </> :
                 <div className='flex justify-center md:mt-32'>
                   <SpinnerCircular 

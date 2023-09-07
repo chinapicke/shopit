@@ -9,8 +9,8 @@ const OptionButtons= ({onButton})=> {
 
   return (
     <>
-    <h1 className='shopSideBarSubHeading flex justify-start mt-3 pl-1 justify-center sm:justify-none'>Makeup</h1>
-    <div className='text-center md:flex-col md:flex productTypeButton sm:items-start pl-3' onClick={handleClick}>
+    <h1 className='shopSideBarSubHeading flex justify-start mt-3 pl-2 sm:justify-none'>Makeup</h1>
+    <div className='text-center md:flex-col md:flex productTypeButton sm:items-start pl-4' onClick={handleClick}>
         <button className='pr-2' value='blush'>Blush</button>
         <button className='pr-2' value='bronzer'>Bronzer</button>
         <button className='pr-2'value='eyebrow'>Eyebrow</button>
