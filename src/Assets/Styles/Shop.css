@@ -1,16 +1,16 @@
-*{
+* {
     overflow-x: none;
 }
 
-.paginationBtns{
+.paginationBtns {
     list-style: none;
     display: flex;
     justify-content: center;
 }
 
-.paginationBtns a{
+.paginationBtns a {
     margin: 10px;
-    padding:10px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
     cursor: pointer;
@@ -20,11 +20,11 @@
     color: red;
 }
 
-.paginationActive a{
+.paginationActive a {
     border-color: green;
 }
 
-.productText{
+.productText {
     overflow-wrap: break-word
 }
 
@@ -35,33 +35,35 @@
 
 
 
-.sliderContainer{
+.sliderContainer {
     grid-template-columns: 1fr 4fr 1fr;
 }
 
-.slider{
+.slider {
     margin-left: 5px;
 }
 
-.productType{
-    color:rgba(253,210,97,255);
+.productType {
+    color: rgba(253, 210, 97, 255);
     font-weight: bold;
 }
 
-.productBrand, .productName, .productTypeButton{
+.productBrand,
+.productName,
+.productTypeButton {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
 }
 
-.basketProduct:hover{
-    color:rgba(253,210,97,255);
+.basketProduct:hover {
+    color: rgba(253, 210, 97, 255);
 }
 
-.redHeart{
-    fill:red;
+.redHeart {
+    fill: red;
 }
 
-.circleShadow{
+.circleShadow {
     background-image: url('../Images/Backgrounds/grey.png');
     background-size: 22px;
     padding-bottom: 2px;
@@ -69,36 +71,36 @@
     background-repeat: no-repeat;
 }
 
-.paginationBtns{
-    margin-top:7vh;
+.paginationBtns {
+    margin-top: 7vh;
     font-size: 3vw;
     flex-wrap: wrap;
     flex-shrink: 0;
 }
 
-.pageNoneDisplay{
+.pageNoneDisplay {
     margin-bottom: 2rem;
 }
 
 
-.shopTopBanner{
-    background-color:#2a4637;
+.shopTopBanner {
+    background-color: #2a4637;
     position: relative;
-    height:80px;
+    height: 80px;
     margin-bottom: 40px;
     margin-top: 40px;
 }
 
-.scrollMenu{
-    overflow:auto ;
+.scrollMenu {
+    overflow: auto;
     gap: 15px;
 }
 
-.productTypeButton{
+.productTypeButton {
     overflow: auto;
 }
 
-.productPriceShop{
+.productPriceShop {
     font-size: 5vw;
 }
 
@@ -106,60 +108,92 @@
     background-color: #f8f8f8;
 }
 
-.shopBannerImg{
+.shopBannerImg {
     position: relative;
     bottom: 10px;
     height: 100px;
     width: 100px;
 }
 
-.routeShopPage{
+.routeShopPage {
     font-family: 'Kanit';
 }
-.bar-inner-right, .bar-inner-left {
-    background-color:rgba(253,210,97,255);
+
+.bar-inner-right,
+.bar-inner-left {
+    background-color: rgba(253, 210, 97, 255);
 }
 
-.productTypeButtons, .searchByDropdown, .productsSelect, .sortSelect{
+.productTypeButtons,
+.searchByDropdown,
+.productsSelect,
+.sortSelect {
     background-color: #f8f8f8;
 }
 
-.submitBtn, .moreOptionsBtn{
+.submitBtn,
+.moreOptionsBtn {
     background-color: rgba(253, 210, 97, 255)
 }
 
-.productsSelect:focus, .sortSelect:focus{
+.productsSelect:focus,
+.sortSelect:focus {
     outline: 0;
     outline-color: transparent;
     outline-style: none;
 }
 
-.rightColumSelectBanner{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.rightColumSelectBanner {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.centeredModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modalBackground {
+    width: 200px;
+    height: 40vh;
+}
+
 @media only screen and (min-width: 350px) {
-    .productPriceShop{
-        font-size:16px;
+    .productPriceShop {
+        font-size: 16px;
     }
 }
 
 
 @media only screen and (min-width: 425px) {
-    .shopTopBanner{
+    .shopTopBanner {
         margin-left: 20px;
         margin-right: 20px;
     }
 
-    .shopTopBannerText{
+    .shopTopBannerText {
         margin-left: 30px;
         margin-top: 5px;
         margin-right: 20vw;
     }
 
-    .shopBannerImg{
-        right:60px;
+    .shopBannerImg {
+        right: 60px;
         height: 110px;
-    width: 110px;
-    bottom:20px
+        width: 110px;
+        bottom: 20px
     }
 
     /* 2 lines for searchBar  */
@@ -167,114 +201,137 @@
 
 @media only screen and (min-width: 768px) {
 
-    .searchBarScreenFull{
-        width:93%;
+    .searchBarScreenFull {
+        width: 93%;
     }
-    .shopTopBanner{
+
+    .shopTopBanner {
         margin-left: 40px;
         margin-right: 40px;
     }
 
-    .shopTopBannerText{
+    .shopTopBannerText {
         margin-left: 60px;
         margin-top: 20px;
-        font-size:20px ;
+        font-size: 20px;
     }
 
-    .paginationBtns{
+    .paginationBtns {
         font-size: 1vw;
-        width:73vw;
+        width: 73vw;
         justify-content: flex-start;
     }
 
 
-    .paginationBtns a{
+    .paginationBtns a {
         margin: 5px;
-        padding:10px;
+        padding: 10px;
         border-radius: 5px;
         border: 1px solid black;
         cursor: pointer;
     }
-    .shopColumn{
+
+    .shopColumn {
         display: grid;
         grid-template-columns: 1fr 4fr;
     }
-    .shopBannerImg{
-    right: 70px;
-    bottom: 30px;
-    height: 130px;
-    width: 130px;
-}
 
-    .shopTopBanner{
-        height:90px;
+    .shopBannerImg {
+        right: 70px;
+        bottom: 30px;
+        height: 130px;
+        width: 130px;
     }
 
-    .slider{
-        width:100%;
+    .shopTopBanner {
+        height: 90px;
     }
 
-    .priceSlider,.productTypeButtons{
+    .slider {
+        width: 100%;
+    }
+
+    .priceSlider,
+    .productTypeButtons {
         width: 98%;
     }
-    
+
+    .modalBackground{
+        width: 350px;
+        height:45vh;
+    }
+
+    .modalErrorText, .closeModalBtn{
+        font-size: 18px;
+    }
+
 }
 
 @media only screen and (min-width:1024px) {
 
-    .shopTopBanner{
+    .shopTopBanner {
         margin-top: 60px;
         margin-left: 100px;
         margin-right: 100px;
     }
-    .shopTopBannerText{
+
+    .shopTopBannerText {
         margin-left: 100px;
-        font-size:25px ;
+        font-size: 25px;
     }
 
-    .shopBannerImg{
+    .shopBannerImg {
         bottom: 55px;
         height: 160px;
         width: 160px;
     }
-    .paginationBtns{
+
+    .paginationBtns {
         font-size: 1vw;
         justify-content: center;
     }
 
-    .priceSlider,.productTypeButtons{
+    .priceSlider,
+    .productTypeButtons {
         width: 85%;
     }
 
-    .sliderContainer{
-        width:115%;
+    .sliderContainer {
+        width: 115%;
     }
-    
+
+
 }
 
 @media only screen and (min-width:1200px) {
 
-    .priceSlider,.productTypeButtons{
+    .priceSlider,
+    .productTypeButtons {
         width: 75%;
     }
-    
 
-    .sliderContainer{
+
+    .sliderContainer {
         grid-template-columns: 1fr 3fr 1fr;
         width: 130%;
     }
 
-    .shopTopBanner{
+    .shopTopBanner {
         margin-top: 60px;
         margin-left: 200px;
         margin-right: 200px;
     }
 
-    
+    .modalBackground{
+        height:40vh;
+    }
+
+
+
 }
 
 @media only screen and (min-width:1400px) {
-    .productTypeButtons{
-        width:85%;
+    .productTypeButtons {
+        width: 85%;
     }
 }

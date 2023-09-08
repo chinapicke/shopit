@@ -1,32 +1,42 @@
-import React from 'react'
+import { SearchBarModal } from './SearchBarModal'
 import { useState } from 'react'
 
 const Searchbar = ({ onSearch, onFilter, onInput }) => {
     // state for the search input
     const [input, setInput] = useState('')
     const [filtered, setFiltered] = useState('')
+    const [errorModal, setErrorModal] = useState(false)
 
 
 
     const searchProducts = () => {
         if (input === '') {
-            alert('Please input something')
+            // alert('Please input something')
+            setErrorModal(true)
+            // <SearchBarModal  open={errorModal}/>
         }
         else {
             if (filtered === 'Brand') {
                 onSearch(input)
+                setErrorModal(false)
+
             }
             else if (filtered === 'Product') {
                 onFilter(input)
+                setErrorModal(false)
+
             }
             else {
                 onInput(input)
+                setErrorModal(false)
+
             }
         }
 
     }
 
     return (
+        <>
         <div className='relative grid grid-rows-2 sm:grid-rows-none'>
             <div>
             <div class="absolute inset-y-0 left-0 flex items-start mt-5 sm:mt-0 sm:items-center pl-3  pointer-events-none">
@@ -57,7 +67,9 @@ const Searchbar = ({ onSearch, onFilter, onInput }) => {
             </div>
 
         </div>
-
+        {errorModal?
+        <SearchBarModal className='z-40' setErrorModal={setErrorModal}/>: null}
+        </>
     )
 }
 
