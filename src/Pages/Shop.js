@@ -173,7 +173,7 @@ function Shop() {
             <div className='flex flex-row justify-around mb-2 mr-2'>
               <div className='productPerPageMobile'>
                 <select
-                className='productsSelect py-1 pl-1 rounded-full ' 
+                  className='productsSelect py-1 pl-1 rounded-full '
                   value={productPerPage}
                   onChange={handleItemsPerPage}>
                   <option className='bg-white' value={30}>Products</option>
@@ -209,9 +209,14 @@ function Shop() {
                 open={filterDrawer}
                 onClose={openFilterDrawer}
                 direction='bottom'>
-                <div className='flex flex-row'>
-                  <h1>Filter and Sort </h1>
-                  <h1 onClick={openFilterDrawer}>Close</h1>
+                <div className='flex flex-row justify-center'>
+                  <h1 className='text-center my-2'>FILTER & SORT</h1>
+                  <button className='iconBg'>x</button>
+                  <button onClick={openFilterDrawer} className='cancelFilterDrawerMobile absolute'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(253, 210, 97, 255)" className="mobileCancelBtn w-14 h-14">
+                      <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clipRule="evenodd" />
+                    </svg>
+                  </button>
 
                 </div>
                 <div className='flex flex-col'>
@@ -224,10 +229,10 @@ function Shop() {
               </Drawer>
             </>
             : null}
-{/* reset filters not functioning to original default of products per page */}
+          {/* reset filters not functioning to original default of products per page */}
           <div className='flex justify-center lg:justify-start'>
             <button className='resetBtn mt-3 font-semibold ' onClick={resetFilters}>
-            Reset filters
+              Reset filters
             </button>
           </div>
 
@@ -258,7 +263,7 @@ function Shop() {
             <div className='productsPerPage hidden md:inline-block md:flex md:justify-evenly md:flex-col xl:flex-row mt-2 ml-2'>
               <label className='text-center'>show</label>
               <select
-              className='rightColumSelectBanner rounded-full text-center shadow-inner p-1'
+                className='rightColumSelectBanner rounded-full text-center shadow-inner p-1'
                 value={productPerPage}
                 onChange={handleItemsPerPage}>
                 <option defaultValue={30}>30 products</option>
@@ -277,7 +282,7 @@ function Shop() {
 
           {serverErr && <div>
             <h1 className='ml-10'>{serverErr}</h1>
-            </div>}
+          </div>}
           {error ? <div>
             <h1 className='ml-10 '>{error}</h1></div> :
             <div>
@@ -312,17 +317,17 @@ function Shop() {
                       </div>
                     </div>
                   </>
-                  : 
+                  :
                   <div className='flex justify-center'>
                     <h1 className='text-center ml-6 my-10 md:mt-40'>No results found</h1>
                   </div>}
               </> :
                 <div className='flex justify-center md:mt-32'>
-                  <SpinnerCircular 
-                  className='loadSpinner justify-center'
-                  size={100}
-                  thickness={100}
-                  color='#fdd261'
+                  <SpinnerCircular
+                    className='loadSpinner justify-center'
+                    size={100}
+                    thickness={100}
+                    color='#fdd261'
                   />
                 </div>
               }
