@@ -40,18 +40,16 @@
     margin: 10px;
 }
 
-.priceShadow{
-    /* background-color: rgba(253, 210, 97, 255); */
-    background-color:#b8b4b4;
-    z-index: -1;
-    height: 8vw;
-    width: 8vw;
-    right: 88vw;
-
-}
-
 .productPrice{
     font-size: 5vw;
+}
+
+.circleShadowProductPg {
+    background-image: url('../Images/Backgrounds/grey.png');
+    background-size: 22px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    background-repeat: no-repeat;
 }
 
 .addBasketProductPage{
@@ -62,7 +60,7 @@
 .heartIconCaption{
     color: #b8b4b4;
     margin-top: 0.55vh;
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .hoverColour{
@@ -96,11 +94,7 @@ font-size:3vw;}
         overflow-y: auto;
     }
 
-    .priceShadow{
-        height: 2.5vw;
-        width: 2.5vw;
-        right: 46.3vw;
-    }
+  
 
     .productPageNameBrand{
         font-size: 2vw;
@@ -160,11 +154,7 @@ font-size:3vw;}
         margin-left: 3px;
     }
 
-    .priceShadow {
-        height: 2.3vw;
-        width: 2.3vw;
-        right: 46.5vw;
-    }
+    
      .heartIconCaption{
         margin-top: 0.65vh;
         font-size: 1vw;
@@ -203,11 +193,6 @@ font-size:3vw;}
         margin-left: 3px;
     }
 
-    .priceShadow {
-        height: 2.1vw;
-        width: 2.1vw;
-        right: 46.4vw;
-    }
 
     .routeProductPage li{
         font-size: 1vw;

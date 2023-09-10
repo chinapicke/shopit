@@ -76,6 +76,8 @@
 .cartNothing{
     display: none;
 }
+
+
 @media only screen and (min-width: 425px){
     .mobileMenuBars
     {
