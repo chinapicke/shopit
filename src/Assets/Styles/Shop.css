@@ -127,7 +127,7 @@
 .productTypeButtons,
 .searchByDropdown,
 .productsSelect,
-.sortSelect {
+.sortSelect, .priceSorter {
     background-color: #f8f8f8;
 }
 
@@ -190,12 +190,38 @@
     width:25px;
     background-color: black;
 }
+
+.shopTopBannerText{
+    margin-top: 5px;
+}
+
+.priceFilterBtn, .priceSortLgBtn{
+    background-color: rgba(253, 210, 97, 255);
+}
+
+
+
+.yellowLine{
+    margin-top: 15px;
+    border-top: 2px solid rgba(253, 210, 97, 255);
+}
+
+.minPriceInput, .maxPriceInput, .maxPriceInputLabel, .minPriceInputLabel, .priceSortLgBtn{
+    font-size: 1.8vh;
+}
+
+
 @media only screen and (min-width: 350px) {
     .productPriceShop {
         font-size: 16px;
     }
 }
 
+@media only screen and (min-width: 375px) {
+    .shopTopBannerText{
+        margin-top: 15px;
+    }
+}
 
 @media only screen and (min-width: 425px) {
     .shopTopBanner {
@@ -271,7 +297,7 @@
         width: 100%;
     }
 
-    .priceSlider,
+    .priceSlider, .priceSorter,
     .productTypeButtons {
         width: 98%;
     }
@@ -312,7 +338,8 @@
     }
 
     .priceSlider,
-    .productTypeButtons {
+    .productTypeButtons,
+    .priceSorter {
         width: 85%;
     }
 

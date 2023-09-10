@@ -205,8 +205,11 @@ const useAxios = (url) => {
 
   
   // state for slider and API call
-  const [minValue2, setMinValue2] = useState(17);
+  const [minValue2, setMinValue2] = useState(25);
   const [maxValue2, setMaxValue2] = useState(77);
+  const [minValueLg, setMinValueLg]= useState('')
+  const [maxValueLg, setMaxValueLg]= useState('')
+
 
 
   const priceRangeProducts = async (min, max) => {
@@ -228,19 +231,19 @@ const useAxios = (url) => {
         setProducts(productsWithQuantity);
       }
       else {
-        setServerErr(`Server error: ${res.status}`)
+        setServerErr(res.status)
       }
     }
     catch (err) {
       console.log(`Fetch error: ${err}`);
-      setError(err.message,': we having some issues with our server to show you our products')
+      setError(err.message)
     }
     finally {
       setIsLoading(false)
     }
   }
 
-
+ 
 
   const [filterDrawer, setFilterDrawer] = useState(false)
 
@@ -299,7 +302,11 @@ const useAxios = (url) => {
     filterDrawer,
     openFilterDrawer,
     setFilterDrawer,
-    resetFilters
+    resetFilters,
+    minValueLg, 
+    setMinValueLg,
+    maxValueLg, 
+    setMaxValueLg,
     }
 
 }

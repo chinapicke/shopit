@@ -14,6 +14,7 @@ import Drawer from 'react-modern-drawer'
 import Accordion from '../Components/Accordion';
 import GlossierSet from '../Assets/Images/glossierSet.png'
 import { SpinnerCircular } from 'spinners-react';
+import { PriceSorter } from '../Components/PriceSorter';
 import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
@@ -24,7 +25,7 @@ function Shop() {
 
   // States //////////////////////////////////////////////////////////////
   const { products, setProducts, isLoading, serverErr, getProductsByBrand,
-    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, resetFilters } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+    getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, resetFilters, setFilterDrawer } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -32,7 +33,7 @@ function Shop() {
     {
       'id': 1,
       'heading': 'Price Range',
-      'content': <PriceSlider onSlider={priceRangeProducts} />
+      'content': <PriceSlider setFilterDrawer={setFilterDrawer} onSlider={priceRangeProducts} />
     },
     {
       'id': 2,
@@ -158,9 +159,12 @@ function Shop() {
             />
           </div>
 
-          <div className='priceSlider hidden md:inline-block '>
+          {/* <div className='priceSlider hidden md:inline-block '>
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
+          </div> */}
+          <div className='priceSorter hidden md:inline-block '>
+            <PriceSorter onSlider={priceRangeProducts} />
           </div>
 
           <div className='productTypeButtons'>
@@ -208,9 +212,11 @@ function Shop() {
               <Drawer
                 open={filterDrawer}
                 onClose={openFilterDrawer}
-                direction='bottom'>
-                <div className='flex flex-row justify-center'>
-                  <h1 className='text-center my-2'>FILTER & SORT</h1>
+                direction='bottom'
+                size='70vh'
+              >
+                <div className=' flex flex-row justify-center'>
+                  <h1 className='text-center my-4'>FILTER & SORT</h1>
                   <button className='iconBg'>x</button>
                   <button onClick={openFilterDrawer} className='cancelFilterDrawerMobile absolute'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(253, 210, 97, 255)" className="mobileCancelBtn w-14 h-14">
@@ -280,11 +286,17 @@ function Shop() {
             </div>
           </div>
 
-          {serverErr && <div>
-            <h1 className='ml-10'>{serverErr}</h1>
-          </div>}
-          {error ? <div>
-            <h1 className='ml-10 '>{error}</h1></div> :
+          {serverErr &&
+            <div className='flex justify-center '>
+              <h1 className='text-center'>`Server error:{serverErr}</h1>
+            </div>}
+          {error ?
+            <div className='flex justify-center'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+              </svg>
+              <h1 className=' ml-10 mt-10 w-2/3'>{error}': we having some issues with our server to show you our products'</h1>
+            </div> :
             <div>
               {!isLoading ? <>
                 {products.length ?
