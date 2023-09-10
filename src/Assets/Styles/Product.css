@@ -102,11 +102,11 @@ font-size:3vw;}
     }
     
     .productPageDescriptionTitle{
-        font-size: 1.5vw;
+        font-size: 1.8vw;
     }
 
     .productPageDescription{
-        font-size:1.2vw;
+        font-size:1.5vw;
         width:45vw;
         height: 30vh;
         overflow: auto;
@@ -167,7 +167,7 @@ font-size:3vw;}
     }
 
     .productPageDescription{
-        font-size:1.2vw;
+        font-size:1.4vw;
         width:45vw;
         height: 30vh;
         overflow: auto;
@@ -184,6 +184,10 @@ font-size:3vw;}
 }
 
 @media only screen and (min-width: 1200px) {
+
+    .productPageDescriptionTitle {
+        font-size: 1.4vw;
+    }
     .productPageType{
         font-size: 1.4vw;
     }

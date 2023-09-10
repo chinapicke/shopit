@@ -210,6 +210,10 @@
     font-size: 1.8vh;
 }
 
+.oopsError{
+    font-size: 4.5vh;
+}
+
 
 @media only screen and (min-width: 350px) {
     .productPriceShop {

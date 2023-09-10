@@ -1,6 +1,5 @@
-import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
+import MultiRangeSlider from "multi-range-slider-react";
 import useAxios from '../Hooks/useAxios';
-import { useState } from "react";
 
 
 const PriceSlider = ({ onSlider, setFilterDrawer }) => {

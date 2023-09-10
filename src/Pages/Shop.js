@@ -15,6 +15,7 @@ import Accordion from '../Components/Accordion';
 import GlossierSet from '../Assets/Images/glossierSet.png'
 import { SpinnerCircular } from 'spinners-react';
 import { PriceSorter } from '../Components/PriceSorter';
+import { useRef } from 'react';
 import 'react-modern-drawer/dist/index.css'
 import '../Assets/Styles/Shop.css'
 
@@ -26,6 +27,7 @@ function Shop() {
   // States //////////////////////////////////////////////////////////////
   const { products, setProducts, isLoading, serverErr, getProductsByBrand,
     getProductsByType, selectAProduct, error, filterProduct, priceRangeProducts, openFilterDrawer, filterDrawer, resetFilters, setFilterDrawer } = useAxios('https://makeup-api.herokuapp.com/api/v1/products.json')
+  // 'https://makeup-api.herokuapp.com/api/v1/products.json'
   // saved icon to shaded
   const { likedIndex, changeIcon } = savedHook()
 
@@ -131,13 +133,22 @@ function Shop() {
     setProducts(prices)
   }
 
+  const footerRef = useRef();
+  const largePageRef = useRef();
+
+
+  setTimeout(() => {
+    footerRef.current?.scrollIntoView({ behavior: "smooth"});
+    largePageRef.current?.scrollIntoView({ behavior: "smooth"})
+
+  }, 1000);
   /////////////////////////////////////////
 
   ////////////////////////
 
   return (
     <>
-      <div className='shopTopBanner flex md:mx-6'>
+      <div ref={largePageRef} className='shopTopBanner flex md:mx-6'>
         <div className='shopTopBannerText flex-col pl-3 mt-5'>
           <h1 className='text-white'>Cosmetics for you!</h1>
           <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
@@ -163,7 +174,7 @@ function Shop() {
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div> */}
-          <div className='priceSorter hidden md:inline-block '>
+          <div  className='priceSorter hidden md:inline-block '>
             <PriceSorter onSlider={priceRangeProducts} />
           </div>
 
@@ -173,7 +184,7 @@ function Shop() {
 
 
 
-          <div className='mobileSortMenu pt-3 md:hidden'>
+          <div ref={footerRef}  className='mobileSortMenu pt-3 md:hidden'>
             <div className='flex flex-row justify-around mb-2 mr-2'>
               <div className='productPerPageMobile'>
                 <select
@@ -192,7 +203,7 @@ function Shop() {
                   </option>
                 </select>
               </div>
-              <div className='sortingDropdownMobile '>
+              <div  className='sortingDropdownMobile '>
                 <select className='sortSelect py-1 pl-1 rounded-full' onChange={sortThis}>Sort it out
                   <option defaultValue className='bg-white'>Sort</option>
                   <option value={'asc'}>Ascending</option>
@@ -288,14 +299,30 @@ function Shop() {
 
           {serverErr &&
             <div className='flex justify-center '>
-              <h1 className='text-center'>`Server error:{serverErr}</h1>
+              <div className='flex flex-col-reverse items-center'>
+                <h1 className='oopsError font-bold'>Oops!</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgb(255, 99, 71)" className="w-12 h-12">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                </svg>
+              </div>
+              <div className='text-center'>
+                <h2 className='mt-10 mb-2'>Server error:{serverErr}</h2>
+                <p className='font-semibold'>Refresh the page and try again!</p>
+              </div>
             </div>}
           {error ?
-            <div className='flex justify-center'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
-              </svg>
-              <h1 className=' ml-10 mt-10 w-2/3'>{error}': we having some issues with our server to show you our products'</h1>
+            <div className=' my-2 mt-7 md:mt-20'>
+              <div className='flex flex-col-reverse items-center'>
+                <h1 className='oopsError font-bold'>Oops!</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgb(255, 99, 71)" className="w-12 h-12">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                </svg>
+              </div>
+              <div className='text-center'>
+                <h2 className='mt-10 mb-2'>{error}</h2>
+                <p className='mb-2 px-3'>We are experiencing some server issues issues to show you our products.</p>
+                <p className='font-semibold '>Refresh the page and try again!</p>
+              </div>
             </div> :
             <div>
               {!isLoading ? <>
@@ -310,8 +337,9 @@ function Shop() {
                           {offSet === 0 ? 1 : offSet} - {offSet === 0 ? 30 : offSet * 2}
                           of {products.length} products</h1>
                       </div> */}
-                      <div>
+                      <div >
                         <Pagination
+
                           previousLabel={'Previous page'}
                           nextLabel={'Next page'}
                           pageCount={pageCount}
@@ -327,6 +355,9 @@ function Shop() {
                           marginPagesDisplayed={2}
                         />
                       </div>
+                    </div>
+                    <div>
+                      <button>Go to top of page</button>
                     </div>
                   </>
                   :
