@@ -8,6 +8,7 @@ import { AppContext } from '../Context/Context';
 import CartPopUp from '../Components/CartPopUp';
 import SavedHook from '../Hooks/savedHook';
 import Footer from '.././Components/Footer'
+import { useEffect, useRef } from 'react';
 
 
 export default function RootLayout() {
@@ -28,8 +29,28 @@ export default function RootLayout() {
     console.log(totalCartQuantity);
 
     const openDropdown = () => {
-        setMobileOpen(!mobileOpen);
+        setMobileOpen(mobileOpen =>!mobileOpen);
     }
+    
+// ///////// Close drawer when clicking off mobile sidebar //////////////////
+//     const ref = useRef()
+//     useEffect(() => {
+//         const checkIfClickedOutside = e => {
+//           // If the menu is open and the clicked target is not within the menu,
+//           // then close the menu
+//           if (mobileOpen && ref.current && !ref.current.contains(e.target)) {
+//             setMobileOpen(false)
+//           }
+//         }
+    
+//         document.addEventListener("mousedown", checkIfClickedOutside)
+    
+//         return () => {
+//           // Cleanup the event listener
+//           document.removeEventListener("mousedown", checkIfClickedOutside)
+//         }
+//       }, [mobileOpen, setMobileOpen])
+////////////////////////////////////////////////////////
 
     const menu = [
         {
@@ -124,7 +145,7 @@ export default function RootLayout() {
                                     {totalCartQuantity <= 0 ? <span className='cartNothing'></span> : <span className='cartQuantityBadgeMobile'>{totalCartQuantity}</span>}
                                 </div>
                                 {cartDrawer ?
-                                    <div className='mt-6'>
+                                    <div className='mt-6 relative'>
                                         <CartPopUp />
                                     </div>
                                     : null
@@ -141,7 +162,7 @@ export default function RootLayout() {
 
 
 
-            <div className='flex justify-end'>
+            <div className='navOptionsMobileContainer flex justify-end relative'>
 
                 {mobileOpen ?
                     <ul className='navOptionsMobile flex flex-col w-52 text-right lg:hidden md:hidden'>

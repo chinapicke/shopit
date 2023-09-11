@@ -7,6 +7,7 @@ import SubscriptionBanner from '../Components/Banners/SubscriptionBanner'
 import TopPicks from '../Components/TopPicks'
 import HomepageText from '../Components/HomepageText'
 import VeganProduct from '../Components/VeganProducts'
+import ScrollToTopBtn from '../Components/ScrollToTopBtn'
 import '../Assets/Styles/Homepage.css'
 
 
@@ -20,8 +21,10 @@ function Homepage() {
   const shopNavTopPicks = () => {
     navigate('/shop')
   }
+  
   return (
     <div className='wholeHomepage'>
+
       <Jumbotron />
       <div className='sectionWithoutJumbotron'>
         <div className='popularProducts'>
@@ -54,19 +57,19 @@ function Homepage() {
         <div>
           <VeganProduct />
         </div>
-        </div>
-        <div className='gradientHomepageBanner'>
-          <HomepageBottomBanner />
-        </div>
-        <div>
-          <HomepageText />
-        </div>
-        <div>
-          <FooterIcons />
-        </div>
-        <div>
-          <SubscriptionBanner />
-        </div>
+      </div>
+      <div className='gradientHomepageBanner'>
+        <HomepageBottomBanner />
+      </div>
+      <div>
+        <HomepageText />
+      </div>
+      <div>
+        <FooterIcons />
+      </div>
+      <div>
+        <SubscriptionBanner />
+      </div>
     </div>
   )
 }

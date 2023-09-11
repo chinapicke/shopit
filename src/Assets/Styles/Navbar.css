@@ -1,47 +1,56 @@
-
-
-.jumbotron{
+.jumbotron {
     font-family: 'Krona One';
     background-color: #f8f8f8;
     font-size: 5vw;
 }
 
-.footerSection{
+.footerSection {
     background-color: black;
     color: white;
 }
 
-.footerSubtitles{
+.footerSubtitles {
     font-family: 'Krona One';
     padding-top: 2vw;
 }
 
-.footerSubtitles li{
+.footerSubtitles li {
     font-size: 10px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.footerLogo{
+.footerLogo {
     font-family: 'Caprasimo', cursive;
 }
 
-.copywrite{
+.copywrite {
     text-align: center;
     background-color: black;
-    color:white;
+    color: white;
     font-size: 8px;
-    font-family:Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif
 }
 
-.navOptionsMobile{
-    background-color: #f8f8f8;
+.navOptionsMobile {
+    width: 200px;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    /* left: -100%; */
+    /* transition: margin-left 850ms linear; */
+    background-color: rgba(248, 248, 248, 0.95);
+    z-index: 50;
 }
 
-.cartQuantityBadge{
+
+
+.cartQuantityBadge {
     font-size: 12px;
-    color:black;
-    background-color: rgba(253,210,97,255);
+    color: black;
+    background-color: rgba(253, 210, 97, 255);
     border-radius: 50%;
     padding: 0 5px;
     position: relative;
@@ -50,10 +59,10 @@
     opacity: 0.9;
 }
 
-.cartQuantityBadgeMobile{
+.cartQuantityBadgeMobile {
     font-size: 12px;
-    color:black;
-    background-color: rgba(253,210,97,255);
+    color: black;
+    background-color: rgba(253, 210, 97, 255);
     border-radius: 50%;
     padding: 0 5px;
     position: relative;
@@ -62,54 +71,55 @@
     opacity: 0.9;
 }
 
-.pageContainer{
-  min-height: 100%;
+.pageContainer {
+    min-height: 100%;
 }
 
-.appFooter{
+.appFooter {
     height: 50px;
 }
-.contentWrapper{
+
+.contentWrapper {
     height: 20px;
 }
 
-.cartNothing{
+.cartNothing {
     display: none;
 }
 
 
-@media only screen and (min-width: 425px){
-    .mobileMenuBars
-    {
+@media only screen and (min-width: 425px) {
+    .mobileMenuBars {
         font-size: 25px;
-        margin-bottom:2vh;
+        margin-bottom: 2vh;
     }
 }
 
-@media only screen and (min-width:640px){
-    .mobileBarIcon{
+@media only screen and (min-width:640px) {
+    .mobileBarIcon {
         display: flex;
     }
-    .mobileMenuBars
-    {
+
+    .mobileMenuBars {
         font-size: 30px;
-        margin-bottom:3.5vh;
+        margin-bottom: 3.5vh;
     }
 }
 
 
-@media only screen and (min-width: 768px){
-    .mobileBarIcon{
+@media only screen and (min-width: 768px) {
+    .mobileBarIcon {
         display: none;
     }
-    .footerSubtitles li{
+
+    .footerSubtitles li {
         font-size: 12px;
     }
 
-    .cartQuantityBadge{
+    .cartQuantityBadge {
         font-size: 12px;
-        color:black;
-        background-color: rgba(253,210,97,255);
+        color: black;
+        background-color: rgba(253, 210, 97, 255);
         border-radius: 50%;
         padding: 0 5px;
         position: relative;
@@ -118,22 +128,23 @@
         opacity: 0.9;
     }
 
-    .contentWrapper, .appFooter{
+    .contentWrapper,
+    .appFooter {
         height: 50px;
     }
 
-    .jumbotron{
+    .jumbotron {
         font-size: 3vw;
     }
 
-    .pageContainer{
-        padding-bottom:11vh;
+    .pageContainer {
+        padding-bottom: 11vh;
     }
 }
 
-@media only screen and (min-width: 1024px){
-    .jumbotron{
+@media only screen and (min-width: 1024px) {
+    .jumbotron {
         font-size: 1.8vw;
     }
-    
+
 }
