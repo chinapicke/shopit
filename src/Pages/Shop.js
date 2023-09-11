@@ -118,6 +118,7 @@ function Shop() {
   // Math.ceil rounds the number of pages to a whole integer
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
+    pageChangeRef.current?.scrollIntoView({ behavior: "smooth"})
     setCurrentPage(selected)
     // console.log(offSet)
 
@@ -135,6 +136,7 @@ function Shop() {
 
   const footerRef = useRef();
   const largePageRef = useRef();
+  const pageChangeRef = useRef();
 
 
   setTimeout(() => {
@@ -148,7 +150,7 @@ function Shop() {
 
   return (
     <>
-      <div ref={largePageRef} className='shopTopBanner flex md:mx-6'>
+      <div ref={largePageRef} ref={pageChangeRef} className='shopTopBanner flex md:mx-6'>
         <div className='shopTopBannerText flex-col pl-3 mt-5'>
           <h1 className='text-white'>Cosmetics for you!</h1>
           <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
@@ -160,7 +162,7 @@ function Shop() {
           <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
         </div>
       </div>
-      <div className='shopColumn'>
+      <div  className='shopColumn'>
         <aside className='leftShopColumn md:ml-3 top-5 pl-1'>
           <div className='searchBar md:hidden'>
             <Searchbar
@@ -355,9 +357,6 @@ function Shop() {
                           marginPagesDisplayed={2}
                         />
                       </div>
-                    </div>
-                    <div>
-                      <button>Go to top of page</button>
                     </div>
                   </>
                   :

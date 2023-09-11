@@ -7,7 +7,7 @@ import SubscriptionBanner from '../Components/Banners/SubscriptionBanner'
 import TopPicks from '../Components/TopPicks'
 import HomepageText from '../Components/HomepageText'
 import VeganProduct from '../Components/VeganProducts'
-import ScrollToTopBtn from '../Components/ScrollToTopBtn'
+import { useRef } from 'react'
 import '../Assets/Styles/Homepage.css'
 
 
@@ -21,9 +21,18 @@ function Homepage() {
   const shopNavTopPicks = () => {
     navigate('/shop')
   }
+
+  const topHomepage = useRef();
+
+const clickTopPg =()=>{
+  setTimeout(() => {
+    topHomepage.current?.scrollIntoView({ behavior: "smooth"});
+
+  }, 0)
+}
   
   return (
-    <div className='wholeHomepage'>
+    <div className='wholeHomepage' ref={topHomepage}>
 
       <Jumbotron />
       <div className='sectionWithoutJumbotron'>
@@ -70,6 +79,12 @@ function Homepage() {
       <div>
         <SubscriptionBanner />
       </div>
+      <button className="toTopBtn border-4" onClick={clickTopPg}>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+</svg>
+
+      </button>
     </div>
   )
 }
