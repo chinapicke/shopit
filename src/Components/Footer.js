@@ -9,7 +9,6 @@ const navigate = useNavigate()
 
 const handleFooter=()=>{
   navigate('/shop')
-window.location.reload()
 }
 
   return (
