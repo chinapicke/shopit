@@ -63,6 +63,13 @@ function Shop() {
     setProductPerPage(parseInt(e.target.value))
   }
 
+  const topShop = useRef();
+
+  const clickTopPg =()=>{
+    setTimeout(() => {
+      topShop.current?.scrollIntoView({ behavior: "smooth"});
+    }, 0)
+  }
 
   const offSet = currentPage * productPerPage
 
@@ -118,7 +125,7 @@ function Shop() {
   // Math.ceil rounds the number of pages to a whole integer
   //callback function invoked with the updated page value when the page is changed.
   const changePage = ({ selected }) => {
-    pageChangeRef.current?.scrollIntoView({ behavior: "smooth"})
+    pageChangeRef.current?.scrollIntoView({ behavior: "smooth" })
     setCurrentPage(selected)
     // console.log(offSet)
 
@@ -140,8 +147,8 @@ function Shop() {
 
 
   setTimeout(() => {
-    footerRef.current?.scrollIntoView({ behavior: "smooth"});
-    largePageRef.current?.scrollIntoView({ behavior: "smooth"})
+    footerRef.current?.scrollIntoView({ behavior: "smooth" });
+    largePageRef.current?.scrollIntoView({ behavior: "smooth" })
 
   }, 1000);
   /////////////////////////////////////////
@@ -150,8 +157,8 @@ function Shop() {
 
   return (
     <>
-      <div ref={largePageRef} ref={pageChangeRef} className='shopTopBanner flex md:mx-6'>
-        <div className='shopTopBannerText flex-col pl-3 mt-5'>
+      <div ref={pageChangeRef} className='shopTopBanner flex md:mx-6'>
+        <div ref={largePageRef} className='shopTopBannerText flex-col pl-3 mt-5'>
           <h1 className='text-white'>Cosmetics for you!</h1>
           <ol className='routeShopPage flex flex-row mr-2 text-white text-sm font-light font-bold'>
             <li><Link to='/'>Home/</Link></li>
@@ -162,7 +169,7 @@ function Shop() {
           <img className='shopBannerImg' src={GlossierSet} alt='glosierSet'></img>
         </div>
       </div>
-      <div  className='shopColumn'>
+      <div className='shopColumn' ref={clickTopPg}>
         <aside className='leftShopColumn md:ml-3 top-5 pl-1'>
           <div className='searchBar md:hidden'>
             <Searchbar
@@ -176,7 +183,7 @@ function Shop() {
             <PriceSlider
               onSlider={priceRangeProducts}></PriceSlider>
           </div> */}
-          <div  className='priceSorter hidden md:inline-block '>
+          <div className='priceSorter hidden md:inline-block '>
             <PriceSorter onSlider={priceRangeProducts} />
           </div>
 
@@ -186,7 +193,7 @@ function Shop() {
 
 
 
-          <div ref={footerRef}  className='mobileSortMenu pt-3 md:hidden'>
+          <div ref={footerRef} className='mobileSortMenu pt-3 md:hidden'>
             <div className='flex flex-row justify-around mb-2 mr-2'>
               <div className='productPerPageMobile'>
                 <select
@@ -205,7 +212,7 @@ function Shop() {
                   </option>
                 </select>
               </div>
-              <div  className='sortingDropdownMobile '>
+              <div className='sortingDropdownMobile '>
                 <select className='sortSelect py-1 pl-1 rounded-full' onChange={sortThis}>Sort it out
                   <option defaultValue className='bg-white'>Sort</option>
                   <option value={'asc'}>Ascending</option>
@@ -374,7 +381,13 @@ function Shop() {
                 </div>
               }
             </div >
-          }        </div>
+          }
+        </div>
+        <button className="toTopBtn border-4 flex justify-center items-center" onClick={clickTopPg}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
       </div>
     </>
   )

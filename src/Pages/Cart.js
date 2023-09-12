@@ -19,7 +19,7 @@ function Cart() {
 
   return (
     <div className="cartPage mx-2 my-2 flex justify-center">
-      <div className='innerCartPage'>
+      <div className='innerCartPage' >
         {state.length === 0 ?
           (<h1 className="py-36 text-center text-lg">Your cart is empty!</h1>) :
 
@@ -119,6 +119,7 @@ function Cart() {
           </>
         )}
       </div >
+      
     </div>
 
   )

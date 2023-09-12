@@ -24,13 +24,13 @@ function Homepage() {
 
   const topHomepage = useRef();
 
-const clickTopPg =()=>{
-  setTimeout(() => {
-    topHomepage.current?.scrollIntoView({ behavior: "smooth"});
+  const clickTopPg = () => {
+    setTimeout(() => {
+      topHomepage.current?.scrollIntoView({ behavior: "smooth" });
 
-  }, 0)
-}
-  
+    }, 0)
+  }
+
   return (
     <div className='wholeHomepage' ref={topHomepage}>
 
@@ -79,11 +79,10 @@ const clickTopPg =()=>{
       <div>
         <SubscriptionBanner />
       </div>
-      <button className="toTopBtn border-4" onClick={clickTopPg}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-</svg>
-
+      <button className="toTopBtn border-4 flex justify-center items-center border-zinc-400" onClick={clickTopPg}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
       </button>
     </div>
   )
