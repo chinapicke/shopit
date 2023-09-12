@@ -8,7 +8,6 @@ import { AppContext } from '../Context/Context';
 import CartPopUp from '../Components/CartPopUp';
 import SavedHook from '../Hooks/savedHook';
 import Footer from '.././Components/Footer'
-import { useEffect, useRef } from 'react';
 
 
 export default function RootLayout() {
