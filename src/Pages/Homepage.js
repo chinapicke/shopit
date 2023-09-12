@@ -7,7 +7,7 @@ import SubscriptionBanner from '../Components/Banners/SubscriptionBanner'
 import TopPicks from '../Components/TopPicks'
 import HomepageText from '../Components/HomepageText'
 import VeganProduct from '../Components/VeganProducts'
-import { useRef, useState } from 'react'
+import { useRef} from 'react'
 import '../Assets/Styles/Homepage.css'
 
 
